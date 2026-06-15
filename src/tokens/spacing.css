@@ -1,0 +1,86 @@
+/* ============================================================
+   OCB쇼핑 PDS 3.0 — Spacing, Radius & Elevation Tokens
+   Source: Figma / OCB쇼핑_PDS3.0 (node: 20310:411)
+   Generated: auto — do NOT edit manually
+   ============================================================ */
+
+:root {
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Border Radius Scale
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --radius-050:  4px;    /* radius/radius050 */
+  --radius-100:  8px;    /* radius/radius100 */
+  --radius-150:  12px;   /* radius/radius150 */
+  --radius-200:  16px;   /* radius/radius200 */
+  --radius-250:  20px;   /* radius/radius250 */
+  --radius-350:  24px;   /* radius/radius350 */
+  --radius-max:  100px;  /* radius/radiusmax */
+
+  /* Products 전용 Radius */
+  --products-radius-8:  6px;   /* products/radius/radius8  ※ 이름과 값이 다름 — Figma 원본 유지 */
+  --products-radius-60: 16px;  /* products/radius/radius60 */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Products Spacing
+     ※ 숫자는 Figma 내부 스케일 ID (실제 px값과 다를 수 있음)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --products-spacing-10:  8px;   /* products/spacing10 */
+  --products-spacing-20:  10px;  /* products/spacing20 */
+  --products-spacing-40:  14px;  /* products/spacing40 */
+  --products-spacing-50:  16px;  /* products/spacing50 */
+  --products-spacing-60:  20px;  /* products/spacing60 */
+  --products-spacing-80:  60px;  /* products/spacing80 */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Component Spacing
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --top-appbar-left-margin: 20px;  /* top_appbar/left_margin */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Font Weight Scale
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --font-weight-regular:  400;   /* font/weight/regular */
+  --font-weight-medium:   500;   /* font/weight/medium */
+  --font-weight-semibold: 600;   /* font/weight/semibold */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Elevation — Shadow Primitives
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  /* 3dp Shadow */
+  --elevation-3dp-x:      0px;
+  --elevation-3dp-y:      3px;
+  --elevation-3dp-blur:   21px;
+  --elevation-3dp-spread: 3px;
+  --elevation-3dp-color:  #0000001a;  /* elevation/3dp/color */
+
+  /* Glow Shadow */
+  --elevation-glow-x:      0px;
+  --elevation-glow-y:      3px;
+  --elevation-glow-blur:   20px;
+  --elevation-glow-spread: 3px;
+  --elevation-glow-color:  #00000008;  /* elevation/glow/color */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Elevation — Shadow Compositions
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --shadow-3dp:
+    var(--elevation-3dp-x)
+    var(--elevation-3dp-y)
+    var(--elevation-3dp-blur)
+    var(--elevation-3dp-spread)
+    var(--elevation-3dp-color);  /* shadow/3dp */
+
+  --shadow-glow:
+    var(--elevation-glow-x)
+    var(--elevation-glow-y)
+    var(--elevation-glow-blur)
+    var(--elevation-glow-spread)
+    var(--elevation-glow-color);  /* shadow/glow */
+}

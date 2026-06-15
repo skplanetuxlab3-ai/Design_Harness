@@ -1,0 +1,169 @@
+/* ============================================================
+   OCB쇼핑 PDS 3.0 — Color Tokens
+   Source: Figma / OCB쇼핑_PDS3.0 (node: 20310:411)
+   Generated: auto — do NOT edit manually
+
+   구조:
+     Layer 1 — Primitive  : 원시 hex 값 (이 파일에서만 hex 허용)
+     Layer 2 — Semantic   : Primitive 참조 var(--*)
+     Layer 3 — Component  : Semantic 참조 var(--*)
+   ============================================================ */
+
+:root {
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     LAYER 1 — Primitive
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  /* Brand */
+  --primitive-brand-purple:     #6c40f0;   /* color/brand/primary */
+  --primitive-brand-pink:       #fe0955;   /* color/brand/ocb_pink */
+
+  /* Black Scale  ※ OCB 역순: 100=진함 → 900=연함 */
+  --primitive-black:            #000000;   /* color/black */
+  --primitive-black-100:        #333333;   /* color/black/black100 */
+  --primitive-black-200:        #626262;   /* color/black/black200 */
+  --primitive-black-300:        #868686;   /* color/black/black300 */
+  --primitive-black-400:        #b1b1b1;   /* color/black/black400 */
+  --primitive-black-500:        #c7c7c7;   /* color/black/black500 */
+  --primitive-black-600:        #d5d5d5;   /* color/black/black600 */
+  --primitive-black-800:        #f4f4f4;   /* color/black/black800 */
+  --primitive-black-900:        #fafafa;   /* color/black/black900 */
+
+  /* BlueBlack Scale  ※ OCB 역순: 100=진함 → 700=연함 */
+  --primitive-blueblack:        #1e2032;   /* color/blueblack */
+  --primitive-blueblack-100:    #2d2f43;   /* color/blueblack/blueblack100 */
+  --primitive-blueblack-200:    #4d4f66;   /* color/blueblack/blueblack200 */
+  --primitive-blueblack-300:    #9a9aa3;   /* color/blueblack/blueblack300 */
+  --primitive-blueblack-700:    #e8e8ea;   /* color/blueblack/blueblack700 */
+
+  /* Blue */
+  --primitive-blue:             #2084ff;   /* color/blue */
+  --primitive-blue-900:         #edefff;   /* color/blue/blue900 (배경용) */
+
+  /* Yellow */
+  --primitive-yellow:           #ffbe20;   /* color/yellow */
+  --primitive-yellow-900:       #fff4e1;   /* color/yellow/yellow900 */
+
+  /* Green */
+  --primitive-green-900:        #edfced;   /* color/green/green900 */
+
+  /* Mint */
+  --primitive-mint-900:         #defbf3;   /* color/mint/mint900 */
+
+  /* Pink */
+  --primitive-pink:             #fe0955;   /* color/pink */
+  --primitive-pink-900:         #fff4f5;   /* color/pink/pink900 */
+
+  /* Purple */
+  --primitive-purple:           #aa23e9;   /* color/purple */
+
+  /* White */
+  --primitive-white:            #ffffff;   /* color/white */
+
+  /* ── Shopping Primitives (OCB 쇼핑 전용 팔레트) ── */
+  --primitive-sp-black:         #181818;   /* color/shopping/SP_black */
+  --primitive-sp-yellow:        #e0fe4c;   /* color/shopping/SP_yellow */
+  --primitive-sp-pink:          #f69eff;   /* color/shopping/SP_pink */
+  --primitive-shopping-pink:    #fe4881;   /* color/shopping/pink */
+  --primitive-shopping-purple-600: #8058f7; /* color/shopping/purple600 */
+  --primitive-shopping-purple-900: #f4f0ff; /* color/shopping/purple900 (Tag/Point 배경) */
+  --primitive-shopping-border:  #00000005; /* color/shopping/border (5% opacity) */
+
+  /* Opacity Palette */
+  --primitive-black-opacity-50:  #0000000a; /* color/shopping/opacity/black50  (4%) */
+  --primitive-black-opacity-200: #00000033; /* color/shopping/opacity/black200 (20%) */
+  --primitive-black-opacity-400: #00000066; /* color/shopping/opacity/black400 (40%) */
+  --primitive-white-opacity-200: #ffffff33; /* color/shopping/opacity/white200 (20%) */
+  --primitive-white-opacity-800: #ffffffcc; /* color/shopping/opacity/white800 (80%) */
+
+  /* System Badge Colors — Sub (텍스트/아이콘) */
+  --primitive-system-sub-pink:      #f4335d;  /* 시스템 컬러/서브/1 Pink */
+  --primitive-system-sub-mint:      #2e997b;  /* 시스템 컬러/서브/2 Mint */
+  --primitive-system-sub-purple:    #8c24b2;  /* 시스템 컬러/서브/3 Purple */
+  --primitive-system-sub-orange:    #f27100;  /* 시스템 컬러/서브/4 Orange */
+  --primitive-system-sub-blue:      #2434b2;  /* 시스템 컬러/서브/5 Blue */
+  --primitive-system-sub-light-pink:#f4335d;  /* 시스템 컬러/서브/6 Light pink */
+  --primitive-system-sub-green:     #2e997b;  /* 시스템 컬러/서브/7 Green */
+  --primitive-system-sub-grey:      #4d4f66;  /* 시스템 컬러/서브/8 Grey */
+  --primitive-system-sub-yellow:    #f27100;  /* 시스템 컬러/서브/9 Yellow */
+  --primitive-system-sub-sky-blue:  #398cbf;  /* 시스템 컬러/서브/10 Sky blue */
+
+  /* System Badge Colors — Background (배경) */
+  --primitive-system-bg-pink:       #ffe5e8;  /* 시스템 컬러/배경/1 Pink */
+  --primitive-system-bg-mint:       #defbf3;  /* 시스템 컬러/배경/2 Mint */
+  --primitive-system-bg-purple:     #f7e7fe;  /* 시스템 컬러/배경/3 Purple */
+  --primitive-system-bg-orange:     #ffecd6;  /* 시스템 컬러/배경/4 Orange */
+  --primitive-system-bg-blue:       #edefff;  /* 시스템 컬러/배경/5 Blue */
+  --primitive-system-bg-light-pink: #ffe6fc;  /* 시스템 컬러/배경/6 Light pink */
+  --primitive-system-bg-green:      #edfced;  /* 시스템 컬러/배경/7 Green */
+  --primitive-system-bg-grey:       #e8e8ea;  /* 시스템 컬러/배경/8 Grey */
+  --primitive-system-bg-yellow:     #fff7d1;  /* 시스템 컬러/배경/9 Yellow */
+  --primitive-system-bg-sky-blue:   #e0f4fe;  /* 시스템 컬러/배경/10 Sky blue */
+
+  /* Background */
+  --primitive-bg-red2:              #e8585b;  /* 배경 컬러/Red2 */
+
+  /* OkiClub 브랜드 (variable_defs 미포함 — Badge/Tag 컴포넌트 코드에서 추출) */
+  --primitive-okiclub-pink:         #ff01dc;
+  --primitive-okiclub-bg:           #fff4fe;
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     LAYER 2 — Semantic
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  /* Brand */
+  --color-brand-primary:    var(--primitive-brand-purple);
+  --color-brand-ocb-pink:   var(--primitive-brand-pink);
+
+  /* Price */
+  --color-price-primary:    var(--primitive-brand-pink);    /* color/price/primary */
+
+  /* Text */
+  --color-text-secondary:   var(--primitive-blueblack);     /* color/text/secondary */
+
+  /* Theme Background */
+  --color-theme-bg-light:   var(--primitive-black-900);     /* color/theme/bg_light */
+
+  /* Label */
+  --semantic-label-alternative: #37383C;                    /* Semantic/Label/Alternative */
+
+  /* System Badge — 조합 토큰 (Sub + BG 세트) */
+  --color-badge-pink-text:       var(--primitive-system-sub-pink);
+  --color-badge-pink-bg:         var(--primitive-system-bg-pink);
+  --color-badge-mint-text:       var(--primitive-system-sub-mint);
+  --color-badge-mint-bg:         var(--primitive-system-bg-mint);
+  --color-badge-purple-text:     var(--primitive-system-sub-purple);
+  --color-badge-purple-bg:       var(--primitive-system-bg-purple);
+  --color-badge-orange-text:     var(--primitive-system-sub-orange);
+  --color-badge-orange-bg:       var(--primitive-system-bg-orange);
+  --color-badge-blue-text:       var(--primitive-system-sub-blue);
+  --color-badge-blue-bg:         var(--primitive-system-bg-blue);
+  --color-badge-green-text:      var(--primitive-system-sub-green);
+  --color-badge-green-bg:        var(--primitive-system-bg-green);
+  --color-badge-grey-text:       var(--primitive-system-sub-grey);
+  --color-badge-grey-bg:         var(--primitive-system-bg-grey);
+  --color-badge-yellow-text:     var(--primitive-system-sub-yellow);
+  --color-badge-yellow-bg:       var(--primitive-system-bg-yellow);
+  --color-badge-sky-blue-text:   var(--primitive-system-sub-sky-blue);
+  --color-badge-sky-blue-bg:     var(--primitive-system-bg-sky-blue);
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     LAYER 3 — Component
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  /* Filled Button — Primary */
+  --filled-primary-surface:   var(--primitive-blueblack);   /* filled/primary/surface */
+  --filled-primary-label:     var(--primitive-white);       /* filled/primary/label */
+
+  /* Filled Button — Secondary */
+  --filled-secondary-surface: var(--primitive-blueblack-700); /* filled/secondary/surface */
+
+  /* Top App Bar */
+  --top-appbar-surface:       var(--primitive-sp-black);    /* top_appbar/surface */
+  --top-appbar-divider:       var(--primitive-black-800);   /* top_appbar/divider */
+
+  /* Token Documentation (Storybook 전용) */
+  --color-token-text:         #2860bc;                      /* color/token text */
+  --color-token-surface:      #eff5ff;                      /* color/token surface */
+}
