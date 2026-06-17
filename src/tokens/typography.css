@@ -1,0 +1,514 @@
+/* ============================================================
+   OCB쇼핑 PDS 3.0 — Typography Tokens (Typeset Scale)
+   Source: Figma / OCB쇼핑_PDS3.0
+   Naming: --typeset-[size]-[property]
+   Sizes:  xs(11) · sm(12) · md(14) · lg(16) · xl(18) · 2xl(20) · 3xl(24)
+   ============================================================ */
+
+:root {
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Font Weight
+     (4dp grid: regular=400, medium=500, semibold=600, bold=700)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --font-weight-bold:     700;   /* font/weight/bold */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Typeset Scale
+     Figma: typeset_[size]_[weight]
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  /* 2xs — 10px  (typeset_2xs) */
+  --typeset-2xs-size:      10px;
+  --typeset-2xs-lh:        15px;
+  --typeset-2xs-tracking:  0px;
+
+  /* 3xs — 10px compact  (typeset_3xs — 2xs와 size 동일, lh만 다름) */
+  --typeset-3xs-size:      10px;
+  --typeset-3xs-lh:        14px;
+  --typeset-3xs-tracking:  0px;
+
+  /* xs — 11px  (typeset_xs) */
+  --typeset-xs-size:       11px;
+  --typeset-xs-lh:         16px;
+  --typeset-xs-tracking:   0px;
+
+  /* sm — 12px  (typeset_sm_bold / typeset_sm_regular) */
+  --typeset-sm-size:       12px;   /* typeset_sm_*/size */
+  --typeset-sm-lh:         16px;   /* typeset_sm_*/lineheight */
+  --typeset-sm-tracking:   0px;    /* typeset_sm_*/letterspacing */
+
+  /* md-compact — 13px  (typeset_md_compact) */
+  --typeset-md-compact-size:     13px;
+  --typeset-md-compact-lh:       18px;
+  --typeset-md-compact-tracking: 0px;
+
+  /* md — 14px  (typeset_md_bold / typeset_md_regular) */
+  --typeset-md-size:       14px;   /* typeset_md_*/size */
+  --typeset-md-lh:         20px;   /* typeset_md_*/lineheight */
+  --typeset-md-tracking:   0px;    /* typeset_md_*/letterspacing */
+
+  /* lg-compact — 15px  (typeset_lg_compact) */
+  --typeset-lg-compact-size:     15px;
+  --typeset-lg-compact-lh:       20px;
+  --typeset-lg-compact-tracking: 0px;
+
+  /* lg — 16px  (typeset_lg) */
+  --typeset-lg-size:       16px;
+  --typeset-lg-lh:         24px;
+  --typeset-lg-tracking:   0px;
+
+  /* xl — 18px  (typeset_xl) */
+  --typeset-xl-size:       18px;
+  --typeset-xl-lh:         24px;
+  --typeset-xl-tracking:   -0.4px;
+
+  /* 2xl — 20px  (typeset_2xl) */
+  --typeset-2xl-size:      20px;   /* typeset_2xl/size */
+  --typeset-2xl-lh:        28px;   /* typeset_2xl/lineheight */
+  --typeset-2xl-tracking:  0px;    /* typeset_2xl/letterspacing */
+
+  /* 3xl — 22px  (typeset_3xl) ※ checkout 결제금액: 22px/28px/0px */
+  --typeset-3xl-size:      22px;   /* typeset_3xl/size — checkout price */
+  --typeset-3xl-lh:        28px;   /* typeset_3xl/lineheight */
+  --typeset-3xl-tracking:  0px;    /* typeset_3xl/letterspacing */
+
+  /* 4xl — 24px  (typeset_4xl) — SocialDeal 가격·임박날짜 */
+  --typeset-4xl-size:      24px;   /* typeset_4xl/size */
+  --typeset-4xl-lh:        28px;   /* typeset_4xl/lineheight */
+  --typeset-4xl-tracking:  0px;    /* typeset_4xl/letterspacing */
+
+  /* 5xl — 30px  (typeset_5xl) */
+  --typeset-5xl-size:      30px;   /* typeset_5xl/size — SOLD OUT */
+  --typeset-5xl-lh:        36px;   /* typeset_5xl/lineheight */
+  --typeset-5xl-tracking:  0px;    /* typeset_5xl/letterspacing */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Semantic Typography — Component 레벨 별칭
+     (Component 토큰이 이 값을 참조)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  /* Brand Bar 레이블 */
+  --brand-bar-label-active-size:     var(--typeset-sm-size);      /* 12px */
+  --brand-bar-label-active-lh:       var(--typeset-sm-lh);        /* 16px */
+  --brand-bar-label-active-weight:   var(--font-weight-bold);     /* 700 */
+  --brand-bar-label-active-color:    var(--primitive-sp-black);   /* #181818 */
+  --brand-bar-label-active-tracking: var(--typeset-sm-tracking);  /* 0px */
+
+  --brand-bar-label-inactive-size:     var(--typeset-sm-size);      /* 12px */
+  --brand-bar-label-inactive-lh:       var(--typeset-sm-lh);        /* 16px */
+  --brand-bar-label-inactive-weight:   var(--font-weight-regular);  /* 400 */
+  --brand-bar-label-inactive-color:    var(--primitive-black-200);  /* #626262 */
+  --brand-bar-label-inactive-tracking: var(--typeset-sm-tracking);  /* 0px */
+
+  /* Navigation Bar 탭 레이블 */
+  --nav-tab-label-active-size:     var(--typeset-md-size);      /* 14px */
+  --nav-tab-label-active-lh:       var(--typeset-md-lh);        /* 20px */
+  --nav-tab-label-active-weight:   var(--font-weight-bold);     /* 700 */
+  --nav-tab-label-active-color:    var(--primitive-white);
+  --nav-tab-label-active-tracking: var(--typeset-md-tracking);  /* 0px */
+
+  --nav-tab-label-inactive-size:     var(--typeset-md-size);      /* 14px */
+  --nav-tab-label-inactive-lh:       var(--typeset-md-lh);        /* 20px */
+  --nav-tab-label-inactive-weight:   var(--font-weight-regular);  /* 400 */
+  --nav-tab-label-inactive-color:    var(--primitive-white);
+  --nav-tab-label-inactive-tracking: var(--typeset-md-tracking);  /* 0px */
+
+  /* Top Appbar 타이틀 */
+  --top-appbar-title-size:     var(--typeset-2xl-size);     /* 20px */
+  --top-appbar-title-lh:       var(--typeset-2xl-lh);       /* 28px */
+  --top-appbar-title-weight:   var(--font-weight-bold);     /* 700 */
+  --top-appbar-title-color:    var(--primitive-white);
+  --top-appbar-title-tracking: var(--typeset-2xl-tracking); /* 0px */
+
+  /* Category Bar Chip 레이블 */
+  --category-chip-active-size:     var(--typeset-md-size);       /* 14px */
+  --category-chip-active-lh:       var(--typeset-md-lh);         /* 20px */
+  --category-chip-active-weight:   var(--font-weight-bold);      /* 700 */
+  --category-chip-active-color:    var(--primitive-white);
+  --category-chip-active-tracking: var(--typeset-md-tracking);   /* 0px */
+
+  --category-chip-inactive-size:     var(--typeset-md-size);     /* 14px */
+  --category-chip-inactive-lh:       var(--typeset-md-lh);       /* 20px */
+  --category-chip-inactive-weight:   var(--font-weight-regular); /* 400 */
+  --category-chip-inactive-color:    var(--primitive-black-200); /* #626262 */
+  --category-chip-inactive-tracking: var(--typeset-md-tracking); /* 0px */
+
+  /* Event Chip 레이블 */
+  --event-chip-label-size:     var(--typeset-md-compact-size);     /* 13px */
+  --event-chip-label-lh:       var(--typeset-md-compact-lh);       /* 18px */
+  --event-chip-label-weight:   var(--font-weight-medium);          /* 500 */
+  --event-chip-label-color:    var(--primitive-black);             /* #000000 */
+  --event-chip-label-tracking: var(--typeset-md-compact-tracking); /* 0px */
+
+  /* Product Card — 브랜드/상품명 */
+  --product-brand-size:        var(--typeset-xs-size);             /* 11px */
+  --product-brand-lh:          var(--typeset-xs-lh);               /* 16px */
+  --product-brand-weight:      var(--font-weight-regular);         /* 400 */
+  --product-brand-color:       var(--primitive-blueblack-300);     /* #9a9aa3 */
+  --product-brand-tracking:    var(--typeset-xs-tracking);         /* 0px */
+
+  --product-name-size:         var(--typeset-sm-size);             /* 12px */
+  --product-name-lh:           var(--typeset-sm-lh);               /* 16px */
+  --product-name-weight:       var(--font-weight-regular);         /* 400 */
+  --product-name-color:        var(--primitive-black);             /* #000000 */
+  --product-name-tracking:     var(--typeset-sm-tracking);         /* 0px */
+
+  /* Product Card — 가격 */
+  --product-price-size:        var(--typeset-lg-compact-size);     /* 15px */
+  --product-price-lh:          var(--typeset-lg-compact-lh);       /* 20px */
+  --product-price-weight:      var(--font-weight-bold);            /* 700 */
+  --product-price-color:       var(--primitive-black);             /* #000000 */
+  --product-price-tracking:    var(--typeset-lg-compact-tracking); /* 0px */
+
+  /* Product Card — Tag/Badge */
+  --product-tag-size:          var(--typeset-2xs-size);            /* 10px */
+  --product-tag-lh:            var(--typeset-2xs-lh);              /* 15px */
+  --product-tag-weight:        var(--font-weight-semibold);        /* 600 */
+  --product-tag-tracking:      var(--typeset-2xs-tracking);        /* 0px */
+
+  /* Product Card — Ranking */
+  --product-ranking-title-size:     var(--typeset-md-compact-size);     /* 13px */
+  --product-ranking-title-lh:       var(--typeset-md-compact-lh);       /* 18px */
+  --product-ranking-title-weight:   var(--font-weight-bold);            /* 700 */
+  --product-ranking-title-color:    var(--primitive-black);             /* #000000 */
+  --product-ranking-title-tracking: var(--typeset-md-compact-tracking); /* 0px */
+
+  --product-ranking-badge-size:     var(--typeset-xs-size);             /* 11px */
+  --product-ranking-badge-lh:       var(--typeset-xs-lh);               /* 16px */
+  --product-ranking-badge-weight:   var(--font-weight-bold);            /* 700 */
+  --product-ranking-badge-color:    var(--primitive-white);             /* #ffffff */
+
+  /* Product Card — Deal (공구/핫딜) */
+  --product-deal-subtitle-size:     var(--typeset-sm-size);             /* 12px */
+  --product-deal-subtitle-lh:       var(--typeset-sm-lh);               /* 16px */
+  --product-deal-subtitle-weight:   var(--font-weight-medium);          /* 500 */
+  --product-deal-subtitle-color:    var(--primitive-white);             /* #ffffff */
+
+  --product-deal-price-size:        var(--typeset-lg-compact-size);     /* 15px */
+  --product-deal-price-lh:          var(--typeset-lg-compact-lh);       /* 20px */
+  --product-deal-price-weight:      var(--font-weight-bold);            /* 700 */
+  --product-deal-price-color:       var(--primitive-white);             /* #ffffff */
+
+  --product-deal-join-size:         var(--typeset-3xs-size);            /* 10px */
+  --product-deal-join-lh:           var(--typeset-3xs-lh);              /* 14px */
+  --product-deal-join-weight:       var(--font-weight-bold);            /* 700 */
+  --product-deal-join-color:        var(--primitive-white);             /* #ffffff */
+
+  /* Section Title */
+  --section-title-size:     var(--typeset-xl-size);      /* 18px */
+  --section-title-lh:       var(--typeset-xl-lh);        /* 24px */
+  --section-title-weight:   var(--font-weight-bold);     /* 700 */
+  --section-title-color:    var(--primitive-sp-black);   /* #181818 */
+  --section-title-tracking: var(--typeset-xl-tracking);  /* -0.4px */
+
+  /* Card Title */
+  --card-title-size:        var(--typeset-lg-size);      /* 16px */
+  --card-title-lh:          var(--typeset-lg-lh);        /* 24px */
+  --card-title-weight:      var(--font-weight-bold);     /* 700 */
+  --card-title-color:       var(--primitive-sp-black);   /* #181818 */
+  --card-title-tracking:    var(--typeset-lg-tracking);  /* 0px */
+
+  /* Viewall 버튼 레이블 */
+  --viewall-label-size:     var(--typeset-sm-size);      /* 12px */
+  --viewall-label-lh:       var(--typeset-sm-lh);        /* 16px */
+  --viewall-label-weight:   var(--font-weight-regular);  /* 400 */
+  --viewall-label-tracking: var(--typeset-sm-tracking);  /* 0px */
+
+  /* Bottom App Bar 아이템 레이블 */
+  --bottom-appbar-label-size:     var(--typeset-xs-size);      /* 11px */
+  --bottom-appbar-label-lh:       var(--typeset-xs-lh);        /* 16px */
+  --bottom-appbar-label-weight:   var(--font-weight-regular);  /* 400 */
+  --bottom-appbar-label-color:    var(--primitive-black);      /* #000000 */
+  --bottom-appbar-label-tracking: var(--typeset-xs-tracking);  /* 0px */
+
+  /* Brand Scroll Tab 레이블 */
+  --brand-scroll-active-size:     var(--typeset-md-size);        /* 14px */
+  --brand-scroll-active-lh:       var(--typeset-md-lh);          /* 20px */
+  --brand-scroll-active-weight:   var(--font-weight-bold);       /* 700 */
+  --brand-scroll-active-color:    var(--primitive-sp-black);     /* #181818 */
+  --brand-scroll-active-tracking: var(--typeset-md-tracking);    /* 0px */
+
+  --brand-scroll-inactive-size:     var(--typeset-md-size);      /* 14px */
+  --brand-scroll-inactive-lh:       var(--typeset-md-lh);        /* 20px */
+  --brand-scroll-inactive-weight:   var(--font-weight-regular);  /* 400 */
+  --brand-scroll-inactive-color:    var(--primitive-black-200);  /* #626262 */
+  --brand-scroll-inactive-tracking: var(--typeset-md-tracking);  /* 0px */
+
+  /* Checkout — 결제 화면 (node 20312-41198) */
+  /* 상품 정보 */
+  --checkout-product-name-size:      var(--typeset-sm-size);            /* 12px — typeset_sm_regular */
+  --checkout-product-name-lh:        var(--typeset-sm-lh);              /* 16px */
+  --checkout-product-name-weight:    var(--font-weight-regular);        /* 400 */
+  --checkout-product-name-color:     var(--primitive-black-200);        /* #626262 */
+  --checkout-product-name-tracking:  var(--typeset-sm-tracking);        /* 0px */
+
+  --checkout-product-price-size:     var(--typeset-md-size);            /* 14px — typeset_md_bold */
+  --checkout-product-price-lh:       var(--typeset-md-lh);              /* 20px */
+  --checkout-product-price-weight:   var(--font-weight-bold);           /* 700 */
+  --checkout-product-price-color:    var(--primitive-black-100);        /* #333333 */
+  --checkout-product-price-tracking: var(--typeset-md-tracking);        /* 0px */
+
+  /* 총 결제 금액 */
+  --checkout-total-price-size:       var(--typeset-3xl-size);           /* 22px — typeset_3xl */
+  --checkout-total-price-lh:         var(--typeset-3xl-lh);             /* 28px */
+  --checkout-total-price-weight:     var(--font-weight-bold);           /* 700 */
+  --checkout-total-price-color:      var(--primitive-black);            /* #000000 */
+  --checkout-total-price-tracking:   var(--typeset-3xl-tracking);       /* 0px */
+
+  --checkout-total-label-size:       var(--typeset-xs-size);            /* 11px — typeset_xs_regular */
+  --checkout-total-label-lh:         var(--typeset-xs-lh);              /* 16px */
+  --checkout-total-label-weight:     var(--font-weight-regular);        /* 400 */
+  --checkout-total-label-color:      var(--primitive-black-200);        /* #626262 */
+  --checkout-total-label-tracking:   var(--typeset-xs-tracking);        /* 0px */
+
+  /* 포인트 사용 행 */
+  --checkout-point-label-size:       var(--typeset-md-size);            /* 14px — typeset_md_medium */
+  --checkout-point-label-lh:         var(--typeset-md-lh);              /* 20px */
+  --checkout-point-label-weight:     var(--font-weight-medium);         /* 500 */
+  --checkout-point-label-color:      var(--primitive-black-200);        /* #626262 */
+  --checkout-point-label-tracking:   var(--typeset-md-tracking);        /* 0px */
+
+  --checkout-point-sub-size:         var(--typeset-xs-size);            /* 11px — 자동충전 ON */
+  --checkout-point-sub-lh:           var(--typeset-xs-lh);              /* 16px */
+  --checkout-point-sub-weight:       var(--font-weight-regular);        /* 400 */
+  --checkout-point-sub-color:        var(--primitive-blueblack-300);    /* #9a9aa3 */
+  --checkout-point-sub-tracking:     var(--typeset-xs-tracking);        /* 0px */
+
+  --checkout-point-amount-size:      var(--typeset-md-size);            /* 14px — "-10,570P" */
+  --checkout-point-amount-lh:        var(--typeset-md-lh);              /* 20px */
+  --checkout-point-amount-weight:    var(--font-weight-medium);         /* 500 */
+  --checkout-point-amount-color:     var(--primitive-shopping-purple-600); /* #8058f7 */
+  --checkout-point-amount-tracking:  var(--typeset-md-tracking);        /* 0px */
+
+  --checkout-point-btn-size:         var(--typeset-sm-size);            /* 12px — "상세" 버튼 */
+  --checkout-point-btn-lh:           var(--typeset-sm-lh);              /* 16px */
+  --checkout-point-btn-weight:       var(--font-weight-bold);           /* 700 */
+  --checkout-point-btn-color:        var(--primitive-blueblack-200);    /* #4d4f66 */
+  --checkout-point-btn-tracking:     var(--typeset-sm-tracking);        /* 0px */
+
+  /* CTA 버튼 (결제하기) */
+  --checkout-cta-size:               var(--typeset-xl-size);            /* 18px — typeset_xl_bold */
+  --checkout-cta-lh:                 var(--typeset-xl-lh);              /* 24px */
+  --checkout-cta-weight:             var(--font-weight-bold);           /* 700 */
+  --checkout-cta-color:              var(--primitive-white);            /* #ffffff */
+  --checkout-cta-tracking:           var(--typeset-xl-tracking);        /* 0px */
+
+  /* Order History 카드 — 구매내역 (node 20312-40744) */
+  /* 헤더: 날짜 */
+  --order-date-size:             var(--typeset-md-size);             /* 14px — typeset_md_medium */
+  --order-date-lh:               var(--typeset-md-lh);               /* 20px */
+  --order-date-weight:           var(--font-weight-medium);          /* 500 */
+  --order-date-color:            var(--primitive-black-200);         /* #626262 */
+  --order-date-tracking:         var(--typeset-md-tracking);         /* 0px */
+
+  /* 헤더: "구매 상세" 버튼 */
+  --order-detail-btn-size:       var(--typeset-xs-size);             /* 11px — typeset_xs_bold */
+  --order-detail-btn-lh:         var(--typeset-xs-lh);               /* 16px */
+  --order-detail-btn-weight:     var(--font-weight-bold);            /* 700 */
+  --order-detail-btn-color:      var(--primitive-blueblack-200);     /* #4d4f66 */
+  --order-detail-btn-tracking:   var(--typeset-xs-tracking);         /* 0px */
+
+  /* 상태 타이틀: "[할인/득템]공구 참여 중" */
+  --order-status-title-size:     var(--typeset-lg-size);             /* 16px — typeset_lg_bold */
+  --order-status-title-lh:       var(--typeset-lg-lh);               /* 24px */
+  --order-status-title-weight:   var(--font-weight-bold);            /* 700 */
+  --order-status-title-color:    var(--primitive-sp-black);          /* #181818 */
+  --order-status-title-tracking: var(--typeset-lg-tracking);         /* 0px */
+
+  /* 상태 타임스탬프: "MM.DD(요일) HH:DD" — typeset_xs_regular */
+  --order-status-time-size:      var(--typeset-xs-size);             /* 11px */
+  --order-status-time-lh:        var(--typeset-xs-lh);               /* 16px */
+  --order-status-time-weight:    var(--font-weight-regular);         /* 400 */
+  --order-status-time-color:     var(--primitive-black-200);         /* #626262 */
+  --order-status-time-tracking:  var(--typeset-xs-tracking);         /* 0px */
+
+  /* 상품명 — typeset_md_compact_regular (13px/Regular) */
+  --order-product-name-size:     var(--typeset-md-compact-size);     /* 13px */
+  --order-product-name-lh:       var(--typeset-md-compact-lh);       /* 18px */
+  --order-product-name-weight:   var(--font-weight-regular);         /* 400 */
+  --order-product-name-color:    var(--primitive-black-100);         /* #333333 */
+  --order-product-name-tracking: var(--typeset-md-compact-tracking); /* 0px */
+
+  /* 시작가 — typeset_lg_compact_bold (15px/Bold) */
+  --order-product-price-size:    var(--typeset-lg-compact-size);     /* 15px */
+  --order-product-price-lh:      var(--typeset-lg-compact-lh);       /* 20px */
+  --order-product-price-weight:  var(--font-weight-bold);            /* 700 */
+  --order-product-price-color:   var(--primitive-sp-black);          /* #181818 */
+  --order-product-price-tracking: var(--typeset-lg-compact-tracking); /* 0px */
+
+  /* 수량 — typeset_md_medium (14px/Medium) */
+  --order-product-count-size:    var(--typeset-md-size);             /* 14px */
+  --order-product-count-lh:      var(--typeset-md-lh);               /* 20px */
+  --order-product-count-weight:  var(--font-weight-medium);          /* 500 */
+  --order-product-count-color:   var(--primitive-black-100);         /* #333333 */
+  --order-product-count-tracking: var(--typeset-md-tracking);        /* 0px */
+
+  /* 정산 레이블 ("목표가", "실제 구매가", "포인트 캐쉬백") */
+  --order-settlement-label-size:    var(--typeset-sm-size);          /* 12px */
+  --order-settlement-label-lh:      var(--typeset-sm-lh);            /* 16px */
+  --order-settlement-label-weight:  var(--font-weight-medium);       /* 500 — sm_medium 사용 */
+  --order-settlement-label-color:   var(--primitive-black-300);      /* #868686 */
+  --order-settlement-label-tracking: var(--typeset-sm-tracking);     /* 0px */
+
+  /* 캐쉬백 금액 "+999P" — typeset_md_compact_medium (13px/Medium) */
+  --order-cashback-size:         var(--typeset-md-compact-size);     /* 13px */
+  --order-cashback-lh:           var(--typeset-md-compact-lh);       /* 18px */
+  --order-cashback-weight:       var(--font-weight-medium);          /* 500 */
+  --order-cashback-color:        var(--primitive-sp-black);          /* #181818 */
+  --order-cashback-tracking:     var(--typeset-md-compact-tracking); /* 0px */
+
+  /* 실제 구매가 "999원" — typeset_md_compact_bold (13px/Bold) */
+  --order-total-price-size:      var(--typeset-md-compact-size);     /* 13px */
+  --order-total-price-lh:        var(--typeset-md-compact-lh);       /* 18px */
+  --order-total-price-weight:    var(--font-weight-bold);            /* 700 */
+  --order-total-price-color:     var(--color-price-primary);         /* #fe0955 */
+  --order-total-price-tracking:  var(--typeset-md-compact-tracking); /* 0px */
+
+  /* SocialDeal 카드 — 공동구매 섹션 (node 20312-40570) */
+  --socialdeal-title-size:          var(--typeset-xl-size);           /* 18px — typeset_xl_bold */
+  --socialdeal-title-lh:            var(--typeset-xl-lh);             /* 24px */
+  --socialdeal-title-weight:        var(--font-weight-bold);          /* 700 */
+  --socialdeal-title-color:         var(--primitive-white);           /* #ffffff */
+  --socialdeal-title-tracking:      var(--typeset-xl-tracking);       /* 0px */
+
+  --socialdeal-price-size:          var(--typeset-4xl-size);          /* 24px — typeset_4xl */
+  --socialdeal-price-lh:            var(--typeset-4xl-lh);            /* 28px */
+  --socialdeal-price-weight:        var(--font-weight-bold);          /* 700 */
+  --socialdeal-price-tracking:      var(--typeset-4xl-tracking);      /* 0px */
+
+  --socialdeal-price-chip-size:     var(--typeset-md-compact-size);   /* 13px — "목표가" 칩 */
+  --socialdeal-price-chip-lh:       var(--typeset-md-compact-lh);     /* 18px */
+  --socialdeal-price-chip-weight:   var(--font-weight-bold);          /* 700 */
+  --socialdeal-price-chip-color:    var(--primitive-white);           /* #ffffff */
+  --socialdeal-price-chip-tracking: var(--typeset-md-compact-tracking); /* 0px */
+
+  --socialdeal-proof-size:          var(--typeset-xs-size);           /* 11px — "N명이 보고 있어요" */
+  --socialdeal-proof-lh:            var(--typeset-xs-lh);             /* 16px */
+  --socialdeal-proof-weight:        var(--font-weight-semibold);      /* 600 */
+  --socialdeal-proof-color:         var(--primitive-white-opacity-800); /* rgba(255,255,255,0.8) */
+  --socialdeal-proof-tracking:      var(--typeset-xs-tracking);       /* 0px */
+
+  --socialdeal-goal-size:           var(--typeset-sm-size);           /* 12px — "500개 목표" */
+  --socialdeal-goal-lh:             var(--typeset-sm-lh);             /* 16px */
+  --socialdeal-goal-weight:         var(--font-weight-bold);          /* 700 */
+  --socialdeal-goal-color:          var(--primitive-white);           /* #ffffff */
+  --socialdeal-goal-tracking:       var(--typeset-sm-tracking);       /* 0px */
+
+  --socialdeal-badge-timer-size:    var(--typeset-sm-size);           /* 12px — "88:88:88" 타이머 */
+  --socialdeal-badge-timer-lh:      var(--typeset-sm-lh);             /* 16px */
+  --socialdeal-badge-timer-weight:  var(--font-weight-bold);          /* 700 */
+  --socialdeal-badge-timer-color:   var(--primitive-white);           /* #ffffff */
+
+  --socialdeal-badge-dday-size:     var(--typeset-2xs-size);          /* 10px — "3일 남음" HotDeal */
+  --socialdeal-badge-dday-lh:       var(--typeset-2xs-lh);            /* 15px */
+  --socialdeal-badge-dday-weight:   var(--font-weight-bold);          /* 700 */
+  --socialdeal-badge-dday-color:    var(--primitive-white);           /* #ffffff */
+
+  --socialdeal-joining-size:        var(--typeset-xs-size);           /* 11px — "참여중" 칩 */
+  --socialdeal-joining-lh:          var(--typeset-xs-lh);             /* 16px */
+  --socialdeal-joining-weight:      var(--font-weight-bold);          /* 700 */
+  --socialdeal-joining-color:       var(--primitive-white);           /* #ffffff */
+  --socialdeal-joining-tracking:    var(--typeset-xs-tracking);       /* 0px */
+
+  --socialdeal-upcoming-dday-size:     var(--typeset-lg-size);        /* 16px — "D-3" */
+  --socialdeal-upcoming-dday-lh:       var(--typeset-lg-lh);          /* 24px */
+  --socialdeal-upcoming-dday-weight:   var(--font-weight-bold);       /* 700 */
+  --socialdeal-upcoming-dday-color:    var(--primitive-sp-yellow);    /* #e0fe4c */
+  --socialdeal-upcoming-dday-tracking: var(--typeset-lg-tracking);    /* 0px */
+
+  --socialdeal-upcoming-date-size:     var(--typeset-4xl-size);       /* 24px — "2월 13일 / 12:00" */
+  --socialdeal-upcoming-date-lh:       var(--typeset-4xl-lh);         /* 28px */
+  --socialdeal-upcoming-date-weight:   var(--font-weight-bold);       /* 700 */
+  --socialdeal-upcoming-date-color:    var(--primitive-white);        /* #ffffff */
+  --socialdeal-upcoming-date-tracking: var(--typeset-4xl-tracking);   /* 0px */
+
+  --socialdeal-upcoming-name-size:     var(--typeset-sm-size);        /* 12px — 상품명 */
+  --socialdeal-upcoming-name-lh:       var(--typeset-sm-lh);          /* 16px */
+  --socialdeal-upcoming-name-weight:   var(--font-weight-regular);    /* 400 */
+  --socialdeal-upcoming-name-color:    var(--primitive-white);        /* #ffffff */
+  --socialdeal-upcoming-name-tracking: var(--typeset-sm-tracking);    /* 0px */
+
+  --socialdeal-soldout-title-size:     var(--typeset-5xl-size);       /* 30px — "SOLD OUT" */
+  --socialdeal-soldout-title-lh:       var(--typeset-5xl-lh);         /* 36px */
+  --socialdeal-soldout-title-weight:   var(--font-weight-bold);       /* 700 */
+  --socialdeal-soldout-title-color:    var(--primitive-white);        /* #ffffff */
+  --socialdeal-soldout-title-tracking: var(--typeset-5xl-tracking);   /* 0px */
+
+  --socialdeal-soldout-sub-size:       var(--typeset-xs-size);        /* 11px — "준비한 수량이 완판됐어요!" */
+  --socialdeal-soldout-sub-lh:         var(--typeset-xs-lh);          /* 16px */
+  --socialdeal-soldout-sub-weight:     var(--font-weight-semibold);   /* 600 */
+  --socialdeal-soldout-sub-color:      var(--primitive-sp-yellow);    /* #e0fe4c */
+  --socialdeal-soldout-sub-tracking:   var(--typeset-xs-tracking);    /* 0px */
+
+  /* Gifticon 카드 — 기프티콘 섹션 (node 20312-39930) */
+  --gifticon-name-size:         var(--typeset-sm-size);           /* 12px */
+  --gifticon-name-lh:           var(--typeset-sm-lh);             /* 16px */
+  --gifticon-name-weight:       var(--font-weight-regular);       /* 400 */
+  --gifticon-name-color:        var(--primitive-black);           /* #000000 */
+  --gifticon-name-tracking:     var(--typeset-sm-tracking);       /* 0px */
+
+  --gifticon-price-size:        var(--typeset-lg-compact-size);   /* 15px */
+  --gifticon-price-lh:          var(--typeset-lg-compact-lh);     /* 20px */
+  --gifticon-price-weight:      var(--font-weight-bold);          /* 700 */
+  --gifticon-price-color:       var(--primitive-black);           /* #000000 */
+  --gifticon-price-tracking:    var(--typeset-lg-compact-tracking); /* 0px */
+
+  /* Product Card 3-column — 가격 (typeset_md_compact_bold 13px) */
+  --product-3col-price-size:    var(--typeset-md-compact-size);   /* 13px */
+  --product-3col-price-lh:      var(--typeset-md-compact-lh);     /* 18px */
+  --product-3col-price-weight:  var(--font-weight-bold);          /* 700 */
+  --product-3col-price-tracking: var(--typeset-md-compact-tracking); /* 0px */
+
+  /* GifticonOffering 카드 — 기프티콘 추천 (node 20312-40131) */
+  --offering-subcopy-size:      var(--typeset-xs-size);           /* 11px */
+  --offering-subcopy-lh:        var(--typeset-xs-lh);             /* 16px */
+  --offering-subcopy-weight:    var(--font-weight-regular);       /* 400 */
+  --offering-subcopy-color:     var(--primitive-black);           /* #000000 */
+  --offering-subcopy-tracking:  var(--typeset-xs-tracking);       /* 0px */
+
+  --offering-maincopy-size:     var(--typeset-lg-compact-size);   /* 15px */
+  --offering-maincopy-lh:       var(--typeset-lg-compact-lh);     /* 20px */
+  --offering-maincopy-weight:   var(--font-weight-bold);          /* 700 */
+  --offering-maincopy-color:    var(--primitive-black);           /* #000000 */
+  --offering-maincopy-tracking: var(--typeset-lg-compact-tracking); /* 0px */
+
+  --offering-noti-size:         var(--typeset-md-compact-size);   /* 13px — typeset_md_compact_regular */
+  --offering-noti-lh:           var(--typeset-md-compact-lh);     /* 18px */
+  --offering-noti-weight:       var(--font-weight-regular);       /* 400 */
+  --offering-noti-color:        var(--primitive-blueblack-200);   /* #4d4f66 */
+  --offering-noti-tracking:     var(--typeset-md-compact-tracking); /* 0px */
+
+  --offering-tag-size:          var(--typeset-xs-size);           /* 11px — typeset_xs_semibold */
+  --offering-tag-lh:            var(--typeset-xs-lh);             /* 16px */
+  --offering-tag-weight:        var(--font-weight-semibold);      /* 600 */
+  --offering-tag-tracking:      var(--typeset-xs-tracking);       /* 0px */
+
+  /* Movie 카드 — 영화 섹션 (node 20312-40099) */
+  --movie-title-size:           var(--typeset-sm-size);           /* 12px */
+  --movie-title-lh:             var(--typeset-sm-lh);             /* 16px */
+  --movie-title-weight:         var(--font-weight-regular);       /* 400 */
+  --movie-title-color:          var(--primitive-black);           /* #000000 */
+  --movie-title-tracking:       var(--typeset-sm-tracking);       /* 0px */
+
+  --movie-stats-size:           var(--typeset-2xs-size);          /* 10px */
+  --movie-stats-lh:             var(--typeset-2xs-lh);            /* 15px */
+  --movie-stats-active-weight:  var(--font-weight-medium);        /* 500 — 예매율 퍼센트 */
+  --movie-stats-muted-weight:   var(--font-weight-regular);       /* 400 — 리뷰수 등 */
+  --movie-stats-active-color:   var(--primitive-black);           /* #000000 */
+  --movie-stats-muted-color:    var(--primitive-blueblack-300);   /* #9a9aa3 */
+  --movie-stats-tracking:       var(--typeset-2xs-tracking);      /* 0px */
+
+  /* List 카드 — 목록형 섹션 (node 20312-40118) */
+  --list-item-title-size:       var(--typeset-md-compact-size);   /* 13px — typeset_md_compact_bold */
+  --list-item-title-lh:         var(--typeset-md-compact-lh);     /* 18px */
+  --list-item-title-weight:     var(--font-weight-bold);          /* 700 */
+  --list-item-title-color:      var(--primitive-black);           /* #000000 */
+  --list-item-title-tracking:   var(--typeset-md-compact-tracking); /* 0px */
+
+  --list-item-badge-size:       var(--typeset-xs-size);           /* 11px — typeset_xs_bold */
+  --list-item-badge-lh:         var(--typeset-xs-lh);             /* 16px */
+  --list-item-badge-weight:     var(--font-weight-bold);          /* 700 */
+  --list-item-badge-color:      var(--primitive-white);           /* #ffffff */
+}

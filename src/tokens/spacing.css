@@ -38,7 +38,224 @@
      Component Spacing
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-  --top-appbar-left-margin: 20px;  /* top_appbar/left_margin */
+  --top-appbar-left-margin: 20px;              /* top_appbar/left_margin (deprecated → --top-nav-padding-inline) */
+
+  /* TopNavBar — 컴포넌트 스펙 (Figma node: 20312-39339) */
+  --top-nav-padding-inline:     clamp(16px, 5.33vw, 24px);  /* top_nav/padding_inline — 375px 기준 20px, 반응형 */
+  --top-nav-bar-height:         42px;   /* top_nav/bar/height */
+  --top-nav-tab-gap:            20px;   /* top_nav/tab/gap — 탭 간 고정 간격 */
+  --top-nav-tab-pt:             12px;   /* top_nav/active_tab/padding_top */
+  --top-nav-tab-pb:             5px;    /* top_nav/active_tab/padding_bottom */
+  --top-nav-tab-dot-gap:        2px;    /* top_nav/tab/dot_gap (레이블 ↔ 도트) */
+  --top-nav-inactive-tab-pt:    2px;    /* top_nav/inactive_tab/padding_top */
+  --top-nav-trailing-icon-size: 12px;   /* top_nav/trailing_btn/icon_size */
+
+  /* TopAppbar — 컴포넌트 스펙 */
+  --top-appbar-height:          52px;   /* top_appbar/height */
+  --top-appbar-icon-touch:      40px;   /* top_appbar/icon/touch_target */
+  --top-appbar-icon-size:       24px;   /* top_appbar/icon/size */
+  --top-appbar-pr:              8px;    /* top_appbar/padding_right (아이콘 영역) */
+
+  /* BrandBar — 컴포넌트 스펙 (Figma node: 20312-39385) */
+  --brand-bar-pt:               12px;   /* brand_bar/padding_top */
+  --brand-bar-pb:               8px;    /* brand_bar/padding_bottom */
+  --brand-bar-px:               14px;   /* brand_bar/padding_inline */
+  --brand-bar-item-width:       64px;   /* brand_bar/item/width */
+  --brand-bar-item-gap:         5px;    /* brand_bar/item/gap (로고 ↔ 레이블) */
+  --brand-bar-logo-size:        48px;   /* brand_bar/logo/size */
+  --brand-bar-logo-radius:      100px;  /* brand_bar/logo/border_radius */
+  --brand-bar-active-ring-size: 54px;   /* brand_bar/active/ring_size */
+  --brand-bar-active-ring-x:    5px;    /* brand_bar/active/ring_offset_x */
+  --brand-bar-active-ring-y:    -3px;   /* brand_bar/active/ring_offset_y */
+
+  /* CategoryBar — 컴포넌트 스펙 (Figma node: 20312-39355) */
+  --category-bar-py:            12px;   /* category_bar/padding_block */
+  --category-bar-px:            14px;   /* category_bar/padding_inline */
+  --category-bar-gap:           6px;    /* category_bar/gap */
+  --category-chip-height:       32px;   /* category_bar/chip/height */
+  --category-chip-px:           10px;   /* category_bar/chip/padding_inline */
+  --category-chip-icon-size:    20px;   /* category_bar/chip/icon_size */
+  --category-expand-size:       28px;   /* category_bar/expand_btn/size */
+  --category-expand-icon-size:  12px;   /* category_bar/expand_btn/icon_size */
+  --category-expand-px:         10px;   /* category_bar/expand_btn/padding_inline */
+
+  /* EventChip — 컴포넌트 스펙 (Figma node: 20312-56390) */
+  --event-chip-height:   38px;   /* event_chip/height */
+  --event-chip-pl:        7px;   /* event_chip/padding_left */
+  --event-chip-pr:       12px;   /* event_chip/padding_right */
+  --event-chip-gap:       4px;   /* event_chip/gap (img ↔ label) */
+  --event-chip-img-size: 24px;   /* event_chip/img/size */
+
+  /* ProductCard — 공통 스펙 (Figma node: 20312-39754) */
+  --product-card-width:      162px;  /* products/card/width */
+  --product-card-gap:          8px;  /* products/card/gap */
+  --product-card-contents-px:  4px;  /* products/card/contents/padding_inline */
+  --product-card-pb:            8px;  /* products/card/padding_bottom */
+  --product-price-gap:          3px;  /* products/price/gap (할인율 ↔ 가격) */
+
+  /* ProductCard — Deal 변형 */
+  --product-deal-h:          250px;  /* products/deal/height */
+  --product-deal-items-pt:    12px;  /* products/deal/items/padding_top */
+  --product-deal-items-pb:     9px;  /* products/deal/items/padding_bottom */
+  --product-deal-items-px:    12px;  /* products/deal/items/padding_inline */
+  --product-deal-items-gap:    2px;  /* products/deal/items/gap */
+  --product-deal-btn-h:       32px;  /* products/deal/btn/height */
+  --product-deal-btn-pb:      12px;  /* products/deal/btn/padding_bottom */
+  --product-deal-btn-px:      12px;  /* products/deal/btn/padding_inline */
+  --product-deal-badge-pt:     9px;  /* products/deal/badge/padding_top */
+  --product-deal-badge-pb:     6px;  /* products/deal/badge/padding_bottom */
+  --product-deal-badge-px:    10px;  /* products/deal/badge/padding_inline */
+  --product-deal-badge-gap:    2px;  /* products/deal/badge/gap (로고 ↔ 타이머) */
+  --product-deal-join-px:      8px;  /* products/deal/join_badge/padding_inline */
+  --product-deal-join-py:      3px;  /* products/deal/join_badge/padding_block */
+
+  /* ProductCard — Ranking 변형 */
+  --product-ranking-item-size: 44px; /* products/ranking/item/size */
+  --product-ranking-item-pr:    8px; /* products/ranking/item/padding_right */
+  --product-ranking-badge-w:   18px; /* products/ranking/badge/width */
+  --product-ranking-badge-py:   2px; /* products/ranking/badge/padding_block */
+  --product-ranking-item-gap:   4px; /* products/ranking/item/gap */
+  --product-ranking-list-gap:   4px; /* products/ranking/list/gap */
+  --product-ranking-py:        10px; /* products/ranking/padding_block */
+
+  /* SectionTitle — 컴포넌트 스펙 (Figma node: 20312-56360) */
+  --section-title-pt:        28px;  /* section_title/padding_top */
+  --section-title-pb:        12px;  /* section_title/padding_bottom */
+  --section-title-px:        14px;  /* section_title/padding_inline */
+  --section-title-gap:       8px;   /* section_title/gap (title ↔ btn_viewall) */
+  --section-title-badge-gap: 4px;   /* section_title/title+badge/gap */
+
+  /* CardTitle — 컴포넌트 스펙 (Figma node: 20312-56361) */
+  --card-title-pt:           20px;  /* card_title/padding_top */
+  --card-title-pl:           16px;  /* card_title/padding_left */
+  --card-title-pr:           12px;  /* card_title/padding_right */
+  --card-title-gap:          4px;   /* card_title/title/gap (text ↔ count) */
+
+  /* Shared — Viewall 버튼 */
+  --viewall-icon-size:       12px;  /* viewall/icon/size */
+
+  /* BottomAppbar — 컴포넌트 스펙 (Figma node: 20312-39617) */
+  --bottom-appbar-px:           8px;    /* bottom_appbar/padding_inline */
+  --bottom-appbar-item-px:      4px;    /* bottom_appbar/item/padding_inline */
+  --bottom-appbar-item-py:      8px;    /* bottom_appbar/item/padding_block */
+  --bottom-appbar-icon-size:    24px;   /* bottom_appbar/icon/size */
+  --bottom-appbar-border-w:     0.5px;  /* bottom_appbar/border/width */
+  --bottom-appbar-radius-top:   var(--radius-250); /* bottom_appbar/border_radius_top = 20px */
+
+  /* BrandScrollBar — 컴포넌트 스펙 (Figma node: 20312-39394) */
+  --brand-scroll-px:            14px;   /* brand_scroll/padding_inline */
+  --brand-scroll-gap:           16px;   /* brand_scroll/tab_gap */
+  --brand-scroll-tab-height:    44px;   /* brand_scroll/tab/height */
+  --brand-scroll-active-bw:     2px;    /* brand_scroll/active/border_bottom_width */
+
+  /* Checkout 결제 화면 스펙 (Figma node: 20312-41198) */
+  --checkout-order-info-gap:        10px;  /* checkout/order_info/gap (타이틀 ↔ 상세) */
+  --checkout-order-info-title-gap:   2px;  /* checkout/order_info/title/gap (상품명 ↔ 가격) */
+  --checkout-order-info-details-gap: 8px;  /* checkout/order_info/details/gap (가격 ↔ 수량컨트롤) */
+  --checkout-order-info-banner-w:  292px;  /* checkout/order_info/banner/width */
+  --checkout-order-info-banner-px:  12px;  /* checkout/order_info/banner/padding_inline */
+  --checkout-order-info-banner-py:  10px;  /* checkout/order_info/banner/padding_block */
+  --checkout-order-info-banner-r:    8px;  /* checkout/order_info/banner/radius = products/spacing10 */
+  --checkout-point-row-gap:          8px;  /* checkout/point_usage/row/gap */
+  --checkout-point-btn-px:          12px;  /* checkout/point_btn/padding_inline */
+  --checkout-point-btn-py:           5px;  /* checkout/point_btn/padding_block */
+  --checkout-point-btn-r:           var(--products-radius-8);  /* checkout/point_btn/radius = 6px */
+  --checkout-quantity-gap:           6px;  /* checkout/quantity_control/gap */
+  --checkout-cta-h:                 48px;  /* checkout/cta_btn/height */
+  --checkout-cta-px:                16px;  /* checkout/cta_btn/padding_inline */
+  --checkout-cta-py:                12px;  /* checkout/cta_btn/padding_block */
+  --checkout-cta-section-pb:        24px;  /* checkout/cta_section/padding_bottom */
+  --checkout-cta-section-px:        20px;  /* checkout/cta_section/padding_inline */
+  --checkout-cta-section-r:        var(--radius-350);  /* checkout/cta_section/radius_bottom = 24px */
+  --checkout-cta-max-w:            420px;  /* checkout/cta_btn/max_width */
+  --checkout-cta-min-w:            132px;  /* checkout/cta_btn/min_width */
+
+  /* Order History 카드 스펙 (Figma node: 20312-40744) */
+  --order-card-pt:              16px;   /* order/card/padding_top */
+  --order-card-pb:              20px;   /* order/card/padding_bottom */
+  --order-card-px:              16px;   /* order/card/padding_inline */
+  --order-card-r:               var(--radius-150);  /* order/card/radius = 12px */
+  --order-card-gap:             14px;   /* order/card/gap (헤더 ↔ divider ↔ 상품) */
+  --order-card-inner-gap:       12px;   /* order/card/product_section/gap (상태 ↔ 상품행) */
+  --order-card-status-gap:       6px;   /* order/card/status/gap (타이틀 ↔ 타임스탬프) */
+  --order-product-img-size:     84px;   /* order/product/img/size */
+  --order-product-img-r:        var(--products-radius-8);  /* order/product/img/radius = 6px */
+  --order-product-content-gap:  14px;   /* order/product/gap (img ↔ text) */
+  --order-product-text-gap:      7px;   /* order/product/text/gap (상품명+가격 ↔ 정산) */
+  --order-product-name-gap:      2px;   /* order/product/name/gap (상품명 ↔ 가격행) */
+  --order-product-price-gap:     6px;   /* order/product/price/gap (가격 ↔ divider ↔ 수량) */
+  --order-settlement-gap:        1px;   /* order/settlement/gap (정산 행 간격) */
+  --order-settlement-row-h:     18px;   /* order/settlement/row/height */
+  --order-settlement-icon-size: 14px;   /* order/settlement/total_price/icon/size */
+  --order-detail-btn-w:         62px;   /* order/detail_btn/width */
+  --order-detail-btn-px:        10px;   /* order/detail_btn/padding_inline */
+  --order-detail-btn-py:         4px;   /* order/detail_btn/padding_block */
+  --order-detail-btn-r:         var(--radius-max);  /* order/detail_btn/radius = 100px */
+  --order-divider-h:             1px;   /* order/divider/height */
+
+  /* SocialDeal 카드 스펙 (Figma node: 20312-40570) */
+  --socialdeal-card-large-w:    332px;  /* socialdeal/card/large/width  (DiscountDeal·HotDeal) */
+  --socialdeal-card-large-h:    390px;  /* socialdeal/card/large/height */
+  --socialdeal-contents-p:       20px;  /* socialdeal/contents/padding = products/spacing60 */
+  --socialdeal-contents-gap:     16px;  /* socialdeal/contents/gap (Top ↔ Bottom) = products/spacing50 */
+  --socialdeal-top-gap:          10px;  /* socialdeal/top/gap (title ↔ price) = products/spacing20 */
+  --socialdeal-bottom-gap:        8px;  /* socialdeal/bottom/gap (progress ↔ text) = products/spacing10 */
+  --socialdeal-price-chip-px:     8px;  /* socialdeal/price_chip/padding_inline */
+  --socialdeal-price-chip-py:     4px;  /* socialdeal/price_chip/padding_block */
+  --socialdeal-price-chip-r:     var(--products-radius-8); /* socialdeal/price_chip/radius = 6px */
+  --socialdeal-price-gap:         6px;  /* socialdeal/price/gap (chip ↔ numbers) */
+  --socialdeal-price-num-gap:     3px;  /* socialdeal/price/num_gap (discount% ↔ amount) */
+  --socialdeal-progress-h:        4px;  /* socialdeal/progress/height */
+  --socialdeal-proof-gap:         4px;  /* socialdeal/social_proof/gap (icon ↔ text) */
+  --socialdeal-proof-icon-size:  14px;  /* socialdeal/social_proof/icon/size */
+  --socialdeal-badge-w:          74px;  /* socialdeal/badge/width */
+  --socialdeal-badge-pt:         16px;  /* socialdeal/badge/padding_top */
+  --socialdeal-badge-pb:         12px;  /* socialdeal/badge/padding_bottom */
+  --socialdeal-badge-px:         10px;  /* socialdeal/badge/padding_inline */
+  --socialdeal-badge-gap:         4px;  /* socialdeal/badge/gap (logo ↔ timer) */
+  --socialdeal-badge-r:          var(--radius-200); /* socialdeal/badge/radius = 16px */
+  --socialdeal-badge-logo-w:     46px;  /* socialdeal/badge/logo/width */
+  --socialdeal-badge-logo-h:     12px;  /* socialdeal/badge/logo/height */
+  --socialdeal-joining-px:       10px;  /* socialdeal/joining_chip/padding_inline */
+  --socialdeal-joining-py:        4px;  /* socialdeal/joining_chip/padding_block */
+  --socialdeal-joining-min-w:    28px;  /* socialdeal/joining_chip/min_width */
+  --socialdeal-joining-offset:   14px;  /* socialdeal/joining_chip/top·right offset */
+  --socialdeal-soldout-card-w:  200px;  /* socialdeal/soldout_badge/width */
+  --socialdeal-soldout-card-h:  110px;  /* socialdeal/soldout_badge/height */
+  --socialdeal-soldout-top:     100px;  /* socialdeal/soldout_badge/top offset */
+  --socialdeal-soldout-px:       20px;  /* socialdeal/soldout_badge/padding_inline */
+  --socialdeal-soldout-py:       10px;  /* socialdeal/soldout_badge/padding_block */
+  --socialdeal-soldout-r:       var(--radius-150); /* socialdeal/soldout_badge/radius = 12px */
+  --socialdeal-soldout-rotate: -6.05deg; /* socialdeal/soldout_badge/rotate */
+
+  /* GifticonOffering 카드 스펙 (Figma node: 20312-40131) */
+  --gifticon-offering-pt:        24px;  /* gifticon_offering/padding_top */
+  --gifticon-offering-pb:        10px;  /* gifticon_offering/padding_bottom */
+  --gifticon-offering-px:        12px;  /* gifticon_offering/padding_inline */
+  --gifticon-offering-item-gap:   8px;  /* gifticon_offering/items/gap */
+  --gifticon-offering-text-gap:   2px;  /* gifticon_offering/text/gap */
+  --gifticon-offering-tag-h:     22px;  /* gifticon_offering/tag/height */
+  --gifticon-offering-tag-px:     7px;  /* gifticon_offering/tag/padding_inline */
+  --gifticon-offering-tag-py:     4px;  /* gifticon_offering/tag/padding_block */
+  --gifticon-offering-tag-gap:    4px;  /* gifticon_offering/tag/gap */
+  --gifticon-offering-img-size: 128px;  /* gifticon_offering/img/size */
+
+  /* Movie 카드 스펙 (Figma node: 20312-40099) */
+  --movie-img-ratio-h:          230px;  /* movie/img/aspect_height (width=162px) */
+  --movie-dimed-h:               80px;  /* movie/dimed_gradient/height */
+  --movie-stats-gap:              4px;  /* movie/stats/gap */
+  --movie-stats-divider-h:       12px;  /* movie/stats/divider/height */
+  --movie-stats-divider-w:        1px;  /* movie/stats/divider/width */
+
+  /* Product Card 3-column 스펙 (Figma node: 20312-39930, gifticon 3col) */
+  --product-3col-width:         105px;  /* products/3col/card/width */
+  --product-3col-price-gap:       2px;  /* products/3col/price/gap (할인율 ↔ 가격) */
+
+  /* List 카드 스펙 (Figma node: 20312-40118) */
+  --list-item-img-size:          44px;  /* list/item/img/size */
+  --list-item-gap:                8px;  /* list/item/gap (img ↔ text) */
+  --list-item-text-w:           102px;  /* list/item/text/width */
+  --list-item-title-max-lines:     2;   /* list/item/title/max_lines */
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      Font Weight Scale
@@ -83,4 +300,58 @@
     var(--elevation-glow-blur)
     var(--elevation-glow-spread)
     var(--elevation-glow-color);  /* shadow/glow */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     상품 리스트 배치 — 2열 그리드 (nodes 20312-41377, 20312-41390)
+     Layout Metrics: Margin 14 / Gutter 8 / item base width 162 (flex)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --plist-px:          14px;                      /* 컨테이너 좌우 마진 (Margin 14) */
+  --plist-gutter:      8px;                       /* 컬럼 간격 (Gutter 8) */
+  --plist-pt:          var(--products-spacing40); /* 컨테이너 상단 패딩 14px */
+  --plist-pb:          var(--products-spacing80); /* 컨테이너 하단 패딩 60px */
+  --plist-item-pb:     8px;                       /* 아이템 셀 하단 패딩 */
+  --plist-contents-px: 4px;                       /* 컨텐츠 영역 좌우 패딩 */
+  --plist-price-gap:   3px;                       /* 할인율↔가격 사이 간격 */
+
+  --plist-tag-h:       18px;                      /* 태그 칩 높이 */
+  --plist-tag-px:      4px;                       /* 태그 칩 좌우 패딩 */
+  --plist-tag-py:      2px;                       /* 태그 칩 상하 패딩 */
+  --plist-tag-gap:     3px;                       /* 태그 칩 사이 간격 */
+  --plist-tag-r:       var(--radius-050);         /* 태그 칩 border-radius (4px) */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Secondary List 배치 — 3열 그리드 (nodes 20312-41682, 20312-41695)
+     Layout Metrics: Margin 14 / Gutter 8 / item base width 92 (flex)
+     List / 3Column 카드: 가격은 13px md_compact (plist 15px보다 작음), 태그/스탯 없음
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --slist-px:          14px;                      /* 컨테이너 좌우 마진 (Margin 14) */
+  --slist-gutter:      8px;                       /* 컬럼 간격 (Gutter 8) */
+  --slist-pt:          var(--products-spacing40); /* 컨테이너 상단 패딩 14px */
+  --slist-pb:          var(--products-spacing80); /* 컨테이너 하단 패딩 60px */
+  --slist-col-gap:     8px;                       /* 컬럼 내부 카드 세로 간격 */
+  --slist-item-pb:     8px;                       /* 아이템 셀 하단 패딩 */
+  --slist-contents-gap: 2px;                      /* 컨텐츠 블록 간 간격 */
+  --slist-contents-px: 4px;                       /* 컨텐츠 영역 좌우 패딩 */
+  --slist-price-gap:   2px;                       /* 할인율↔가격 사이 간격 */
+  --slist-name-max-h:  36px;                      /* 상품명 최대 높이 (3줄) */
+  --slist-img-r:       var(--products-radius-8);  /* 이미지 border-radius (6px) */
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     Groupbuying List 배치 — 공동구매 딜 카드 컨테이너 (node 20312-41966)
+     Layout Metrics: Margin 14 / 카드 세로 gap 8 / comingsoon 가로 gap 8
+     ※ 딜 카드 내부는 기존 socialdeal-* 토큰 재사용
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+  --gbuying-px:              14px;                     /* 컨테이너 좌우 마진 (Margin 14) */
+  --gbuying-gap:            var(--products-spacing-10); /* 카드 세로 간격 8px */
+  --gbuying-comingsoon-gap: var(--products-spacing-10); /* comingsoon 카드 가로 간격 8px */
+
+  /* socialdeal 카드 — 갭 보완 (Groupbuying에서 처음 노출된 값) */
+  --socialdeal-card-r:           var(--products-spacing-50); /* 딜 카드 radius = 16px */
+  --socialdeal-card-small-w:     162px;                /* comingsoon(upcoming) 카드 너비 */
+  --socialdeal-card-small-h:     250px;                /* comingsoon(upcoming) 카드 높이 */
+  --socialdeal-upcoming-gap:     var(--products-spacing-40); /* 날짜 블록 ↔ 상품명 간격 14px */
+  --socialdeal-upcoming-date-gap: 2px;                 /* D-day ↔ 날짜 간격 */
 }

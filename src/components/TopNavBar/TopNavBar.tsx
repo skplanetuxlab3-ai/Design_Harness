@@ -1,8 +1,8 @@
 import type { TopNavBarProps, NavTabItem } from './TopNavBar.types'
 
 // ─── Figma CDN 에셋 (7일 만료 — TODO: src/assets/ 로컬 교체) ───
-const MY_SHOPPING_ICON = 'https://www.figma.com/api/mcp/asset/34dd19c6-5264-4c85-bf32-034c75bc8d01'
-const NOTIFICATION_ICON = 'https://www.figma.com/api/mcp/asset/e844ffb1-0c94-4fde-abdf-c62a9541fd40'
+const MY_SHOPPING_ICON = 'https://www.figma.com/api/mcp/asset/9a12debd-5f26-460e-98e7-8f72a5e12e5c'
+const NOTIFICATION_ICON = 'https://www.figma.com/api/mcp/asset/afc806a1-f8af-4d27-ba2b-8eaad3bc7176'
 
 const DEFAULT_TABS: NavTabItem[] = [
   { label: '메뉴명' },
@@ -23,27 +23,34 @@ function ActiveDot() {
   )
 }
 
-// ─── goto chevron (right-pointing) ─────────────────────────────
+// ─── Goto chevron (Trailing BTN 전용, 12×12) ───────────────────
 function GotoChevron() {
   return (
-    <svg
-      width="9"
-      height="10"
-      viewBox="0 0 9 10"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      className="shrink-0 opacity-60 overflow-clip"
+      style={{
+        width: 'var(--top-nav-trailing-icon-size)',
+        height: 'var(--top-nav-trailing-icon-size)',
+      }}
       aria-hidden
-      className="shrink-0"
-      style={{ opacity: 0.6 }}
     >
-      <path
-        d="M3 2L6.5 5L3 8"
-        stroke="white"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+      <svg
+        width="9"
+        height="10"
+        viewBox="0 0 9 10"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ display: 'block', margin: '1px 1.5px' }}
+      >
+        <path
+          d="M3 2L6.5 5L3 8"
+          stroke="white"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
   )
 }
 
@@ -64,9 +71,15 @@ function NavBar({
 
   return (
     <div
-      className="flex h-[42px] items-center justify-between overflow-hidden w-full"
-      style={{ backgroundColor: 'var(--filled-primary-surface)', paddingInline: '20px' }}
+      className="flex items-center overflow-hidden w-full"
+      style={{
+        height: 'var(--top-nav-bar-height)',
+        backgroundColor: 'var(--top-appbar-surface, var(--filled-primary-surface))',
+        paddingInline: 'var(--top-nav-padding-inline)',
+        gap: 'var(--top-nav-tab-gap)',
+      }}
     >
+      {/* 일반 탭 */}
       {regularTabs.map((tab, i) => {
         const isActive = activeIndex === i
         return (
@@ -74,14 +87,34 @@ function NavBar({
             key={i}
             type="button"
             onClick={() => onTabChange?.(i)}
-            className="flex-1 h-full flex flex-col items-center justify-end pb-[5px] pt-[12px] gap-[2px] min-w-0"
+            className="flex-1 h-full min-w-0"
           >
-            <span
-              className={`text-[14px] leading-[20px] tracking-[0] whitespace-nowrap text-[var(--primitive-white)] ${isActive ? 'font-bold' : 'font-normal opacity-60'}`}
-            >
-              {tab.label}
-            </span>
-            {isActive ? <ActiveDot /> : <div className="size-[3px] shrink-0" />}
+            {isActive ? (
+              /* Active: flex-col, label + dot 스택 */
+              <div
+                className="flex flex-col items-center size-full"
+                style={{
+                  paddingTop: 'var(--top-nav-tab-pt)',
+                  paddingBottom: 'var(--top-nav-tab-pb)',
+                  gap: 'var(--top-nav-tab-dot-gap)',
+                }}
+              >
+                <span className="text-[14px] leading-[20px] font-bold tracking-[0] whitespace-nowrap text-[var(--primitive-white)]">
+                  {tab.label}
+                </span>
+                <ActiveDot />
+              </div>
+            ) : (
+              /* Inactive: flex-row, 중앙 정렬 */
+              <div
+                className="flex items-center justify-center size-full"
+                style={{ paddingTop: 'var(--top-nav-inactive-tab-pt)' }}
+              >
+                <span className="text-[14px] leading-[20px] font-normal tracking-[0] whitespace-nowrap text-[var(--primitive-white)] opacity-60">
+                  {tab.label}
+                </span>
+              </div>
+            )}
           </button>
         )
       })}
@@ -91,12 +124,19 @@ function NavBar({
         <button
           type="button"
           onClick={onMoreClick}
-          className="flex-1 h-full flex items-center justify-center gap-px pt-[2px]"
+          className="flex-1 h-full min-w-0"
         >
-          <span className="text-[14px] leading-[20px] font-normal tracking-[0] text-[var(--primitive-white)] opacity-60 whitespace-nowrap">
-            {trailingTab.label}
-          </span>
-          <GotoChevron />
+          <div
+            className="flex items-center justify-center size-full"
+            style={{ paddingTop: 'var(--top-nav-inactive-tab-pt)' }}
+          >
+            <div className="flex items-center" style={{ gap: '1px' }}>
+              <span className="text-[14px] leading-[20px] font-normal tracking-[0] whitespace-nowrap text-[var(--primitive-white)] opacity-60">
+                {trailingTab.label}
+              </span>
+              <GotoChevron />
+            </div>
+          </div>
         </button>
       )}
     </div>
@@ -115,43 +155,61 @@ function TopAppbar({
 }) {
   return (
     <div
-      className="flex h-[52px] items-center justify-between w-full overflow-hidden shrink-0"
+      className="flex items-center justify-end w-full shrink-0"
       style={{
-        backgroundColor: 'var(--filled-primary-surface)',
-        paddingLeft: 'var(--top-appbar-left-margin, 20px)',
-        paddingRight: '8px',
+        height: 'var(--top-appbar-height)',
+        backgroundColor: 'var(--top-appbar-surface, var(--filled-primary-surface))',
+        paddingLeft: 'var(--top-nav-padding-inline)',
+        paddingRight: 'var(--top-appbar-pr)',
       }}
     >
-      {/* 타이틀 */}
-      <span className="flex-1 min-w-0 text-[20px] leading-[28px] font-bold tracking-[0] text-[var(--primitive-white)] overflow-hidden text-ellipsis whitespace-nowrap">
-        {title}
-      </span>
-      {/* 아이콘 영역 */}
-      <div className="flex items-center">
-        {/* 마이쇼핑 아이콘 */}
-        <button
-          type="button"
-          onClick={onMyShoppingClick}
-          className="flex items-center justify-center size-[40px] shrink-0"
-          aria-label="마이쇼핑"
+      {/* 타이틀 영역 — flex-[1_0_0] + min-w-px (Figma 스펙) */}
+      <div className="flex flex-[1_0_0] items-center min-w-px">
+        <p className="flex-[1_0_0] min-w-px text-[20px] leading-[28px] font-bold tracking-[0] text-[var(--primitive-white)] overflow-hidden text-ellipsis whitespace-nowrap">
+          {title}
+        </p>
+      </div>
+
+      {/* 마이쇼핑 아이콘 — 40×40 touch target, 24×24 icon, 이미지 18px h, top-[3px] */}
+      <button
+        type="button"
+        onClick={onMyShoppingClick}
+        className="flex items-center justify-center overflow-clip shrink-0"
+        style={{ width: 'var(--top-appbar-icon-touch)', height: 'var(--top-appbar-icon-touch)' }}
+        aria-label="마이쇼핑"
+      >
+        <div
+          className="relative shrink-0"
+          style={{ width: 'var(--top-appbar-icon-size)', height: 'var(--top-appbar-icon-size)' }}
         >
-          <div className="relative size-[24px]">
-            <img
-              src={MY_SHOPPING_ICON}
-              alt=""
-              aria-hidden
-              className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-            />
+          <div className="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
+            style={{ width: 'var(--top-appbar-icon-size)', height: 'var(--top-appbar-icon-size)' }}
+          >
+            <div className="absolute left-0 top-[3px] w-full h-[18px]">
+              <img
+                src={MY_SHOPPING_ICON}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+              />
+            </div>
           </div>
-        </button>
-        {/* 알림 아이콘 */}
-        <button
-          type="button"
-          onClick={onNotificationClick}
-          className="flex items-center justify-center size-[40px] shrink-0"
-          aria-label="알림"
+        </div>
+      </button>
+
+      {/* 알림 아이콘 — 40×40 touch target, 24×24 icon, inset % 포지셔닝 */}
+      <button
+        type="button"
+        onClick={onNotificationClick}
+        className="flex items-center justify-center overflow-clip shrink-0"
+        style={{ width: 'var(--top-appbar-icon-touch)', height: 'var(--top-appbar-icon-touch)' }}
+        aria-label="알림"
+      >
+        <div
+          className="relative shrink-0"
+          style={{ width: 'var(--top-appbar-icon-size)', height: 'var(--top-appbar-icon-size)' }}
         >
-          <div className="relative size-[24px]">
+          <div className="absolute" style={{ inset: '8.98% 11.14% 13% 12.11%' }}>
             <img
               src={NOTIFICATION_ICON}
               alt=""
@@ -159,8 +217,8 @@ function TopAppbar({
               className="absolute inset-0 w-full h-full object-contain pointer-events-none"
             />
           </div>
-        </button>
-      </div>
+        </div>
+      </button>
     </div>
   )
 }

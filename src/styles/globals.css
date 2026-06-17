@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "../tokens/colors.css";
 @import "../tokens/spacing.css";
+@import "../tokens/typography.css";
 
 /* ── 글로벌 시맨틱 토큰 ────────────────────────────────────────
    Primitive 값은 src/tokens/에서만 선언.

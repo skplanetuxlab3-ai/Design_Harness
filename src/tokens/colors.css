@@ -72,6 +72,7 @@
 
   /* Opacity Palette */
   --primitive-black-opacity-50:  #0000000a; /* color/shopping/opacity/black50  (4%) */
+  --primitive-black-opacity-80:  #00000014; /* color/shopping/opacity/black80  (8%) — GifticonOffering tag overlay */
   --primitive-black-opacity-200: #00000033; /* color/shopping/opacity/black200 (20%) */
   --primitive-black-opacity-400: #00000066; /* color/shopping/opacity/black400 (40%) */
   --primitive-white-opacity-200: #ffffff33; /* color/shopping/opacity/white200 (20%) */
@@ -153,7 +154,7 @@
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
   /* Filled Button — Primary */
-  --filled-primary-surface:   var(--primitive-blueblack);   /* filled/primary/surface */
+  --filled-primary-surface:   var(--primitive-sp-black);    /* filled/primary/surface */
   --filled-primary-label:     var(--primitive-white);       /* filled/primary/label */
 
   /* Filled Button — Secondary */
@@ -162,6 +163,125 @@
   /* Top App Bar */
   --top-appbar-surface:       var(--primitive-sp-black);    /* top_appbar/surface */
   --top-appbar-divider:       var(--primitive-black-800);   /* top_appbar/divider */
+
+  /* Category Bar Chip */
+  --category-chip-active-surface:   var(--primitive-sp-black);       /* chip/active/surface */
+  --category-chip-inactive-surface: var(--primitive-white);           /* chip/inactive/surface */
+  --category-chip-inactive-border:  var(--primitive-blueblack-700);  /* chip/inactive/border */
+  --category-expand-surface:        var(--primitive-black-800);      /* expand_btn/surface  #f4f4f4 */
+  --category-expand-border:         var(--primitive-blueblack-700);  /* expand_btn/border */
+
+  /* Event Chip */
+  --event-chip-surface:          var(--primitive-white);               /* event_chip/surface */
+  --event-chip-border:           var(--primitive-blueblack-700);       /* event_chip/border #e8e8ea */
+
+  /* Product Card — 공통 */
+  --product-card-border:         var(--primitive-shopping-border);     /* rgba(0,0,0,0.02) */
+  --product-card-img-bg:         var(--primitive-black-800);           /* #f4f4f4 아웃바운드 이미지 배경 */
+  --product-card-badge-surface:  var(--primitive-blueblack);           /* #1e2032 랭킹 뱃지 */
+  --product-card-badge-text:     var(--primitive-white);               /* 뱃지 텍스트 */
+  --product-card-brand-text:     var(--primitive-blueblack-300);       /* #9a9aa3 브랜드명 */
+  --product-card-price-discount: var(--color-price-primary);           /* #fe0955 할인율 */
+  --product-card-price-text:     var(--primitive-black);               /* #000000 가격 */
+  --product-card-overlay:        var(--primitive-black-opacity-400);   /* rgba(0,0,0,0.4) */
+  --product-card-overlay-light:  var(--primitive-black-opacity-50);    /* rgba(0,0,0,0.04) */
+
+  /* Product Card — Deal (공구/핫딜) */
+  --product-deal-discount-yellow: var(--primitive-sp-yellow);          /* #e0fe4c 공구딜 할인율 */
+  --product-deal-discount-pink:   var(--primitive-sp-pink);            /* #f69eff 핫딜 할인율 */
+  --product-deal-price-text:      var(--primitive-white);              /* #ffffff 딜 가격 */
+  --product-deal-btn-surface:     var(--primitive-blueblack);          /* #1e2032 참여 버튼 */
+  --product-deal-join-surface:    var(--primitive-black-opacity-200);  /* rgba(0,0,0,0.2) 참여중 뱃지 */
+
+  /* Product Card — Tag */
+  --product-tag-point-surface:   var(--primitive-shopping-purple-900); /* #f4f0ff 포인트 태그 배경 */
+  --product-tag-point-text:      var(--primitive-shopping-purple-600); /* #8058f7 포인트 태그 텍스트 */
+  --product-tag-label-surface:   var(--primitive-black-800);           /* #f4f4f4 일반 태그 배경 */
+  --product-tag-label-text:      var(--primitive-black-300);           /* #868686 일반 태그 텍스트 */
+
+  /* Product Card — Stats */
+  --product-review-score-text:   var(--primitive-black);               /* #000000 */
+  --product-review-count-text:   var(--primitive-blueblack-300);       /* #9a9aa3 */
+
+  /* Section Title / Card Title */
+  --title-num-color:         var(--primitive-brand-purple);  /* title/num — badge 카운트 #6c40f0 */
+  --viewall-label-color:     var(--primitive-black-400);     /* viewall/label — 전체보기 텍스트 #b1b1b1 */
+
+  /* Bottom App Bar */
+  --scrim-thumbnail-border:    rgba(0, 0, 0, 0.05);            /* scrim/thumbnail/border */
+  --bottom-appbar-surface:     var(--primitive-white);          /* bottom_appbar/surface */
+  --bottom-appbar-border:      var(--scrim-thumbnail-border);   /* bottom_appbar/border */
+
+  /* Brand Scroll Bar */
+  --brand-scroll-active-line:  var(--primitive-sp-black);    /* brand_scroll/active/underline */
+  --brand-scroll-divider:      var(--top-appbar-divider);    /* brand_scroll/divider  #f4f4f4 */
+
+  /* Checkout 결제 화면 (node 20312-41198) */
+  --checkout-point-amount-color:     var(--primitive-shopping-purple-600); /* #8058f7 포인트 차감 금액 */
+  --checkout-point-btn-surface:      var(--primitive-blueblack-700);       /* #e8e8ea "상세" 버튼 배경 */
+  --checkout-order-info-banner-bg:   var(--primitive-black-800);           /* #f4f4f4 주문정보 배너 배경 */
+  --checkout-cta-surface:            var(--primitive-blueblack);           /* #1e2032 결제 CTA 버튼 */
+  --checkout-cta-text:               var(--primitive-white);               /* #ffffff CTA 텍스트 */
+
+  /* Order History 카드 — 구매내역 (node 20312-40744) */
+  --order-card-surface:          var(--primitive-white);              /* #ffffff 카드 배경 */
+  --order-card-border:           var(--scrim-thumbnail-border);       /* rgba(0,0,0,0.05) 카드 테두리 */
+  --order-card-shadow:           var(--shadow-glow);                  /* glow shadow */
+  --order-divider-color:         var(--primitive-black-800);          /* #f4f4f4 divider */
+  --order-detail-btn-surface:    var(--primitive-black-800);          /* #f4f4f4 "구매 상세" 버튼 배경 */
+  --order-cashback-color:        var(--primitive-sp-black);           /* #181818 캐쉬백 금액 */
+  --order-total-price-color:     var(--color-price-primary);          /* #fe0955 실제 구매가 */
+
+  /* SocialDeal 카드 — 공동구매 섹션 (node 20312-40570) */
+  --socialdeal-discount-yellow:    var(--primitive-sp-yellow);          /* #e0fe4c DiscountDeal 할인율 */
+  --socialdeal-discount-pink:      var(--primitive-sp-pink);            /* #f69eff HotDeal 할인율 */
+  --socialdeal-price-text:         var(--primitive-white);              /* #ffffff 가격 텍스트 */
+  --socialdeal-price-chip-surface: var(--primitive-blueblack);          /* #1e2032 "목표가" 칩 배경 */
+  --socialdeal-progress-track:     var(--primitive-white-opacity-200);  /* rgba(255,255,255,0.2) 진행바 배경 */
+  --socialdeal-progress-fill:      var(--primitive-white);              /* #ffffff 진행바 채움 */
+  --socialdeal-proof-text:         var(--primitive-white-opacity-800);  /* rgba(255,255,255,0.8) "N명이 보고 있어요" */
+  --socialdeal-badge-surface:      var(--primitive-blueblack);          /* #1e2032 배지(로고+타이머) 배경 */
+  --socialdeal-badge-logo-discount: var(--primitive-sp-yellow);         /* #e0fe4c 할인공구 로고 색상 */
+  --socialdeal-badge-logo-hot:     var(--primitive-sp-pink);            /* #f69eff 특템공구 로고 색상 */
+  --socialdeal-joining-surface:    var(--primitive-black-opacity-200);  /* rgba(0,0,0,0.2) "참여중" 칩 배경 */
+  --socialdeal-soldout-overlay:    var(--primitive-black-opacity-400);  /* rgba(0,0,0,0.4) 완판 어두운 오버레이 */
+  --socialdeal-soldout-surface:    var(--primitive-blueblack);          /* #1e2032 SOLD OUT 배지 배경 */
+  --socialdeal-soldout-sub-text:   var(--primitive-sp-yellow);          /* #e0fe4c "준비한 수량이 완판됐어요!" */
+  --socialdeal-upcoming-dday-text: var(--primitive-sp-yellow);          /* #e0fe4c "D-3" */
+
+  /* Gifticon 카드 뱃지 — 그라디언트 (node 20312-39930) */
+  --gifticon-badge-gradient:   linear-gradient(160deg, var(--primitive-brand-purple) 0%, var(--primitive-shopping-purple-600) 100%); /* badge/first 그라디언트 */
+
+  /* GifticonOffering 태그 오버레이 (node 20312-40131) */
+  --offering-tag-overlay:      var(--primitive-black-opacity-80);  /* rgba(0,0,0,0.08) mix-blend-mode 오버레이 */
+
+  /* Movie 카드 (node 20312-40099) */
+  --movie-dimed-gradient:      linear-gradient(to top, var(--primitive-black-opacity-400) 0%, transparent 100%); /* movie/dimed/gradient */
+  --movie-stats-active-color:  var(--primitive-black);             /* movie/stats/active (예매율 퍼센트) */
+  --movie-stats-muted-color:   var(--primitive-blueblack-300);     /* movie/stats/muted (리뷰수 등) */
+
+  /* 상품 리스트 배치 — 2열 그리드 (nodes 20312-41377, 20312-41390)
+     ※ 카드 내부 색상은 기존 product-card-*, product-tag-* 토큰 재사용 */
+  --plist-surface:             var(--primitive-white);              /* #ffffff Primary List 컨테이너 배경 */
+  --plist-offering-surface:    var(--primitive-system-bg-blue);     /* #edefff GifticonOffering 셀 배경 */
+  --plist-offering-tag-text:   var(--primitive-system-sub-blue);    /* #2434b2 "MD 추천" 태그 텍스트 */
+  --plist-offering-tag-overlay: var(--primitive-black-opacity-80);  /* rgba(0,0,0,0.08) "MD 추천" 태그 오버레이 */
+
+  /* 상품 태그 — 오키클럽 (금액권 등) */
+  --product-tag-okiclub-surface: var(--primitive-okiclub-bg);       /* #fff4fe 오키클럽 태그 배경 */
+  --product-tag-okiclub-text:    var(--primitive-okiclub-pink);     /* #ff01dc 오키클럽 태그 텍스트 */
+
+  /* Secondary List 배치 — 3열 그리드 (nodes 20312-41682, 20312-41695)
+     ※ List/3Column 카드 색상은 기존 product-card-* 토큰 재사용 (브랜드/상품명/가격) */
+  --slist-surface:             var(--primitive-white);              /* #ffffff Secondary List 컨테이너 배경 */
+  --slist-card-border:         var(--primitive-shopping-border);    /* rgba(0,0,0,0.02) 이미지 테두리 */
+  --slist-card-overlay-light:  var(--primitive-black-opacity-50);   /* rgba(0,0,0,0.04) 이미지 오버레이 */
+
+  /* Groupbuying List 배치 — 공동구매 딜 카드 컨테이너 (node 20312-41966)
+     ※ 딜 카드 색상은 기존 socialdeal-* 토큰 재사용 */
+  --gbuying-surface:           var(--primitive-white);              /* #ffffff 컨테이너 배경 */
+  --socialdeal-upcoming-border:  var(--primitive-shopping-border);  /* rgba(0,0,0,0.02) comingsoon 카드 테두리 */
+  --socialdeal-upcoming-overlay: var(--primitive-black-opacity-400); /* rgba(0,0,0,0.4) comingsoon 어두운 오버레이 */
 
   /* Token Documentation (Storybook 전용) */
   --color-token-text:         #2860bc;                      /* color/token text */
