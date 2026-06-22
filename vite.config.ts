@@ -16,5 +16,6 @@ export default defineConfig({
   server: {
     port: 5174,
     strictPort: true,
+    host: true, // Codespaces/원격 포트 포워딩 허용
   },
 })

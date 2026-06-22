@@ -66,6 +66,7 @@
   --primitive-sp-yellow:        #e0fe4c;   /* color/shopping/SP_yellow */
   --primitive-sp-pink:          #f69eff;   /* color/shopping/SP_pink */
   --primitive-shopping-pink:    #fe4881;   /* color/shopping/pink */
+  --primitive-shopping-magenta: #ff427d;   /* color/shopping/magenta — 오늘특가 타이머 그라데이션 종착 */
   --primitive-shopping-purple-600: #8058f7; /* color/shopping/purple600 */
   --primitive-shopping-purple-900: #f4f0ff; /* color/shopping/purple900 (Tag/Point 배경) */
   --primitive-shopping-border:  #00000005; /* color/shopping/border (5% opacity) */
@@ -75,8 +76,11 @@
   --primitive-black-opacity-80:  #00000014; /* color/shopping/opacity/black80  (8%) — GifticonOffering tag overlay */
   --primitive-black-opacity-200: #00000033; /* color/shopping/opacity/black200 (20%) */
   --primitive-black-opacity-400: #00000066; /* color/shopping/opacity/black400 (40%) */
+  --primitive-black-opacity-500: #00000080; /* color/shopping/opacity/black500 (50%) — comingsoon 오버레이 */
+  --primitive-black-opacity-800: #000000cc; /* color/shopping/opacity/black800 (80%) — 배너 서브카피 */
   --primitive-white-opacity-200: #ffffff33; /* color/shopping/opacity/white200 (20%) */
   --primitive-white-opacity-800: #ffffffcc; /* color/shopping/opacity/white800 (80%) */
+  --primitive-white-opacity-900: #ffffffe6; /* color/shopping/opacity/white900 (90%) — 오늘특가 배너 서브카피 */
 
   /* System Badge Colors — Sub (텍스트/아이콘) */
   --primitive-system-sub-pink:      #f4335d;  /* 시스템 컬러/서브/1 Pink */
@@ -171,9 +175,12 @@
   --category-expand-surface:        var(--primitive-black-800);      /* expand_btn/surface  #f4f4f4 */
   --category-expand-border:         var(--primitive-blueblack-700);  /* expand_btn/border */
 
-  /* Event Chip */
+  /* Event Chip (Chip menu — node 20327-20543) */
   --event-chip-surface:          var(--primitive-white);               /* event_chip/surface */
   --event-chip-border:           var(--primitive-blueblack-700);       /* event_chip/border #e8e8ea */
+  --event-chip-text:             var(--primitive-black);               /* event_chip/text #000000 */
+  --event-chip-thumb-surface:    var(--primitive-black-800);           /* event_chip/img 배경 #f4f4f4 */
+  --event-chip-thumb-border:     var(--scrim-thumbnail-border);        /* event_chip/img 테두리 rgba(0,0,0,0.05) */
 
   /* Product Card — 공통 */
   --product-card-border:         var(--primitive-shopping-border);     /* rgba(0,0,0,0.02) */
@@ -211,6 +218,7 @@
   --scrim-thumbnail-border:    rgba(0, 0, 0, 0.05);            /* scrim/thumbnail/border */
   --bottom-appbar-surface:     var(--primitive-white);          /* bottom_appbar/surface */
   --bottom-appbar-border:      var(--scrim-thumbnail-border);   /* bottom_appbar/border */
+  --bottom-appbar-label:       var(--primitive-black);          /* bottom_appbar/label #000000 — 활성/비활성 동일 (weight 400) */
 
   /* Brand Scroll Bar */
   --brand-scroll-active-line:  var(--primitive-sp-black);    /* brand_scroll/active/underline */
@@ -248,6 +256,12 @@
   --socialdeal-soldout-surface:    var(--primitive-blueblack);          /* #1e2032 SOLD OUT 배지 배경 */
   --socialdeal-soldout-sub-text:   var(--primitive-sp-yellow);          /* #e0fe4c "준비한 수량이 완판됐어요!" */
   --socialdeal-upcoming-dday-text: var(--primitive-sp-yellow);          /* #e0fe4c "D-3" */
+  --socialdeal-goal-text:          var(--primitive-white);              /* #ffffff "500개 목표" */
+  --socialdeal-badge-text:         var(--primitive-white);              /* #ffffff 배지 타이머/D-day 텍스트 */
+  --socialdeal-joining-text:       var(--primitive-white);              /* #ffffff "참여중" 칩 텍스트 */
+  --socialdeal-soldout-text:       var(--primitive-white);              /* #ffffff "SOLD OUT" */
+  --socialdeal-title-text:         var(--primitive-white);              /* #ffffff 딜 카드 타이틀 */
+  --socialdeal-price-chip-text:    var(--primitive-white);              /* #ffffff "목표가" 칩 텍스트 */
 
   /* Gifticon 카드 뱃지 — 그라디언트 (node 20312-39930) */
   --gifticon-badge-gradient:   linear-gradient(160deg, var(--primitive-brand-purple) 0%, var(--primitive-shopping-purple-600) 100%); /* badge/first 그라디언트 */
@@ -281,7 +295,58 @@
      ※ 딜 카드 색상은 기존 socialdeal-* 토큰 재사용 */
   --gbuying-surface:           var(--primitive-white);              /* #ffffff 컨테이너 배경 */
   --socialdeal-upcoming-border:  var(--primitive-shopping-border);  /* rgba(0,0,0,0.02) comingsoon 카드 테두리 */
-  --socialdeal-upcoming-overlay: var(--primitive-black-opacity-400); /* rgba(0,0,0,0.4) comingsoon 어두운 오버레이 */
+  --socialdeal-upcoming-overlay: var(--primitive-black-opacity-500); /* rgba(0,0,0,0.5) comingsoon 어두운 오버레이 (SP02 기준) */
+
+  /* 공동구매 화면 (SP02, node 20341-19611) */
+  --gbuying-banner-surface:    var(--primitive-white);              /* #ffffff 일러스트 배너 배경 */
+  --gbuying-banner-title:      var(--primitive-black);              /* #000000 메인 카피 "가격이 내려가는" */
+  --gbuying-banner-subtitle:   var(--primitive-black-opacity-800);  /* rgba(0,0,0,0.8) 서브 카피 "모이면 모일수록" */
+  --gbuying-noti-surface:      var(--primitive-white);              /* #ffffff 알림설정 카드 배경 */
+  --gbuying-noti-border:       var(--primitive-black-800);          /* #f4f4f4 알림설정 카드 테두리 */
+  --gbuying-noti-text:         var(--primitive-black);              /* #000000 알림설정 안내 텍스트 */
+  --gbuying-noti-toggle-track: var(--primitive-black-600);          /* #d5d5d5 토글 트랙 (off) */
+  --gbuying-noti-toggle-knob:  var(--primitive-white);              /* #ffffff 토글 손잡이 */
+  --gbuying-footer-company:    var(--primitive-black);              /* #000000 "OK캐쉬백 쇼핑" */
+  --gbuying-footer-link:       var(--primitive-black-300);          /* #868686 약관 링크 */
+  --gbuying-footer-divider:    var(--primitive-black-500);          /* #c7c7c7 구분선 */
+
+  /* 오늘특가 화면 (SP03, node 20343-20693) */
+  --todaydeal-surface:           var(--primitive-white);              /* #ffffff 컨텐츠 배경 */
+  --todaydeal-banner-surface:    var(--primitive-sp-black);           /* #181818 히어로 배너 배경 */
+  --todaydeal-banner-subtitle:   var(--primitive-white-opacity-900);  /* rgba(255,255,255,0.9) "매일 아침 9시마다" */
+  --todaydeal-banner-title:      var(--primitive-white);              /* #ffffff "오늘만" (그라데이션 마스크 베이스) */
+  --todaydeal-timer-grad-from:   var(--primitive-purple);             /* #aa23e9 타이머 바 그라데이션 시작 */
+  --todaydeal-timer-grad-to:     var(--primitive-shopping-magenta);   /* #ff427d 타이머 바 그라데이션 종착 */
+  --todaydeal-timer-text:        var(--primitive-white);              /* #ffffff 타이머 텍스트 */
+  --todaydeal-viewmore-surface:  var(--primitive-white);              /* #ffffff 더보기 버튼 배경 */
+  --todaydeal-viewmore-border:   var(--primitive-blueblack-700);      /* #e8e8ea 더보기 버튼 테두리 */
+  --todaydeal-viewmore-text:     var(--primitive-black);              /* #000000 더보기 버튼 텍스트 */
+  --todaydeal-info-text:         var(--primitive-black-300);          /* #868686 하단 안내 문구 */
+
+  /* e쿠폰 화면 (SP04_1, node 20343-21473) */
+  --ecoupon-surface:           var(--primitive-white);              /* #ffffff 화면 배경 */
+  --ecoupon-section-title:     var(--primitive-blueblack);          /* #1e2032 섹션 타이틀 */
+  --ecoupon-viewall:          var(--primitive-blueblack-300);       /* #9a9aa3 "전체보기" */
+  --ecoupon-shortcut-label:    var(--primitive-blueblack);          /* #1e2032 브랜드 숏컷 이름 */
+  --ecoupon-shortcut-circle:   var(--primitive-black-800);          /* #f4f4f4 로고 플레이스홀더 */
+  --ecoupon-shortcut-border:   var(--primitive-shopping-border);    /* rgba(0,0,0,0.05) 로고 테두리 */
+
+  /* 카테고리별 브랜드 바텀시트 (node 20343-22364) */
+  --catsheet-backdrop:         var(--primitive-black-opacity-400);  /* rgba(0,0,0,0.4) 딤 배경 */
+  --catsheet-surface:          var(--primitive-white);              /* #ffffff 시트 배경 */
+  --catsheet-title-text:       var(--primitive-black);              /* #000000 타이틀 "카테고리별 브랜드" */
+  --catsheet-section-title:    var(--primitive-black);              /* #000000 카테고리 섹션명 */
+  --catsheet-divider:          var(--primitive-black-800);          /* #f4f4f4 섹션 구분선 */
+  --catsheet-close-icon:       var(--primitive-black);              /* #000000 닫기 아이콘 */
+
+  /* Top Banner 배치 — 풀블리드 비주얼 배너 (node 20327-20530) */
+  --topbanner-surface:        var(--primitive-white);              /* #ffffff 하단 그라데이션 종착 = 배너 배경 */
+  --topbanner-grad-top:       var(--primitive-sp-black);           /* #181818 상단 그라데이션 시작색 */
+  --topbanner-grad-bottom:    var(--primitive-white);              /* #ffffff 하단 그라데이션 종착색 */
+  --topbanner-title-text:     var(--primitive-black);              /* #000000 카피 텍스트 */
+  --topbanner-btn-surface:    var(--primitive-sp-black);           /* #181818 CTA 버튼 배경 */
+  --topbanner-btn-text:       var(--primitive-white);              /* #ffffff CTA 버튼 텍스트 */
+  --topbanner-dot:            var(--primitive-black);              /* #000000 페이지네이션 닷 (opacity로 active/inactive 구분) */
 
   /* Token Documentation (Storybook 전용) */
   --color-token-text:         #2860bc;                      /* color/token text */

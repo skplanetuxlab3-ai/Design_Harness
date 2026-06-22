@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import TopNavBar from './components/TopNavBar'
-import AIRecommendSection from './components/AIRecommendSection'
+import ShoppingHome from './components/ShoppingHome/ShoppingHome'
+import GroupbuyingHome from './components/GroupbuyingHome/GroupbuyingHome'
+import TodayDealHome from './components/TodayDealHome/TodayDealHome'
+import EcouponHome from './components/EcouponHome/EcouponHome'
+import CategorySheet from './components/CategorySheet'
+import BottomNavBar from './components/BottomNavBar'
 
 const SHOPPING_TABS = [
   { label: '추천' },
@@ -31,6 +36,7 @@ function StatusBar() {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState(0)
+  const [catSheetOpen, setCatSheetOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-[var(--primitive-black-800)] flex items-center justify-center p-[var(--spacing-8)]">
@@ -66,50 +72,13 @@ export default function App() {
           } as React.CSSProperties}
         >
           {activeTab === 0 ? (
-            /* 추천 탭 — AI 개인화 추천 영역 최상단 배치 */
-            <div>
-              <div className="bg-[var(--primitive-white)]">
-                <AIRecommendSection
-                  onCardClick={(item, rank) =>
-                    console.log('[AI추천 클릭]', { rank, item_id: item.id, type: item.type })
-                  }
-                  onDismiss={(item, rank) =>
-                    console.log('[관심없음]', { rank, item_id: item.id })
-                  }
-                  onSimilar={(item, rank) =>
-                    console.log('[비슷한혜택]', { rank, item_id: item.id })
-                  }
-                />
-              </div>
-
-              {/* 하단 기타 콘텐츠 플레이스홀더 */}
-              <div className="mt-[8px] bg-[var(--primitive-white)] px-[16px] py-[20px]">
-                <p className="text-[14px] font-bold text-[var(--primitive-blueblack)] mb-[12px]">오늘의 기획전</p>
-                <div
-                  className="w-full rounded-[var(--radius-lg)] flex items-center justify-center"
-                  style={{ height: '140px', backgroundColor: 'var(--primitive-black-800)' }}
-                  aria-label="배너 이미지 영역 (디자인 에셋 준비 중)"
-                >
-                  <span className="text-[12px] text-[var(--primitive-blueblack-300)]">배너 이미지 영역</span>
-                </div>
-              </div>
-
-              <div className="mt-[8px] bg-[var(--primitive-white)] px-[16px] py-[20px]">
-                <p className="text-[14px] font-bold text-[var(--primitive-blueblack)] mb-[12px]">인기 브랜드</p>
-                <div className="flex gap-[12px] overflow-x-hidden">
-                  {['나이키', '올리브영', '스타벅스', 'CGV'].map(name => (
-                    <div key={name} className="flex flex-col items-center gap-[6px] shrink-0">
-                      <div
-                        className="size-[56px] rounded-full"
-                        style={{ backgroundColor: 'var(--primitive-black-800)' }}
-                        aria-label={`${name} 로고 영역`}
-                      />
-                      <span className="text-[11px] font-medium text-[var(--primitive-blueblack-300)]">{name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ShoppingHome />
+          ) : activeTab === 1 ? (
+            <GroupbuyingHome />
+          ) : activeTab === 2 ? (
+            <TodayDealHome />
+          ) : activeTab === 3 ? (
+            <EcouponHome onExpandCategory={() => setCatSheetOpen(true)} />
           ) : (
             /* 다른 탭 플레이스홀더 */
             <div className="flex flex-col items-center justify-center h-full gap-[8px]">
@@ -125,6 +94,12 @@ export default function App() {
             </div>
           )}
         </div>
+
+        {/* 하단 네비게이션 */}
+        <BottomNavBar activeIndex={3} />
+
+        {/* 카테고리별 브랜드 바텀시트 (e쿠폰 펼치기) */}
+        <CategorySheet open={catSheetOpen} onClose={() => setCatSheetOpen(false)} />
       </div>
     </div>
   )
