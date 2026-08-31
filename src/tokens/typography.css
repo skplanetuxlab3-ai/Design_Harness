@@ -35,9 +35,9 @@
   --typeset-xs-tracking:   0px;
 
   /* sm — 12px  (typeset_sm_bold / typeset_sm_regular) */
-  --typeset-sm-size:       12px;   /* typeset_sm_*/size */
-  --typeset-sm-lh:         16px;   /* typeset_sm_*/lineheight */
-  --typeset-sm-tracking:   0px;    /* typeset_sm_*/letterspacing */
+  --typeset-sm-size:       12px;   /* typeset_sm_* / size */
+  --typeset-sm-lh:         16px;   /* typeset_sm_* / lineheight */
+  --typeset-sm-tracking:   0px;    /* typeset_sm_* / letterspacing */
 
   /* md-compact — 13px  (typeset_md_compact) */
   --typeset-md-compact-size:     13px;
@@ -45,9 +45,9 @@
   --typeset-md-compact-tracking: 0px;
 
   /* md — 14px  (typeset_md_bold / typeset_md_regular) */
-  --typeset-md-size:       14px;   /* typeset_md_*/size */
-  --typeset-md-lh:         20px;   /* typeset_md_*/lineheight */
-  --typeset-md-tracking:   0px;    /* typeset_md_*/letterspacing */
+  --typeset-md-size:       14px;   /* typeset_md_* / size */
+  --typeset-md-lh:         20px;   /* typeset_md_* / lineheight */
+  --typeset-md-tracking:   0px;    /* typeset_md_* / letterspacing */
 
   /* lg-compact — 15px  (typeset_lg_compact) */
   --typeset-lg-compact-size:     15px;

@@ -27,6 +27,7 @@
      ※ 숫자는 Figma 내부 스케일 ID (실제 px값과 다를 수 있음)
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
+  --products-spacing-02:  2px;   /* products/spacing02 */
   --products-spacing-10:  8px;   /* products/spacing10 */
   --products-spacing-20:  10px;  /* products/spacing20 */
   --products-spacing-40:  14px;  /* products/spacing40 */
@@ -94,14 +95,27 @@
   --product-price-gap:          3px;  /* products/price/gap (할인율 ↔ 가격) */
 
   /* ProductCard — Deal 변형 */
+  /* ── 딜 카드 — ver=02 기준 (Figma node 18462:124398 / 18476:127323) ──
+     ※ 이 블록은 ver=02 디자인을 읽고 수동 갱신했다. 재생성 시 ver=02 노드를 소스로 쓸 것. */
   --product-deal-h:          250px;  /* products/deal/height */
   --product-deal-items-pt:    12px;  /* products/deal/items/padding_top */
-  --product-deal-items-pb:     9px;  /* products/deal/items/padding_bottom */
+  --product-deal-items-pb:    12px;  /* products/deal/items/padding_bottom  (ver=01: 9px) */
   --product-deal-items-px:    12px;  /* products/deal/items/padding_inline */
-  --product-deal-items-gap:    2px;  /* products/deal/items/gap */
+  --product-deal-items-gap:    1px;  /* products/deal/items/gap             (ver=01: 2px) */
+
+  /* 하단 타이머 바 — ver=02 신설 */
+  --product-deal-timer-h:     24px;  /* products/deal/timer/height */
+  --product-deal-timer-py:     4px;  /* products/deal/timer/padding_block */
+  --product-deal-timer-gap:    4px;  /* products/deal/timer/gap (플래그 ↔ 시간) */
+  --product-deal-timer-flag-h: 14px; /* products/deal/timer/flag/height */
+  --product-deal-overlay-h:  140px;  /* products/deal/overlay/height (하단 그라디언트) */
+
   --product-deal-btn-h:       32px;  /* products/deal/btn/height */
   --product-deal-btn-pb:      12px;  /* products/deal/btn/padding_bottom */
   --product-deal-btn-px:      12px;  /* products/deal/btn/padding_inline */
+
+  /* ⚠ deprecated — ver=01 의 로고 마스크 뱃지 전용. ver=02 에는 해당 요소가 없다.
+     다른 카드가 참조할 수 있어 값은 남겨둔다. 사용처가 0이 되면 제거할 것. */
   --product-deal-badge-pt:     9px;  /* products/deal/badge/padding_top */
   --product-deal-badge-pb:     6px;  /* products/deal/badge/padding_bottom */
   --product-deal-badge-px:    10px;  /* products/deal/badge/padding_inline */
@@ -169,6 +183,30 @@
   --checkout-cta-section-r:        var(--radius-350);  /* checkout/cta_section/radius_bottom = 24px */
   --checkout-cta-max-w:            420px;  /* checkout/cta_btn/max_width */
   --checkout-cta-min-w:            132px;  /* checkout/cta_btn/min_width */
+
+  /* ── 2026-05 개편분 (Figma Order info 9689:46435 / Order Settings 9689:46512) ── */
+  --checkout-sheet-r:              var(--radius-350);  /* 시트 상하단 radius = 24px */
+  --checkout-order-info-pt:         24px;  /* order_info/padding_top */
+  --checkout-order-info-pb:         16px;  /* order_info/padding_bottom */
+  --checkout-order-info-px:         20px;  /* order_info/padding_inline */
+  --checkout-order-info-block-gap:  16px;  /* order_info/gap (주문정보 ↔ 캐쉬백 배너) */
+  --checkout-close-touch:           48px;  /* order_info/close/touch_target */
+  --checkout-close-icon:            16px;  /* order_info/close/icon_size */
+  --checkout-tooltip-icon:          14px;  /* 툴팁 아이콘 (배너·번호 행 공통) */
+  --checkout-price-gap:              4px;  /* order_info/price/gap (금액 ↔ 라벨) */
+  --checkout-point-divider-w:        2px;  /* order_info/point_usage/divider */
+  --checkout-point-inner-gap:        4px;  /* order_info/point_usage/gap */
+  --checkout-point-alert-gap:        3px;  /* order_info/point_usage/alert/gap */
+  --checkout-qty-btn-w:             24px;  /* quantity/btn/width */
+  --checkout-qty-btn-h:             28px;  /* quantity/btn/height */
+  --checkout-qty-num-w:             30px;  /* quantity/num/width */
+  --checkout-qty-num-h:             22px;  /* quantity/num/height */
+  --checkout-settings-gap:          18px;  /* order_settings/gap (행 간격) */
+  --checkout-settings-pt:           20px;  /* order_settings/padding_top */
+  --checkout-settings-pb:           24px;  /* order_settings/padding_bottom */
+  --checkout-settings-label-gap:     4px;  /* order_settings/category/gap (라벨 ↔ 툴팁) */
+  --checkout-check-size:            20px;  /* order_settings/checkbox/size */
+  --checkout-cta-gap:                8px;  /* cta_section/gap (버튼 사이) */
 
   /* Order History 카드 스펙 (Figma node: 20312-40744) */
   --order-card-pt:              16px;   /* order/card/padding_top */
@@ -308,8 +346,8 @@
 
   --plist-px:          14px;                      /* 컨테이너 좌우 마진 (Margin 14) */
   --plist-gutter:      8px;                       /* 컬럼 간격 (Gutter 8) */
-  --plist-pt:          var(--products-spacing40); /* 컨테이너 상단 패딩 14px */
-  --plist-pb:          var(--products-spacing80); /* 컨테이너 하단 패딩 60px */
+  --plist-pt:          var(--products-spacing-40); /* 컨테이너 상단 패딩 14px */
+  --plist-pb:          var(--products-spacing-80); /* 컨테이너 하단 패딩 60px */
   --plist-item-pb:     8px;                       /* 아이템 셀 하단 패딩 */
   --plist-contents-px: 4px;                       /* 컨텐츠 영역 좌우 패딩 */
   --plist-price-gap:   3px;                       /* 할인율↔가격 사이 간격 */
@@ -328,8 +366,8 @@
 
   --slist-px:          14px;                      /* 컨테이너 좌우 마진 (Margin 14) */
   --slist-gutter:      8px;                       /* 컬럼 간격 (Gutter 8) */
-  --slist-pt:          var(--products-spacing40); /* 컨테이너 상단 패딩 14px */
-  --slist-pb:          var(--products-spacing80); /* 컨테이너 하단 패딩 60px */
+  --slist-pt:          var(--products-spacing-40); /* 컨테이너 상단 패딩 14px */
+  --slist-pb:          var(--products-spacing-80); /* 컨테이너 하단 패딩 60px */
   --slist-col-gap:     8px;                       /* 컬럼 내부 카드 세로 간격 */
   --slist-item-pb:     8px;                       /* 아이템 셀 하단 패딩 */
   --slist-contents-gap: 2px;                      /* 컨텐츠 블록 간 간격 */
@@ -382,7 +420,7 @@
      구조: 컨테이너(좌우 14, 칩 간격 6) + Eventchip(썸네일 24 + 텍스트)
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-  --chipmenu-px:             var(--products-spacing40); /* 컨테이너 좌우 패딩 14px (products/spacing40) */
+  --chipmenu-px:             var(--products-spacing-40); /* 컨테이너 좌우 패딩 14px (products/spacing40) */
   --chipmenu-gap:            6px;                /* 칩 가로 간격 */
   --chipmenu-row-gap:        6px;                /* 칩 세로 간격 (2줄 스와이프) */
   --event-chip-h:            38px;               /* 칩 높이 */
@@ -445,7 +483,7 @@
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      e쿠폰 화면 (SP04_1, node 20343-21473)
      구조: 큐레이션(Offering 가로) + 브랜드 숏컷(5×2) + 가격대별(필터+3열 리스트)
-     ※ 섹션타이틀 --section-title-*, 카드 --slist-*/GifticonOffering/CategoryFilter 재사용
+     ※ 섹션타이틀 --section-title-*, 카드 --slist-* · GifticonOffering · CategoryFilter 재사용
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
   /* 큐레이션 (Offering 가로 스크롤) */
