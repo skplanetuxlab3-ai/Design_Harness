@@ -1,0 +1,68 @@
+{
+  "_note": "컴포넌트 → 소유한 토큰 네임스페이스. 우선순위 순으로 적는다. **소유하지 않은 계열은 절대 넣지 말 것** — 값만 맞는 추천이 '확신'으로 승격되어 자동 치환된다. 페이지 조합 컴포넌트(*Home, *Section)는 대개 소유 계열이 없으므로 빈 배열이 정답이다. 빈 배열이면 전역 토큰(typeset/radius/spacing)만 확신 추천된다.",
+  "ProductCard": [
+    "product-card",
+    "product",
+    "plist"
+  ],
+  "SocialDealCard": [
+    "socialdeal"
+  ],
+  "GroupbuyingHome": [
+    "gbuying"
+  ],
+  "TodayDealHome": [
+    "todaydeal"
+  ],
+  "EcouponHome": [
+    "ecoupon"
+  ],
+  "ShoppingHome": [],
+  "CheckoutPanel": [
+    "checkout"
+  ],
+  "OrderHistoryCard": [
+    "order"
+  ],
+  "CategoryFilter": [
+    "category"
+  ],
+  "CategorySheet": [
+    "catsheet",
+    "category"
+  ],
+  "ChipMenu": [
+    "chipmenu",
+    "event-chip"
+  ],
+  "Chip": [
+    "category-chip",
+    "event-chip"
+  ],
+  "BrandsFilter": [
+    "brand"
+  ],
+  "TopNavBar": [
+    "top-nav"
+  ],
+  "TopBanner": [
+    "topbanner"
+  ],
+  "BottomNavBar": [
+    "bottom"
+  ],
+  "AIRecommendSection": [],
+  "Tag": [
+    "plist-tag",
+    "tag"
+  ],
+  "Badge": [
+    "badge"
+  ],
+  "Tab": [
+    "tab"
+  ],
+  "QuantityControl": [
+    "quantity"
+  ]
+}

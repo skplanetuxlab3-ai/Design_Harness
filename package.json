@@ -10,7 +10,14 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "design:scan": "node scripts/scan-hardcode.mjs",
+    "design:baseline": "node scripts/scan-hardcode.mjs --write-baseline",
+    "design:ci": "node scripts/scan-hardcode.mjs src --baseline --strict",
+    "design:apply": "node scripts/apply-tokens.mjs",
+    "design:assets": "node scripts/list-figma-assets.mjs",
+    "design:qa": "node scripts/design-qa.mjs",
+    "design:structure": "node scripts/check-structure.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",

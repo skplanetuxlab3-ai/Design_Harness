@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+storybook-static/
+
+# logs
+*.log
+npm-debug.log*
+
+# editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Claude Code — 로컬 개인 설정만 제외 (settings.json·agents·hooks는 팀 공유 대상이므로 커밋한다)
+.claude/settings.local.json
+.claude/worktrees/
