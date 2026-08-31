@@ -1,4 +1,4 @@
-import type { SocialDealCardProps } from './SocialDealCard.types'
+import type { SocialDealAccent, SocialDealBadgeType, SocialDealCardProps } from './SocialDealCard.types'
 
 // ─── Figma CDN 에셋 (node 20341-19611, 7일 만료 — TODO: src/assets/ 로컬 교체) ───
 const EYE_ICON         = 'https://www.figma.com/api/mcp/asset/455e3aaa-0d2f-42a5-8036-8e3039d94009'
@@ -6,9 +6,11 @@ const LOGO_MASK_YELLOW = 'https://www.figma.com/api/mcp/asset/2fa02850-e89a-4535
 const LOGO_MASK_PINK   = 'https://www.figma.com/api/mcp/asset/0e91cdc9-c5bf-483b-97a9-4f2c81377966' // 특템공구
 
 /** 배지 로고 (마스크 + 타이머/D-day) */
-function LogoBadge({ accent, label }: { accent: 'yellow' | 'pink'; label: string }) {
+function LogoBadge({ accent, type, label }: { accent: SocialDealAccent; type: SocialDealBadgeType; label: string }) {
   const maskUrl = accent === 'yellow' ? LOGO_MASK_YELLOW : LOGO_MASK_PINK
   const logoColor = accent === 'yellow' ? 'var(--socialdeal-badge-logo-discount)' : 'var(--socialdeal-badge-logo-hot)'
+  // 라벨 타이포는 배지 타입별로 다르다 — timer 12/16, days 10/15
+  const isTimer = type === 'timer'
   return (
     <div
       className="absolute left-0 top-0 flex flex-col items-center"
@@ -40,8 +42,8 @@ function LogoBadge({ accent, label }: { accent: 'yellow' | 'pink'; label: string
       <span
         className="font-bold whitespace-nowrap"
         style={{
-          fontSize: 'var(--typeset-2xs-size)',
-          lineHeight: 'var(--typeset-2xs-lh)',
+          fontSize: isTimer ? 'var(--socialdeal-badge-timer-size)' : 'var(--socialdeal-badge-dday-size)',
+          lineHeight: isTimer ? 'var(--socialdeal-badge-timer-lh)' : 'var(--socialdeal-badge-dday-lh)',
           color: 'var(--socialdeal-badge-text)',
         }}
       >
@@ -132,12 +134,13 @@ export default function SocialDealCard({
   watching = '2,103명이 보고 있어요',
   goalCount = '500개 목표',
   badgeType = 'timer',
-  badgeLabel = '88:88:88',
+  badgeLabel,
   joining = false,
   soldout = false,
   className,
 }: SocialDealCardProps) {
   const lines = title.split('\n')
+  const label = badgeLabel ?? (badgeType === 'timer' ? '88:88:88' : '3일 남음')
   const discountColor =
     accent === 'yellow' ? 'var(--socialdeal-discount-yellow)' : 'var(--socialdeal-discount-pink)'
 
@@ -272,7 +275,7 @@ export default function SocialDealCard({
       {soldout && <SoldoutOverlay />}
 
       {/* 배지 (로고 + 타이머/D-day) */}
-      <LogoBadge accent={accent} label={badgeLabel} />
+      <LogoBadge accent={accent} type={badgeType} label={label} />
 
       {/* 참여중 칩 */}
       {joining && <JoiningChip />}
