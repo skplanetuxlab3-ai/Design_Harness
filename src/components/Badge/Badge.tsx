@@ -1,8 +1,6 @@
 import type { BadgeProps } from './Badge.types'
-
-// TODO: 7일 후 만료 — 로컬 SVG 에셋으로 교체 필요
-const OKICLUB_FEED_URL = 'https://www.figma.com/api/mcp/asset/a61bd60d-75c2-4d1b-9b3b-3eb5baffe14f'
-const OKICLUB_DETAIL_URL = 'https://www.figma.com/api/mcp/asset/bba9a997-c9f8-4723-b1a3-e1cadab63267'
+// Figma node 14176:77748 (ico_okiclub) — 로컬 에셋. 만료되는 MCP URL을 쓰지 않는다.
+import okiclubLogo from '../../assets/icon-okiclub_14176-77748.svg'
 
 function ClockIcon({ size }: { size: 14 | 16 }) {
   return (
@@ -19,29 +17,45 @@ function ClockIcon({ size }: { size: 14 | 16 }) {
   )
 }
 
+// 색 스톱은 한 번만 적는다 — 각도만 용도별로 다르다.
+// TODO: 그라디언트 전용 토큰이 없다. src/tokens/colors.css 에 신설 검토 필요.
+const STOPS_BLUE_PURPLE = '#0946fe 15.977%, #9544ff 85.589%'
+
 const GRADIENTS = {
   Timer: {
-    feed: 'linear-gradient(120.59deg, #0946fe 15.977%, #9544ff 85.589%)',
-    detail: 'linear-gradient(119.27deg, #0946fe 15.977%, #9544ff 85.589%)',
+    feed: `linear-gradient(120.59deg, ${STOPS_BLUE_PURPLE})`,
+    detail: `linear-gradient(119.27deg, ${STOPS_BLUE_PURPLE})`,
   },
   New: {
-    feed: 'linear-gradient(100.08deg, #fe0955 17.78%, #fa467e 100%)',
-    detail: 'linear-gradient(99.18deg, #fe0955 17.78%, #fa467e 100%)',
+    feed: 'linear-gradient(98.90deg, #fe0955 17.78%, #fa467e 100%)',
+    detail: 'linear-gradient(98.22deg, #fe0955 17.78%, #fa467e 100%)',
   },
   First: {
     feed: 'linear-gradient(148.24deg, #6c40f0 0%, #8058f7 100%)',
-    detail: 'linear-gradient(145.75deg, #6c40f0 0%, #8058f7 100%)',
+    detail: 'linear-gradient(146.31deg, #6c40f0 0%, #8058f7 100%)',
   },
   OkiClub: {
     feed: 'linear-gradient(-65.80deg, #7c00fe 0%, #ff06d8 100%)',
     detail: 'linear-gradient(-65.47deg, #7c00fe 0%, #ff06d8 100%)',
   },
+  // Primary("내가 본") — Timer 와 같은 색, 각도만 다름 (Figma node 17717:192087 / 17717:192109)
+  Primary: {
+    feed: `linear-gradient(110.28deg, ${STOPS_BLUE_PURPLE})`,
+    detail: `linear-gradient(108.45deg, ${STOPS_BLUE_PURPLE})`,
+  },
 } as const
+
+/** Figma 의 variant 별 기본 라벨 */
+const DEFAULT_LABEL: Record<string, string> = {
+  New: 'New',
+  First: '첫구매',
+  Primary: '내가 본',
+}
 
 export default function Badge({
   type = 'Timer',
   size = 'feed',
-  label = 'Label',
+  label,
   time = '12:23:22',
   rank = '1',
   className,
@@ -54,16 +68,19 @@ export default function Badge({
   const cornerCls = isFeed ? feedRadius : detailRadius
 
   // 배지 크기·패딩
+  // 라벨형 배지(New·First·Primary)는 크기가 같다 — 클래스 문자열을 공유한다
+  const labelPill = { feed: 'h-[26px] px-[8px] py-[4px]', detail: 'h-8 px-[8px] py-[4px]' }
   const sizeMap: Record<string, Record<string, string>> = {
-    Timer:   { feed: 'h-[26px] px-[8px] py-[4px] gap-[2px]', detail: 'h-8 px-[8px] py-[4px] gap-[2px]' },
-    New:     { feed: 'h-[26px] px-[8px] py-[4px]',            detail: 'h-8 px-[8px] py-[4px]' },
-    First:   { feed: 'h-[26px] px-[8px] py-[4px]',            detail: 'h-8 px-[8px] py-[4px]' },
-    Rank:    { feed: 'h-[20px] w-[18px] justify-center py-[2px]', detail: 'size-8 justify-center py-[2px]' },
-    OkiClub: { feed: 'h-[26px] px-[6px] py-[4px]',            detail: 'h-8 w-[70px] px-[8px] py-[4px]' },
+    Timer:   { feed: `${labelPill.feed} gap-[2px]`, detail: `${labelPill.detail} gap-[2px]` },
+    New:     labelPill,
+    First:   labelPill,
+    Ranking: { feed: 'h-[20px] w-[18px] justify-center py-[2px]', detail: 'size-8 justify-center py-[2px]' },
+    OkiClub: { feed: 'h-[26px] px-[6px] py-[4px]',  detail: 'h-8 w-[70px] px-[8px] py-[4px]' },
+    Primary: labelPill,
   }
   const sizeCls = sizeMap[type]?.[size] ?? ''
 
-  const gradient = type !== 'Rank' ? GRADIENTS[type as keyof typeof GRADIENTS]?.[size] : undefined
+  const gradient = type !== 'Ranking' ? GRADIENTS[type as keyof typeof GRADIENTS]?.[size] : undefined
 
   const containerCls =
     className ??
@@ -71,14 +88,14 @@ export default function Badge({
       'inline-flex items-center',
       cornerCls,
       sizeCls,
-      type === 'Rank' ? 'bg-[var(--primitive-blueblack)]' : '',
+      type === 'Ranking' ? 'bg-[var(--primitive-blueblack)]' : '',
     ]
       .filter(Boolean)
       .join(' ')
 
   const whiteTextCls = 'font-bold text-[var(--primitive-white)] tracking-[0] whitespace-nowrap'
-  const feedTextCls = `${whiteTextCls} text-[10px] leading-[15px]`
-  const detailTextCls = `${whiteTextCls} text-[12px] leading-[16px]`
+  const feedTextCls = `${whiteTextCls} text-[length:var(--typeset-2xs-size)] leading-[var(--typeset-2xs-lh)]`
+  const detailTextCls = `${whiteTextCls} text-[length:var(--typeset-sm-size)] leading-[var(--typeset-sm-lh)]`
   const textCls = isFeed ? feedTextCls : detailTextCls
 
   return (
@@ -95,14 +112,14 @@ export default function Badge({
         </>
       )}
 
-      {(type === 'New' || type === 'First') && (
-        <span className={textCls}>{label}</span>
+      {(type === 'New' || type === 'First' || type === 'Primary') && (
+        <span className={textCls}>{label ?? DEFAULT_LABEL[type]}</span>
       )}
 
-      {type === 'Rank' && (
+      {type === 'Ranking' && (
         <span
           className={isFeed
-            ? `font-bold text-[var(--primitive-white)] text-[11px] leading-[16px] tracking-[0] whitespace-nowrap`
+            ? `font-bold text-[var(--primitive-white)] text-[length:var(--typeset-xs-size)] leading-[var(--typeset-xs-lh)] tracking-[0] whitespace-nowrap`
             : detailTextCls}
         >
           {rank}
@@ -111,9 +128,11 @@ export default function Badge({
 
       {type === 'OkiClub' && (
         <img
-          src={isFeed ? OKICLUB_FEED_URL : OKICLUB_DETAIL_URL}
-          alt="오키클럽"
-          className={isFeed ? 'h-[10px] w-[44px] object-contain' : 'h-3 w-[54px] object-contain'}
+          src={okiclubLogo}
+          alt="OK캐시백 클럽"
+          // shrink-0 필수 — preflight 의 img{max-width:100%} 가 너비 미확정 컨테이너에서
+          // 0 으로 해석돼 로고가 사라진다 (feed 는 컨테이너에 고정 너비가 없다)
+          className={isFeed ? 'h-[10px] w-[44px] shrink-0 object-contain' : 'h-3 w-[54px] shrink-0 object-contain'}
         />
       )}
     </div>
