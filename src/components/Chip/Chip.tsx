@@ -13,14 +13,14 @@ export default function Chip({
   const containerCls =
     className ??
     [
-      'inline-flex h-8 items-center justify-center px-[10px] rounded-[var(--radius-max)] cursor-pointer',
+      'inline-flex h-[var(--category-chip-height)] items-center justify-center px-[var(--category-chip-px)] rounded-[var(--radius-max)] cursor-pointer',
       active
         ? 'bg-[var(--primitive-sp-black)]'
         : 'bg-[var(--primitive-white)] border border-[var(--primitive-blueblack-700)]',
     ].join(' ')
 
   const textCls = [
-    'text-[14px] leading-[20px] tracking-[0] whitespace-nowrap text-center shrink-0',
+    'text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] tracking-[var(--typeset-md-tracking)] whitespace-nowrap text-center shrink-0',
     active
       ? 'font-bold text-[var(--primitive-white)]'
       : 'font-normal text-[var(--primitive-black-200)]',
@@ -38,7 +38,7 @@ export default function Chip({
           src={FIRE_ICON_URL}
           alt=""
           aria-hidden="true"
-          className="size-5 shrink-0 mr-[2px]"
+          className="size-[var(--category-chip-icon-size)] shrink-0 mr-[2px]"
         />
       )}
       <span className={textCls}>{label}</span>

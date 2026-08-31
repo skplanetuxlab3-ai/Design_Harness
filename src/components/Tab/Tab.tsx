@@ -40,7 +40,7 @@ export default function Tab({
     ].join(' ')
 
   const textCls = [
-    'text-[14px] leading-[20px] tracking-[0] whitespace-nowrap text-center text-[var(--primitive-white)]',
+    'text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] tracking-[0] whitespace-nowrap text-center text-[var(--primitive-white)]',
     active ? 'font-bold' : 'font-normal opacity-60',
   ].join(' ')
 
@@ -80,7 +80,7 @@ export default function Tab({
 
       {/* 서브 레이블 — absolute, OCB 핑크 11px */}
       {showSubLabel && (
-        <span className="absolute left-1/2 -translate-x-1/2 top-[calc(50%-15.5px)] -translate-y-1/2 text-[11px] leading-[11px] text-[var(--color-brand-ocb-pink)] font-normal whitespace-nowrap overflow-hidden text-ellipsis text-center pointer-events-none">
+        <span className="absolute left-1/2 -translate-x-1/2 top-[calc(50%-15.5px)] -translate-y-1/2 text-[length:var(--typeset-xs-size)] leading-[11px] text-[var(--color-brand-ocb-pink)] font-normal whitespace-nowrap overflow-hidden text-ellipsis text-center pointer-events-none">
           {sublabel}
         </span>
       )}

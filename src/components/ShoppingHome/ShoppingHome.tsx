@@ -76,10 +76,10 @@ function Footer() {
       className="flex flex-col gap-[8px] bg-[var(--primitive-white)]"
       style={{ paddingInline: 'var(--plist-px)', paddingBlock: '20px' }}
     >
-      <span className="text-[12px] leading-[16px] font-bold text-[var(--primitive-blueblack)]">OK캐쉬백 쇼핑</span>
+      <span className="text-[length:var(--typeset-sm-size)] leading-[var(--typeset-sm-lh)] font-bold text-[var(--primitive-blueblack)]">OK캐쉬백 쇼핑</span>
       <div className="flex gap-[12px]">
-        <span className="text-[11px] leading-[16px] text-[var(--primitive-blueblack-300)]">쇼핑 서비스 이용약관</span>
-        <span className="text-[11px] leading-[16px] text-[var(--primitive-blueblack-300)]">통신판매중개자 안내</span>
+        <span className="text-[length:var(--typeset-xs-size)] leading-[var(--typeset-xs-lh)] text-[var(--primitive-blueblack-300)]">쇼핑 서비스 이용약관</span>
+        <span className="text-[length:var(--typeset-xs-size)] leading-[var(--typeset-xs-lh)] text-[var(--primitive-blueblack-300)]">통신판매중개자 안내</span>
       </div>
     </div>
   )

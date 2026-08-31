@@ -57,7 +57,7 @@ export const AllVariants: Story = {
     <div className="flex flex-col gap-[24px]" style={{ width: '360px' }}>
       {DEFAULT_BOTTOM_NAV_ITEMS.map((_, i) => (
         <div key={i}>
-          <p className="text-[10px] mb-[4px] opacity-50">{DEFAULT_BOTTOM_NAV_ITEMS[i].label} 탭 활성</p>
+          <p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">{DEFAULT_BOTTOM_NAV_ITEMS[i].label} 탭 활성</p>
           <BottomNavBar items={DEFAULT_BOTTOM_NAV_ITEMS} activeIndex={i} />
         </div>
       ))}

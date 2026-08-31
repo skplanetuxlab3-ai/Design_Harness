@@ -29,7 +29,7 @@ export default function QuantityControl({
   const containerCls =
     className ??
     [
-      'relative size-[14px] flex items-center justify-center flex-shrink-0',
+      'relative size-[var(--typeset-md-size)] flex items-center justify-center flex-shrink-0',
       active ? 'cursor-pointer' : 'cursor-not-allowed',
       colorCls,
     ].join(' ')

@@ -35,7 +35,7 @@ export const QuantityRow: Story = {
     <div className="flex items-center gap-3 p-4">
       <QuantityControl type="minus" active={false} />
       <span
-        className="text-[14px] font-bold leading-[20px]"
+        className="text-[length:var(--typeset-md-size)] font-bold leading-[var(--typeset-md-lh)]"
         style={{ color: 'var(--primitive-blueblack)' }}
       >
         1

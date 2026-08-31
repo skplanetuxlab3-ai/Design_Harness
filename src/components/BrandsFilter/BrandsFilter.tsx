@@ -29,12 +29,12 @@ function DefaultBrandItem({
     <button
       type="button"
       onClick={onClick}
-      className="flex flex-col gap-[5px] items-center shrink-0 w-[64px]"
+      className="flex flex-col gap-[var(--brand-bar-item-gap)] items-center shrink-0 w-[64px]"
     >
       {/* 로고 원형 */}
-      <div className="relative size-[48px] shrink-0">
+      <div className="relative size-[var(--brand-bar-logo-size)] shrink-0">
         <div
-          className="size-[48px] rounded-full overflow-hidden"
+          className="size-[var(--brand-bar-logo-size)] rounded-full overflow-hidden"
           style={{ border: '0.5px solid var(--primitive-shopping-border)' }}
         >
           {brand.imageUrl ? (
@@ -60,7 +60,7 @@ function DefaultBrandItem({
       </div>
       {/* 이름 */}
       <p
-        className={`text-[12px] leading-[16px] tracking-[0] text-center overflow-hidden text-ellipsis w-full ${
+        className={`text-[length:var(--typeset-sm-size)] leading-[var(--typeset-sm-lh)] tracking-[0] text-center overflow-hidden text-ellipsis w-full ${
           isActive
             ? 'font-bold text-[var(--primitive-sp-black)]'
             : 'font-normal text-[var(--primitive-blueblack-200)]'
@@ -86,7 +86,7 @@ function ScrollBrandItem({
     <button
       type="button"
       onClick={onClick}
-      className="flex flex-col h-[44px] items-center justify-center shrink-0"
+      className="flex flex-col h-[var(--brand-scroll-tab-height)] items-center justify-center shrink-0"
       style={
         isActive
           ? { borderBottom: '2px solid var(--primitive-sp-black)' }
@@ -94,7 +94,7 @@ function ScrollBrandItem({
       }
     >
       <p
-        className={`text-[14px] leading-[20px] tracking-[0] whitespace-nowrap overflow-hidden text-ellipsis ${
+        className={`text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] tracking-[0] whitespace-nowrap overflow-hidden text-ellipsis ${
           isActive
             ? 'font-bold text-[var(--primitive-sp-black)]'
             : 'font-normal text-[var(--primitive-blueblack-200)]'

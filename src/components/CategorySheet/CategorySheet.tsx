@@ -99,7 +99,7 @@ export default function CategorySheet({
                   key={i}
                   type="button"
                   onClick={() => select(i)}
-                  className="flex h-[32px] items-center justify-center px-[10px] rounded-[var(--radius-max)] shrink-0 self-start"
+                  className="flex h-[var(--category-chip-height)] items-center justify-center px-[var(--category-chip-px)] rounded-[var(--radius-max)] shrink-0 self-start"
                   style={
                     isActive
                       ? { backgroundColor: 'var(--category-chip-active-surface)' }

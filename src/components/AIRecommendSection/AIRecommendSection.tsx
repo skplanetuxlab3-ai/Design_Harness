@@ -109,14 +109,14 @@ function FeedbackMenu({
       <button
         type="button"
         onClick={() => { onDismiss(); onClose() }}
-        className="block w-full px-[16px] py-[11px] text-left text-[13px] font-medium text-[var(--primitive-blueblack)] border-b border-[var(--primitive-blueblack-700)] hover:bg-[var(--primitive-black-900)] cursor-pointer"
+        className="block w-full px-[16px] py-[11px] text-left text-[length:var(--typeset-md-compact-size)] font-medium text-[var(--primitive-blueblack)] border-b border-[var(--primitive-blueblack-700)] hover:bg-[var(--primitive-black-900)] cursor-pointer"
       >
         관심 없음
       </button>
       <button
         type="button"
         onClick={() => { onSimilar(); onClose() }}
-        className="block w-full px-[16px] py-[11px] text-left text-[13px] font-medium text-[var(--primitive-blueblack)] hover:bg-[var(--primitive-black-900)] cursor-pointer"
+        className="block w-full px-[16px] py-[11px] text-left text-[length:var(--typeset-md-compact-size)] font-medium text-[var(--primitive-blueblack)] hover:bg-[var(--primitive-black-900)] cursor-pointer"
       >
         비슷한 혜택 더 보기
       </button>
@@ -156,7 +156,7 @@ function CardSlot({
       <div className="flex items-center justify-between gap-[4px] px-[2px]">
         <div className="flex items-center gap-[3px] min-w-0">
           <SparkleIcon />
-          <span className="text-[11px] leading-[15px] font-normal text-[var(--primitive-blueblack-300)] overflow-hidden text-ellipsis whitespace-nowrap">
+          <span className="text-[length:var(--typeset-xs-size)] leading-[15px] font-normal text-[var(--primitive-blueblack-300)] overflow-hidden text-ellipsis whitespace-nowrap">
             {item.reason}
           </span>
         </div>
@@ -168,7 +168,7 @@ function CardSlot({
             onClick={() => setMenuOpen(v => !v)}
             aria-label="피드백 메뉴 열기"
             aria-expanded={menuOpen}
-            className="flex items-center justify-center size-[20px] rounded-full bg-[var(--primitive-black-800)] border border-[var(--primitive-blueblack-700)] cursor-pointer"
+            className="flex items-center justify-center size-[var(--typeset-2xl-size)] rounded-full bg-[var(--primitive-black-800)] border border-[var(--primitive-blueblack-700)] cursor-pointer"
           >
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <circle cx="12" cy="5" r="2" fill="var(--primitive-blueblack-300)" />
@@ -238,7 +238,7 @@ export default function AIRecommendSection({
           style={{ background: 'linear-gradient(90deg, var(--primitive-system-bg-pink), var(--primitive-system-bg-purple))' }}
         >
           <SparkleIcon />
-          <span className="text-[11px] leading-[15px] font-bold text-[var(--color-brand-ocb-pink)] tracking-[0.2px]">
+          <span className="text-[length:var(--typeset-xs-size)] leading-[15px] font-bold text-[var(--color-brand-ocb-pink)] tracking-[0.2px]">
             AI 개인화 추천
           </span>
         </div>
@@ -246,13 +246,13 @@ export default function AIRecommendSection({
         {/* 타이틀 */}
         <h2
           id="ai-recommend-title"
-          className="text-[18px] leading-[24px] font-bold text-[var(--primitive-blueblack)] tracking-[-0.4px]"
+          className="text-[length:var(--typeset-xl-size)] leading-[var(--typeset-xl-lh)] font-bold text-[var(--primitive-blueblack)] tracking-[var(--typeset-xl-tracking)]"
         >
           {title}
         </h2>
 
         {/* AI 통합 근거 문구 */}
-        <p className="text-[13px] leading-[19px] font-normal text-[var(--primitive-blueblack-300)]">
+        <p className="text-[length:var(--typeset-md-compact-size)] leading-[19px] font-normal text-[var(--primitive-blueblack-300)]">
           {reasoningText}
         </p>
       </div>
@@ -271,7 +271,7 @@ export default function AIRecommendSection({
       >
         {visibleItems.length === 0 ? (
           <div className="flex items-center justify-center w-full py-[32px]">
-            <p className="text-[13px] text-[var(--primitive-blueblack-300)]">
+            <p className="text-[length:var(--typeset-md-compact-size)] text-[var(--primitive-blueblack-300)]">
               표시할 추천이 없어요.
             </p>
           </div>

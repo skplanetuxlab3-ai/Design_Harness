@@ -21,7 +21,7 @@ function StatusBar() {
       className="flex items-center justify-between px-[20px] shrink-0"
       style={{ height: '44px', backgroundColor: 'var(--primitive-sp-black)' }}
     >
-      <span className="text-[15px] font-semibold text-[var(--primitive-white)]">9:41</span>
+      <span className="text-[length:var(--typeset-lg-compact-size)] font-semibold text-[var(--primitive-white)]">9:41</span>
       <div className="flex items-center gap-[6px]">
         {/* 시그널 아이콘 플레이스홀더 */}
         <div className="w-[16px] h-[10px] rounded-[2px] bg-[var(--primitive-white-opacity-800)]" aria-hidden="true" />
@@ -87,10 +87,10 @@ export default function App() {
                 style={{ backgroundColor: 'var(--primitive-black-800)' }}
                 aria-hidden="true"
               />
-              <p className="text-[14px] font-semibold text-[var(--primitive-blueblack)]">
+              <p className="text-[length:var(--typeset-md-size)] font-semibold text-[var(--primitive-blueblack)]">
                 {SHOPPING_TABS[activeTab]?.label}
               </p>
-              <p className="text-[13px] text-[var(--primitive-blueblack-300)]">준비 중입니다</p>
+              <p className="text-[length:var(--typeset-md-compact-size)] text-[var(--primitive-blueblack-300)]">준비 중입니다</p>
             </div>
           )}
         </div>

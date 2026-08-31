@@ -29,13 +29,13 @@ function ExpandButton({ onClick }: { onClick?: () => void }) {
         type="button"
         onClick={onClick}
         aria-label="카테고리 더보기"
-        className="flex items-center justify-center size-[28px] rounded-[var(--radius-max)] shrink-0"
+        className="flex items-center justify-center size-[var(--category-expand-size)] rounded-[var(--radius-max)] shrink-0"
         style={{
           backgroundColor: 'var(--primitive-black-800)',
           border: '1px solid var(--primitive-shopping-border)',
         }}
       >
-        <img src={ARROW_DOWN_ICON} alt="" aria-hidden className="size-[12px] object-contain pointer-events-none" />
+        <img src={ARROW_DOWN_ICON} alt="" aria-hidden className="size-[var(--typeset-sm-size)] object-contain pointer-events-none" />
       </button>
     </div>
   )
@@ -51,7 +51,7 @@ export default function CategoryFilter({
 }: CategoryFilterProps) {
   return (
     <div
-      className={`relative flex items-center gap-[6px] overflow-x-auto w-full ${className ?? ''}`}
+      className={`relative flex items-center gap-[var(--category-bar-gap)] overflow-x-auto w-full ${className ?? ''}`}
       style={{
         backgroundColor: 'var(--primitive-white)',
         paddingBlock: '12px',
@@ -66,7 +66,7 @@ export default function CategoryFilter({
             key={i}
             type="button"
             onClick={() => onSelect?.(i)}
-            className={`flex h-[32px] items-center justify-center gap-[2px] px-[10px] rounded-[var(--radius-max)] shrink-0 max-h-[32px] ${
+            className={`flex h-[var(--category-chip-height)] items-center justify-center gap-[2px] px-[var(--category-chip-px)] rounded-[var(--radius-max)] shrink-0 max-h-[var(--category-chip-height)] ${
               isActive
                 ? 'bg-[var(--primitive-sp-black)]'
                 : 'bg-[var(--primitive-white)]'
@@ -78,12 +78,12 @@ export default function CategoryFilter({
             }
           >
             {item.showFire && isActive && (
-              <div className="relative size-[20px] shrink-0">
+              <div className="relative size-[var(--typeset-2xl-size)] shrink-0">
                 <img src={FIRE_ICON} alt="" aria-hidden className="absolute inset-0 w-full h-full object-contain pointer-events-none" />
               </div>
             )}
             <span
-              className={`text-[14px] leading-[20px] tracking-[0] whitespace-nowrap ${
+              className={`text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] tracking-[0] whitespace-nowrap ${
                 isActive
                   ? 'font-bold text-[var(--primitive-white)]'
                   : 'font-normal text-[var(--primitive-blueblack-200)]'
