@@ -1,406 +1,480 @@
 import { useState } from 'react'
-import type { CheckoutPanelProps } from './CheckoutPanel.types'
+import type { CheckoutPanelProps, CheckoutState } from './CheckoutPanel.types'
 
-function CloseIcon() {
+// ─── 로컬 에셋 (Figma Order info 9689:46435 / Order Settings 9689:46512) ───
+import icoClose from '../../assets/icon-close-16_9679-49730.svg'
+import icoTooltip from '../../assets/icon-tooltip-14_9679-49773.svg'
+import icoCheck from '../../assets/icon-check-20_4111-85589.svg'
+import icoQtyMinus from '../../assets/icon-qty-minus-14_4721-14278.svg'
+import icoQtyPlus from '../../assets/icon-qty-plus-14_4721-14287.svg'
+import icoCaution from '../../assets/icon-caution-14_9679-50036.svg'
+
+/** 툴팁 아이콘 — Figma 는 14px 박스 안에 13px 아이콘을 0.5px 오프셋으로 넣는다 */
+function TooltipIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M6 6L18 18M6 18L18 6"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
+    <span
+      className="inline-flex shrink-0 items-center justify-center"
+      style={{ width: 'var(--checkout-tooltip-icon)', height: 'var(--checkout-tooltip-icon)' }}
+    >
+      {/* 아이콘 원본은 13px — 14px 박스 안에서 중앙정렬한다 (Figma 는 0.5px 오프셋으로 표현) */}
+      <img src={icoTooltip} alt="" aria-hidden className="max-w-none" />
+    </span>
   )
 }
 
-function CheckIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M3 8L6.5 11.5L13 5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
+/** 수량 컨트롤 — Figma Quantity Control (4721:14300) */
+function QuantityControl({
+  quantity,
+  max,
+  onChange,
+}: {
+  quantity: number
+  max: number
+  onChange: (next: number) => void
+}) {
+  const btnCls = 'flex flex-col items-center justify-center overflow-clip shrink-0'
+  const btnStyle = { width: 'var(--checkout-qty-btn-w)', height: 'var(--checkout-qty-btn-h)' }
+  const iconStyle = { width: 'var(--checkout-tooltip-icon)', height: 'var(--checkout-tooltip-icon)' }
 
-function Divider() {
   return (
     <div
-      style={{
-        height: '1px',
-        backgroundColor: 'var(--primitive-black-800)',
-        margin: '0 20px',
-      }}
-    />
+      className="flex flex-col items-center shrink-0"
+      style={{ rowGap: 'var(--checkout-quantity-gap)' }}
+    >
+      <div
+        className="flex items-center shrink-0 bg-[var(--primitive-black-800)]"
+        style={{ borderRadius: 'var(--products-radius-8)' }}
+      >
+        <button
+          type="button"
+          className={btnCls}
+          style={btnStyle}
+          onClick={() => onChange(quantity - 1)}
+          disabled={quantity <= 1}
+          aria-label="수량 줄이기"
+        >
+          <img src={icoQtyMinus} alt="" aria-hidden className="max-w-none" style={iconStyle} />
+        </button>
+
+        <span
+          className="flex flex-col items-center justify-center overflow-clip shrink-0 bg-[var(--primitive-white)] font-medium text-[var(--primitive-black)]"
+          style={{
+            width: 'var(--checkout-qty-num-w)',
+            height: 'var(--checkout-qty-num-h)',
+            borderRadius: 'var(--radius-050)',
+            boxShadow: 'var(--shadow-glow)',
+            fontSize: 'var(--typeset-md-compact-size)',
+            lineHeight: 'var(--typeset-md-compact-lh)',
+          }}
+          aria-live="polite"
+        >
+          {quantity}
+        </span>
+
+        <button
+          type="button"
+          className={btnCls}
+          style={btnStyle}
+          onClick={() => onChange(quantity + 1)}
+          disabled={quantity >= max}
+          aria-label="수량 늘리기"
+        >
+          <img src={icoQtyPlus} alt="" aria-hidden className="max-w-none" style={iconStyle} />
+        </button>
+      </div>
+
+      <span
+        className="whitespace-nowrap overflow-hidden text-ellipsis text-[var(--primitive-black-300)] font-normal"
+        style={{ fontSize: 'var(--typeset-xs-size)', lineHeight: 'var(--typeset-xs-lh)' }}
+      >
+        최대 {max}개
+      </span>
+    </div>
   )
+}
+
+/** 포인트 사용 표시 — 좌측 2px 디바이더 + 사용액(+ 부족 경고) */
+function PointUsage({ pointDiscount, low, shortage }: { pointDiscount: string; low: boolean; shortage?: string }) {
+  return (
+    <div className="flex items-center" style={{ columnGap: 'var(--checkout-point-row-gap)' }}>
+      <span
+        className="self-stretch shrink-0 bg-[var(--primitive-blueblack-700)]"
+        style={{ width: 'var(--checkout-point-divider-w)' }}
+        aria-hidden
+      />
+      <span
+        className="flex flex-col items-start justify-center"
+        style={{ rowGap: 'var(--checkout-point-inner-gap)' }}
+      >
+        <span
+          className="whitespace-nowrap font-medium text-[var(--primitive-shopping-purple-600)]"
+          style={{ fontSize: 'var(--typeset-sm-size)', lineHeight: 'var(--typeset-sm-lh)' }}
+        >
+          OK캐쉬백 포인트 {pointDiscount} 사용
+        </span>
+
+        {low && (
+          <span
+            className="flex items-center"
+            style={{ columnGap: 'var(--checkout-point-alert-gap)' }}
+          >
+            {/* 느낌표는 Figma 에서 벡터가 아니라 흰 사각형 프레임이라 SVG export 에 안 담긴다.
+                원본 좌표(13px 박스 기준)를 % 로 환산해 그대로 재현한다. */}
+            <span
+              className="relative shrink-0 inline-flex items-center justify-center"
+              style={{
+                width: 'var(--checkout-tooltip-icon)',
+                height: 'var(--checkout-tooltip-icon)',
+              }}
+              aria-hidden
+            >
+              <img src={icoCaution} alt="" className="max-w-none" />
+              <span
+                className="absolute bg-[var(--primitive-white)]"
+                style={{ left: '48.77%', top: '24.69%', width: '9.72%', height: '38.90%' }}
+              />
+              <span
+                className="absolute bg-[var(--primitive-white)]"
+                style={{ left: '48.77%', top: '73.31%', width: '9.72%', height: '9.72%' }}
+              />
+            </span>
+            <span
+              className="whitespace-nowrap font-medium text-[var(--color-brand-ocb-pink)]"
+              style={{ fontSize: 'var(--typeset-sm-size)', lineHeight: 'var(--typeset-sm-lh)' }}
+            >
+              {shortage ? `${shortage} 부족` : '포인트 부족'}
+            </span>
+          </span>
+        )}
+      </span>
+    </div>
+  )
+}
+
+/** 상태별 CTA 버튼 — Figma Order / CTA (9689:48364) 는 btn/md/filled 가로 배치 */
+const CTA_BY_STATE: Record<CheckoutState, { label: string; action: keyof CheckoutPanelProps }[]> = {
+  default: [{ label: '동의하고 결제하기', action: 'onAgreeAndPay' }],
+  pointFull: [{ label: '동의하고 결제하기', action: 'onAgreeAndPay' }],
+  pointLow: [
+    { label: '포인트 교환', action: 'onPointExchange' },
+    { label: '포인트 충전', action: 'onPointCharge' },
+  ],
 }
 
 export default function CheckoutPanel({
   state = 'default',
-  productName = '상품명',
-  imageUrl,
+  productName = '스타벅스 아이스 카페 아메리카노 T',
   quantity: initialQuantity = 1,
+  maxQuantity = 2,
   originalPrice = '1,000,000원',
   finalPrice = '997,000원',
   pointDiscount = '-10,570P',
-  pointBalance = '10,570P',
-  phoneNumber = '010-***-1234',
+  pointAutoCharge = true,
+  bannerType = 'cashback',
+  cashbackText = '800P',
+  pointShortage,
+  showQuantity = true,
+  phoneNumber = '010-****-1234',
+  showRetryPayment = true,
+  showAgreement = true,
   onClose,
   onQuantityChange,
   onPointCharge,
   onPointExchange,
   onAgreeAndPay,
-  onViewOtherProducts,
+  onPointDetail,
   className,
 }: CheckoutPanelProps) {
-  const [qty, setQty] = useState(initialQuantity)
-  const [agreed, setAgreed] = useState(false)
+  const [quantity, setQuantity] = useState(initialQuantity)
+  const [retryChecked, setRetryChecked] = useState(false)
 
   function handleQtyChange(next: number) {
-    if (next < 1) return
-    setQty(next)
-    onQuantityChange?.(next)
+    const clamped = Math.min(Math.max(next, 1), maxQuantity)
+    setQuantity(clamped)
+    onQuantityChange?.(clamped)
   }
 
-  const primaryButtonStyle: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    height: '48px',
-    borderRadius: '9999px',
-    backgroundColor: 'var(--primitive-sp-black)',
-    color: 'var(--primitive-black-900)',
-    fontSize: '15px',
-    fontWeight: 700,
-    border: 'none',
-    cursor: 'pointer',
+  const handlers: Partial<Record<keyof CheckoutPanelProps, (() => void) | undefined>> = {
+    onAgreeAndPay,
+    onPointCharge,
+    onPointExchange,
   }
 
-  const secondaryButtonStyle: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    height: '48px',
-    borderRadius: '9999px',
-    backgroundColor: 'transparent',
-    color: 'var(--primitive-sp-black)',
-    fontSize: '15px',
-    fontWeight: 600,
-    border: `1.5px solid var(--primitive-sp-black)`,
-    cursor: 'pointer',
-  }
+  const rowCls = 'flex items-center justify-between w-full shrink-0'
+  const labelCls = 'whitespace-nowrap font-medium text-[var(--primitive-black-200)]'
+  const labelStyle = { fontSize: 'var(--typeset-md-size)', lineHeight: 'var(--typeset-md-lh)' }
 
   return (
-    <div
-      className={className}
-      style={{
-        width: '100%',
-        backgroundColor: 'var(--primitive-black-900)',
-        borderRadius: '20px 20px 0 0',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
-      {/* Close button */}
-      <div
+    <div className={className ?? 'flex flex-col w-full bg-[var(--primitive-white)]'}>
+      {/* ── Order info ─────────────────────────────────────── */}
+      <section
+        className="relative flex flex-col items-start w-full bg-[var(--primitive-white)] border-b border-solid border-[var(--primitive-black-800)]"
         style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          padding: '16px 16px 8px',
+          rowGap: 'var(--checkout-order-info-block-gap)',
+          paddingTop: 'var(--checkout-order-info-pt)',
+          paddingBottom: 'var(--checkout-order-info-pb)',
+          paddingInline: 'var(--checkout-order-info-px)',
+          borderTopLeftRadius: 'var(--checkout-sheet-r)',
+          borderTopRightRadius: 'var(--checkout-sheet-r)',
         }}
+        aria-label="주문 정보"
       >
         <button
+          type="button"
           onClick={onClose}
+          aria-label="닫기"
+          className="absolute flex items-center justify-center"
           style={{
-            background: 'none',
-            border: 'none',
-            padding: 0,
-            cursor: 'pointer',
-            color: 'var(--primitive-blueblack-300)',
+            right: 'var(--spacing-2)',
+            top: 'var(--spacing-2)',
+            width: 'var(--checkout-close-touch)',
+            height: 'var(--checkout-close-touch)',
           }}
         >
-          <CloseIcon />
+          <img
+            src={icoClose}
+            alt=""
+            aria-hidden
+            className="max-w-none"
+            style={{ width: 'var(--checkout-close-icon)', height: 'var(--checkout-close-icon)' }}
+          />
         </button>
-      </div>
 
-      {/* Product row */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 20px 16px',
-          gap: '12px',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0 }}>
-          {imageUrl && (
-            <div
-              style={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '8px',
-                overflow: 'hidden',
-                flexShrink: 0,
-                backgroundColor: 'var(--primitive-black-800)',
-              }}
-            >
-              <img src={imageUrl} alt={productName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-          )}
-          <span
-            style={{
-              fontSize: '14px',
-              fontWeight: 600,
-              color: 'var(--primitive-blueblack-100)',
-              lineHeight: '20px',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {productName}
-          </span>
-        </div>
-
-        {/* Quantity control */}
         <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0',
-            border: `1px solid var(--primitive-black-800)`,
-            borderRadius: '8px',
-            overflow: 'hidden',
-            flexShrink: 0,
-          }}
+          className="flex flex-col items-start w-full shrink-0"
+          style={{ rowGap: 'var(--checkout-order-info-gap)' }}
         >
-          <button
-            onClick={() => handleQtyChange(qty - 1)}
-            style={{
-              width: '32px',
-              height: '32px',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '18px',
-              color: 'var(--primitive-blueblack-200)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            −
-          </button>
-          <span
-            style={{
-              width: '32px',
-              textAlign: 'center',
-              fontSize: '14px',
-              fontWeight: 600,
-              color: 'var(--primitive-blueblack-100)',
-            }}
-          >
-            {qty}
-          </span>
-          <button
-            onClick={() => handleQtyChange(qty + 1)}
-            style={{
-              width: '32px',
-              height: '32px',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '18px',
-              color: 'var(--primitive-blueblack-200)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            +
-          </button>
-        </div>
-      </div>
-
-      <Divider />
-
-      {/* Price section */}
-      <div style={{ padding: '16px 20px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-          <span style={{ fontSize: '13px', color: 'var(--primitive-blueblack-300)' }}>정가</span>
-          <span
-            style={{
-              fontSize: '13px',
-              color: 'var(--primitive-blueblack-400)',
-              textDecoration: 'line-through',
-            }}
-          >
-            {originalPrice}
-          </span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <span style={{ fontSize: '15px', fontWeight: 700, color: 'var(--primitive-blueblack-100)' }}>결제금액</span>
-          <span style={{ fontSize: '18px', fontWeight: 700, color: 'var(--primitive-sp-black)' }}>
-            {finalPrice}
-          </span>
-        </div>
-      </div>
-
-      <Divider />
-
-      {/* Point section */}
-      <div style={{ padding: '16px 20px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--primitive-blueblack-100)' }}>
-            OCB 포인트 사용
-          </span>
-          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--color-brand-ocb-pink)' }}>
-            {pointDiscount}
-          </span>
-        </div>
-
-        {state !== 'default' && (
+          {/* 상품명 + 원가 */}
           <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '10px 12px',
-              backgroundColor: 'var(--primitive-black-800)',
-              borderRadius: '8px',
-            }}
+            className="flex flex-col items-start shrink-0"
+            style={{ rowGap: 'var(--checkout-order-info-title-gap)' }}
           >
-            <div>
-              <p style={{ fontSize: '11px', color: 'var(--primitive-blueblack-300)', marginBottom: '2px' }}>
-                보유 포인트
-              </p>
-              <p style={{ fontSize: '14px', fontWeight: 700, color: 'var(--primitive-blueblack-100)' }}>
-                {pointBalance}
-              </p>
-            </div>
-            {state === 'pointLow' && (
-              <span
-                style={{
-                  fontSize: '11px',
-                  color: 'var(--primitive-sp-pink)',
-                  fontWeight: 600,
-                }}
+            <span
+              className="font-normal text-[var(--primitive-black-200)]"
+              style={{ fontSize: 'var(--typeset-sm-size)', lineHeight: 'var(--typeset-sm-lh)' }}
+            >
+              {productName}
+            </span>
+            <span
+              className="whitespace-nowrap font-bold text-[var(--primitive-black-100)]"
+              style={{ fontSize: 'var(--typeset-md-size)', lineHeight: 'var(--typeset-md-lh)' }}
+            >
+              {originalPrice}
+            </span>
+          </div>
+
+          {/* 결제금액 + 수량 컨트롤 */}
+          <div
+            className="flex items-start w-full shrink-0"
+            style={{ columnGap: 'var(--checkout-order-info-details-gap)' }}
+          >
+            <div
+              className="flex flex-col flex-1 min-w-0 items-start"
+              style={{ rowGap: 'var(--checkout-order-info-details-gap)' }}
+            >
+              <div
+                className="flex items-center whitespace-nowrap shrink-0"
+                style={{ columnGap: 'var(--checkout-price-gap)' }}
               >
-                포인트가 부족합니다
-              </span>
+                <span
+                  className="overflow-hidden text-ellipsis font-bold text-[var(--primitive-black)]"
+                  style={{ fontSize: 'var(--typeset-3xl-size)', lineHeight: 'var(--typeset-3xl-lh)' }}
+                >
+                  {finalPrice}
+                </span>
+                <span
+                  className="font-normal text-[var(--primitive-black-200)]"
+                  style={{ fontSize: 'var(--typeset-xs-size)', lineHeight: 'var(--typeset-xs-lh)' }}
+                >
+                  총 결제 금액
+                </span>
+              </div>
+
+              <PointUsage pointDiscount={pointDiscount} low={state === 'pointLow'} shortage={pointShortage} />
+            </div>
+
+            {showQuantity && (
+              <QuantityControl quantity={quantity} max={maxQuantity} onChange={handleQtyChange} />
             )}
           </div>
-        )}
-      </div>
-
-      <Divider />
-
-      {/* Phone number + terms */}
-      <div style={{ padding: '16px 20px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-          <span style={{ fontSize: '13px', color: 'var(--primitive-blueblack-300)' }}>휴대폰번호</span>
-          <span style={{ fontSize: '13px', color: 'var(--primitive-blueblack-100)' }}>{phoneNumber}</span>
         </div>
 
-        {/* Agreement checkbox */}
-        <button
-          onClick={() => setAgreed(!agreed)}
+        {/* 안내 배너 — cashback / pointOnly */}
+        {bannerType !== 'none' && (
+        <div
+          className="flex items-center justify-center overflow-clip w-full shrink-0 bg-[var(--primitive-black-800)]"
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'none',
-            border: 'none',
-            padding: 0,
-            cursor: 'pointer',
-            width: '100%',
+            columnGap: 'var(--products-spacing-02)',
+            paddingInline: 'var(--checkout-order-info-banner-px)',
+            paddingBlock: 'var(--checkout-order-info-banner-py)',
+            borderRadius: 'var(--checkout-order-info-banner-r)',
           }}
         >
-          <div
-            style={{
-              width: '20px',
-              height: '20px',
-              borderRadius: '4px',
-              backgroundColor: agreed ? 'var(--primitive-sp-black)' : 'transparent',
-              border: `1.5px solid ${agreed ? 'var(--primitive-sp-black)' : 'var(--primitive-blueblack-700)'}`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-              color: 'var(--primitive-black-900)',
-            }}
+          <span
+            className="whitespace-nowrap overflow-hidden text-ellipsis text-center text-[var(--primitive-blueblack-100)]"
+            style={{ fontSize: 'var(--typeset-sm-size)', lineHeight: 'var(--typeset-sm-lh)' }}
           >
-            {agreed && <CheckIcon />}
-          </div>
-          <span style={{ fontSize: '13px', color: 'var(--primitive-blueblack-200)', textAlign: 'left' }}>
-            구매조건 및 개인정보 처리방침에 동의합니다
+            {bannerType === 'cashback' ? (
+              <>
+                목표 달성 시{' '}
+                <b className="font-bold text-[var(--primitive-black)]">{cashbackText}</b> 캐쉬백
+              </>
+            ) : (
+              <>
+                <b className="font-bold text-[var(--color-brand-ocb-pink)]">포인트로만</b> 구매 가능한
+                상품입니다
+              </>
+            )}
           </span>
-        </button>
-      </div>
-
-      {/* Action buttons */}
-      <div style={{ padding: '8px 20px 32px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        {state === 'default' && (
-          <button style={primaryButtonStyle} onClick={onAgreeAndPay}>
-            동의하고 결제하기
-          </button>
+          {bannerType === 'cashback' && <TooltipIcon />}
+        </div>
         )}
+      </section>
 
-        {state === 'pointFull' && (
-          <>
-            <div style={{ display: 'flex', gap: '8px' }}>
-              <button style={secondaryButtonStyle} onClick={onPointCharge}>
-                포인트 충전
-              </button>
-              <button style={secondaryButtonStyle} onClick={onPointExchange}>
-                포인트 교환
-              </button>
-            </div>
-            <button style={primaryButtonStyle} onClick={onAgreeAndPay}>
-              동의하고 결제하기
-            </button>
-          </>
-        )}
+      {/* ── Order Settings ─────────────────────────────────── */}
+      <section
+        className="flex flex-col items-start w-full bg-[var(--primitive-white)]"
+        style={{
+          rowGap: 'var(--checkout-settings-gap)',
+          paddingTop: 'var(--checkout-settings-pt)',
+          paddingBottom: 'var(--checkout-settings-pb)',
+          paddingInline: 'var(--checkout-order-info-px)',
+        }}
+        aria-label="주문 설정"
+      >
+        {/* 쿠폰 받을 번호 */}
+        <div className={rowCls}>
+          <span
+            className="flex items-center shrink-0"
+            style={{ columnGap: 'var(--checkout-settings-label-gap)' }}
+          >
+            <span className={labelCls} style={labelStyle}>
+              쿠폰 받을 번호
+            </span>
+            <TooltipIcon />
+          </span>
+          <span
+            className="whitespace-nowrap overflow-hidden text-ellipsis font-medium text-[var(--primitive-black-100)]"
+            style={labelStyle}
+          >
+            {phoneNumber}
+          </span>
+        </div>
 
-        {state === 'pointLow' && (
-          <>
-            <div style={{ display: 'flex', gap: '8px' }}>
-              <button style={secondaryButtonStyle} onClick={onViewOtherProducts}>
-                다른 상품 보기
-              </button>
-              <button style={secondaryButtonStyle} onClick={onPointExchange}>
-                포인트 교환
-              </button>
-            </div>
-            <button style={primaryButtonStyle} onClick={onPointExchange}>
-              포인트 교환
-            </button>
+        {/* OK캐쉬백 포인트 */}
+        <div className={rowCls}>
+          <span className="flex flex-col items-start justify-center whitespace-nowrap shrink-0">
+            <span className={labelCls} style={labelStyle}>
+              OK캐쉬백 포인트
+            </span>
+            {pointAutoCharge && (
+              <span
+                className="text-[var(--primitive-blueblack-300)] font-normal"
+                style={{ fontSize: 'var(--typeset-xs-size)', lineHeight: 'var(--typeset-xs-lh)' }}
+              >
+                자동충전 ON
+              </span>
+            )}
+          </span>
+
+          <span
+            className="flex items-center shrink-0"
+            style={{ columnGap: 'var(--checkout-point-row-gap)' }}
+          >
+            <span
+              className="whitespace-nowrap overflow-hidden text-ellipsis font-medium text-[var(--primitive-shopping-purple-600)]"
+              style={labelStyle}
+            >
+              {pointDiscount}
+            </span>
             <button
-              onClick={onViewOtherProducts}
+              type="button"
+              onClick={onPointDetail}
+              className="flex items-center justify-center overflow-clip shrink-0 bg-[var(--primitive-blueblack-700)] font-bold text-[var(--primitive-blueblack-200)]"
               style={{
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '13px',
-                color: 'var(--primitive-blueblack-300)',
-                textDecoration: 'underline',
-                padding: '4px 0',
+                paddingInline: 'var(--checkout-point-btn-px)',
+                paddingBlock: 'var(--checkout-point-btn-py)',
+                borderRadius: 'var(--checkout-point-btn-r)',
+                fontSize: 'var(--typeset-sm-size)',
+                lineHeight: 'var(--typeset-sm-lh)',
               }}
             >
-              다른 상품 보기
+              상세
             </button>
-          </>
+          </span>
+        </div>
+
+        {/* 목표 미달 시 지금 가격으로 구매 (2026-05 신설) */}
+        {showRetryPayment && (
+          <label className={`${rowCls} overflow-clip cursor-pointer`}>
+            <span className={labelCls} style={labelStyle}>
+              목표 미달 시 지금 가격으로 구매
+            </span>
+            <input
+              type="checkbox"
+              className="sr-only"
+              checked={retryChecked}
+              onChange={(e) => setRetryChecked(e.target.checked)}
+            />
+            <img
+              src={icoCheck}
+              alt=""
+              aria-hidden
+              className="shrink-0 max-w-none"
+              style={{
+                width: 'var(--checkout-check-size)',
+                height: 'var(--checkout-check-size)',
+                opacity: retryChecked ? 1 : 0.4,
+              }}
+            />
+          </label>
         )}
-      </div>
+
+        {/* 약관 동의 */}
+        {showAgreement && (
+        <p
+          className="w-full shrink-0 overflow-clip text-[var(--primitive-black-300)] font-normal"
+          style={{ fontSize: 'var(--typeset-2xs-size)', lineHeight: 'var(--typeset-sm-lh)' }}
+        >
+          쿠폰 정보 및 결제 조건을 확인하였으며,{' '}
+          <span className="underline">개인정보 제3자 제공 동의 (SK플래닛㈜)</span>,{' '}
+          <span className="underline">e쿠폰 서비스 이용약관</span>에 동의합니다.
+        </p>
+        )}
+      </section>
+
+      {/* ── Order / CTA ────────────────────────────────────── */}
+      <section
+        className="flex items-start justify-center overflow-clip w-full bg-[var(--primitive-white)]"
+        style={{
+          columnGap: 'var(--checkout-cta-gap)',
+          paddingBottom: 'var(--checkout-cta-section-pb)',
+          paddingInline: 'var(--checkout-cta-section-px)',
+          borderBottomLeftRadius: 'var(--checkout-cta-section-r)',
+          borderBottomRightRadius: 'var(--checkout-cta-section-r)',
+        }}
+      >
+        {CTA_BY_STATE[state].map(({ label, action }) => (
+          <button
+            key={label}
+            type="button"
+            onClick={handlers[action]}
+            className="flex flex-1 items-start overflow-clip bg-[var(--filled-primary-surface)] text-[var(--primitive-white)] font-bold text-center"
+            style={{
+              height: 'var(--checkout-cta-h)',
+              maxWidth: 'var(--checkout-cta-max-w)',
+              minWidth: 'var(--checkout-cta-min-w)',
+              paddingInline: 'var(--checkout-cta-px)',
+              paddingBlock: 'var(--checkout-cta-py)',
+              borderRadius: 'var(--radius-max)',
+              fontSize: 'var(--typeset-xl-size)',
+              lineHeight: 'var(--typeset-xl-lh)',
+            }}
+          >
+            <span className="flex-1 min-w-0">{label}</span>
+          </button>
+        ))}
+      </section>
     </div>
   )
 }
