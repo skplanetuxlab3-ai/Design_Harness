@@ -1,3 +1,5 @@
+import type { BadgeType } from '../Badge'
+
 export type ProductCardType =
   | 'Gifticon'
   | 'Outbound'
@@ -10,6 +12,7 @@ export type ProductCardType =
   | 'GifticonOffering'
   | 'Banner'
   | 'Upcoming'
+  | 'Feed'
 
 export type FilmRating = 'All' | '12' | '15' | '19'
 
@@ -44,6 +47,8 @@ export interface ProductCardProps {
   // ─ Gifticon ────────────────────────────────────────────────────
   /** Badge(New 등) 표시 여부 */
   showBadge?: boolean
+  /** Feed 카드의 배지 종류 (기본 OkiClub) */
+  feedBadgeType?: BadgeType
   /** Badge 라벨 텍스트 */
   badgeLabel?: string
   /** Sold out 상태 (중앙 오버레이) */

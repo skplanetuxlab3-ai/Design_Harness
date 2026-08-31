@@ -263,21 +263,63 @@ export const Upcoming: Story = {
 
 // ─── All Variants Grid ────────────────────────────────────────────────────────
 
+/** 피드용 상품 카드 — OK캐시백 클럽 배지 (Figma node 17717:210498) */
+export const Feed: Story = {
+  args: {
+    type: 'Feed',
+    imageUrl: SAMPLE_IMG,
+    brand: '브랜드명',
+    title: '상품명 최대 2줄까지 초과시에는 말줄임 처리',
+    showDiscount: true,
+    discount: '15%',
+    price: '37,500원',
+    showBadge: true,
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 'var(--product-card-width)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+/** Feed 카드의 배지 종류 비교 */
+export const FeedBadgeTypes: Story = {
+  render: () => (
+    <div className="flex gap-[var(--plist-gutter)]">
+      {(['OkiClub', 'Primary', 'New', 'First', 'Timer'] as const).map((b) => (
+        <div key={b} style={{ width: 'var(--product-card-width)' }}>
+          <ProductCard
+            type="Feed"
+            feedBadgeType={b}
+            imageUrl={SAMPLE_IMG}
+            brand="브랜드명"
+            title="상품명 최대 2줄까지 초과시에는 말줄임 처리"
+            discount="15%"
+            price="37,500원"
+          />
+        </div>
+      ))}
+    </div>
+  ),
+}
+
 export const AllVariants: Story = {
   name: '전체 변형 그리드',
   render: () => (
     <div className="grid gap-[24px]" style={{ width: '360px', gridTemplateColumns: 'repeat(2, 162px)' }}>
-      <div><p className="text-[10px] mb-[4px] opacity-50">Gifticon</p><ProductCard type="Gifticon" imageUrl={SAMPLE_IMG} brand="스타벅스" title="아이스 아메리카노 Tall" showDiscount discount="30%" price="3,900원" /></div>
-      <div><p className="text-[10px] mb-[4px] opacity-50">Outbound</p><ProductCard type="Outbound" imageUrl={SAMPLE_IMG} title="신세계 상품권 1만원" showDiscount discount="10%" price="9,000원" showRating rating="4.7" reviewCount="387" showTag pointLabel="540P 적립" /></div>
-      <div><p className="text-[10px] mb-[4px] opacity-50">DiscountDeal</p><ProductCard type="DiscountDeal" imageUrl={SAMPLE_BG_IMG} title={'치킨 타임은\n60계로'} discount="40%" price="22,200원" timer="23:59:59" /></div>
-      <div><p className="text-[10px] mb-[4px] opacity-50">DiscountDeal Soldout</p><ProductCard type="DiscountDeal_Soldout" imageUrl={SAMPLE_BG_IMG} title={'치킨 타임은\n60계로'} timer="00:00:00" /></div>
-      <div><p className="text-[10px] mb-[4px] opacity-50">HotDeal</p><ProductCard type="HotDeal" imageUrl={SAMPLE_BG_IMG} title={'신세계 상품권\n1만원권'} discount="10%" price="9,000원" daysLeft="3일 남음" /></div>
-      <div><p className="text-[10px] mb-[4px] opacity-50">HotDeal Soldout</p><ProductCard type="HotDeal_Soldout" imageUrl={SAMPLE_BG_IMG} title={'신세계 상품권\n1만원권'} daysLeft="3일 남음" /></div>
-      <div><p className="text-[10px] mb-[4px] opacity-50">Movie</p><ProductCard type="Movie" imageUrl={SAMPLE_TALL_IMG} brand="하얼빈" filmRating="15" eggRating="97%" bookingRate="예매율 53.95%" rank="1" /></div>
-      <div><p className="text-[10px] mb-[4px] opacity-50">GifticonOffering</p><ProductCard type="GifticonOffering" imageUrl={SAMPLE_IMG} brand="스타벅스" title="아메리카노 Tall" mdTag="MD 추천" color="Blue" /></div>
-      <div style={{ gridColumn: 'span 2' }}><p className="text-[10px] mb-[4px] opacity-50">ListRanking</p><ProductCard type="ListRanking" listTitle="TOP 기프티콘" items={[{ imageUrl: '', name: '베스킨라빈스' }, { imageUrl: '', name: '동원참치' }, { imageUrl: '', name: '아기 빨래세제' }, { imageUrl: '', name: '여성 홈웨어' }]} /></div>
-      <div><p className="text-[10px] mb-[4px] opacity-50">Banner</p><ProductCard type="Banner" imageUrl={SAMPLE_BANNER_IMG} bannerSubtitle="최대 30%" bannerTag="바로가기" /></div>
-      <div><p className="text-[10px] mb-[4px] opacity-50">Upcoming</p><ProductCard type="Upcoming" imageUrl={SAMPLE_BG_IMG} countdown="D-3" openDate="2월 13일" openTime="12:00" title="설 명절 기획전 OPEN" /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">Gifticon</p><ProductCard type="Gifticon" imageUrl={SAMPLE_IMG} brand="스타벅스" title="아이스 아메리카노 Tall" showDiscount discount="30%" price="3,900원" /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">Outbound</p><ProductCard type="Outbound" imageUrl={SAMPLE_IMG} title="신세계 상품권 1만원" showDiscount discount="10%" price="9,000원" showRating rating="4.7" reviewCount="387" showTag pointLabel="540P 적립" /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">DiscountDeal</p><ProductCard type="DiscountDeal" imageUrl={SAMPLE_BG_IMG} title={'치킨 타임은\n60계로'} discount="40%" price="22,200원" timer="23:59:59" /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">DiscountDeal Soldout</p><ProductCard type="DiscountDeal_Soldout" imageUrl={SAMPLE_BG_IMG} title={'치킨 타임은\n60계로'} timer="00:00:00" /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">HotDeal</p><ProductCard type="HotDeal" imageUrl={SAMPLE_BG_IMG} title={'신세계 상품권\n1만원권'} discount="10%" price="9,000원" daysLeft="3일 남음" /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">HotDeal Soldout</p><ProductCard type="HotDeal_Soldout" imageUrl={SAMPLE_BG_IMG} title={'신세계 상품권\n1만원권'} daysLeft="3일 남음" /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">Movie</p><ProductCard type="Movie" imageUrl={SAMPLE_TALL_IMG} brand="하얼빈" filmRating="15" eggRating="97%" bookingRate="예매율 53.95%" rank="1" /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">GifticonOffering</p><ProductCard type="GifticonOffering" imageUrl={SAMPLE_IMG} brand="스타벅스" title="아메리카노 Tall" mdTag="MD 추천" color="Blue" /></div>
+      <div style={{ gridColumn: 'span 2' }}><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">ListRanking</p><ProductCard type="ListRanking" listTitle="TOP 기프티콘" items={[{ imageUrl: '', name: '베스킨라빈스' }, { imageUrl: '', name: '동원참치' }, { imageUrl: '', name: '아기 빨래세제' }, { imageUrl: '', name: '여성 홈웨어' }]} /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">Banner</p><ProductCard type="Banner" imageUrl={SAMPLE_BANNER_IMG} bannerSubtitle="최대 30%" bannerTag="바로가기" /></div>
+      <div><p className="text-[length:var(--typeset-2xs-size)] mb-[4px] opacity-50">Upcoming</p><ProductCard type="Upcoming" imageUrl={SAMPLE_BG_IMG} countdown="D-3" openDate="2월 13일" openTime="12:00" title="설 명절 기획전 OPEN" /></div>
     </div>
   ),
   decorators: [(Story) => <Story />],
