@@ -1,13 +1,19 @@
 import type { ChipMenuProps, EventChipItem } from './ChipMenu.types'
+import imgBera from '../../assets/img-eventchip-bera_16147-35048.png'
+import imgGroupbuy from '../../assets/img-eventchip-groupbuy_16147-35048.png'
+import imgLowest from '../../assets/img-eventchip-lowest_16147-35048.png'
+import imgMovie from '../../assets/img-eventchip-movie_16147-35048.png'
+import imgByprice from '../../assets/img-eventchip-byprice_16147-35048.png'
+import imgOkcashbag from '../../assets/img-eventchip-okcashbag_16147-35048.png'
 
-// ─── Figma CDN 에셋 (node 20327-20543, 7일 만료 — TODO: src/assets/ 로컬 교체 필요) ───
+// ─── 로컬 에셋 (Figma Chip menu, node 16147:35048) ───
 const IMG = {
-  bera:       'https://www.figma.com/api/mcp/asset/5245515e-bb28-49d9-9722-4c4f427a3911',
-  groupbuy:   'https://www.figma.com/api/mcp/asset/2809764e-038d-4ce5-97fa-145411864883',
-  lowest:     'https://www.figma.com/api/mcp/asset/e1575d5f-553c-4db0-94ca-992414c68a72',
-  movie:      'https://www.figma.com/api/mcp/asset/077eb944-2298-470a-b3b2-b93df8d18ac9',
-  byprice:    'https://www.figma.com/api/mcp/asset/726c0572-257a-403b-8956-b4710da40e34',
-  okcashbag:  'https://www.figma.com/api/mcp/asset/006c7c08-80bb-4569-9035-181b77b79e59',
+  bera:      imgBera,
+  groupbuy:  imgGroupbuy,
+  lowest:    imgLowest,
+  movie:     imgMovie,
+  byprice:   imgByprice,
+  okcashbag: imgOkcashbag,
 }
 
 const DEFAULT_ITEMS: EventChipItem[] = [

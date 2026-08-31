@@ -1,8 +1,11 @@
 import type { TopNavBarProps, NavTabItem } from './TopNavBar.types'
 
-// ─── Figma CDN 에셋 (7일 만료 — TODO: src/assets/ 로컬 교체) ───
+import icoNotification from '../../assets/icon-notification_2038-252.svg'
+
+// 로컬 에셋 — OCB PDS 3.0, ico / 24 / notification (node 2038:252)
+
+// TODO: MY쇼핑 아이콘은 아직 Figma에서 원본을 못 찾음 (PDS 파일에 없음)
 const MY_SHOPPING_ICON = 'https://www.figma.com/api/mcp/asset/9a12debd-5f26-460e-98e7-8f72a5e12e5c'
-const NOTIFICATION_ICON = 'https://www.figma.com/api/mcp/asset/afc806a1-f8af-4d27-ba2b-8eaad3bc7176'
 
 const DEFAULT_TABS: NavTabItem[] = [
   { label: '메뉴명' },
@@ -99,7 +102,7 @@ function NavBar({
                   gap: 'var(--top-nav-tab-dot-gap)',
                 }}
               >
-                <span className="text-[14px] leading-[20px] font-bold tracking-[0] whitespace-nowrap text-[var(--primitive-white)]">
+                <span className="text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] font-bold tracking-[0] whitespace-nowrap text-[var(--primitive-white)]">
                   {tab.label}
                 </span>
                 <ActiveDot />
@@ -110,7 +113,7 @@ function NavBar({
                 className="flex items-center justify-center size-full"
                 style={{ paddingTop: 'var(--top-nav-inactive-tab-pt)' }}
               >
-                <span className="text-[14px] leading-[20px] font-normal tracking-[0] whitespace-nowrap text-[var(--primitive-white)] opacity-60">
+                <span className="text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] font-normal tracking-[0] whitespace-nowrap text-[var(--primitive-white)] opacity-60">
                   {tab.label}
                 </span>
               </div>
@@ -131,7 +134,7 @@ function NavBar({
             style={{ paddingTop: 'var(--top-nav-inactive-tab-pt)' }}
           >
             <div className="flex items-center" style={{ gap: '1px' }}>
-              <span className="text-[14px] leading-[20px] font-normal tracking-[0] whitespace-nowrap text-[var(--primitive-white)] opacity-60">
+              <span className="text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] font-normal tracking-[0] whitespace-nowrap text-[var(--primitive-white)] opacity-60">
                 {trailingTab.label}
               </span>
               <GotoChevron />
@@ -165,7 +168,7 @@ function TopAppbar({
     >
       {/* 타이틀 영역 — flex-[1_0_0] + min-w-px (Figma 스펙) */}
       <div className="flex flex-[1_0_0] items-center min-w-px">
-        <p className="flex-[1_0_0] min-w-px text-[20px] leading-[28px] font-bold tracking-[0] text-[var(--primitive-white)] overflow-hidden text-ellipsis whitespace-nowrap">
+        <p className="flex-[1_0_0] min-w-px text-[length:var(--typeset-2xl-size)] leading-[var(--typeset-2xl-lh)] font-bold tracking-[0] text-[var(--primitive-white)] overflow-hidden text-ellipsis whitespace-nowrap">
           {title}
         </p>
       </div>
@@ -197,7 +200,7 @@ function TopAppbar({
         </div>
       </button>
 
-      {/* 알림 아이콘 — 40×40 touch target, 24×24 icon, inset % 포지셔닝 */}
+      {/* 알림 아이콘 — 40×40 touch target, 24×24 풀프레임 아이콘 */}
       <button
         type="button"
         onClick={onNotificationClick}
@@ -209,14 +212,12 @@ function TopAppbar({
           className="relative shrink-0"
           style={{ width: 'var(--top-appbar-icon-size)', height: 'var(--top-appbar-icon-size)' }}
         >
-          <div className="absolute" style={{ inset: '8.98% 11.14% 13% 12.11%' }}>
-            <img
-              src={NOTIFICATION_ICON}
-              alt=""
-              aria-hidden
-              className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-            />
-          </div>
+          <img
+            src={icoNotification}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full pointer-events-none"
+          />
         </div>
       </button>
     </div>

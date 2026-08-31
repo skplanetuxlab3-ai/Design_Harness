@@ -1,23 +1,21 @@
 import type { BottomNavBarProps, BottomNavItem, BottomNavIconLayer } from './BottomNavBar.types'
 
-// ─── Figma CDN 에셋 (node 20312-39617, 7일 만료 — TODO: src/assets/ 로컬 교체) ───
-const ICO_APPTECH      = 'https://www.figma.com/api/mcp/asset/4d73e3f5-fe62-4b85-83e4-b944ca62eb36'
-const ICO_WALLET       = 'https://www.figma.com/api/mcp/asset/e93569b5-8a31-4747-8788-22675dc75c41'
-const ICO_HOME         = 'https://www.figma.com/api/mcp/asset/e254e0f0-018c-4b19-8476-c3ec4ac34271'
-const ICO_SHOP_BODY    = 'https://www.figma.com/api/mcp/asset/64c54a5b-0759-4291-8dc8-113da8f13221'
-const ICO_SHOP_HANDLE  = 'https://www.figma.com/api/mcp/asset/ca3f26da-cb97-4a7e-befd-a9a4d0fc7ea1'
-const ICO_ALLMENU      = 'https://www.figma.com/api/mcp/asset/fbe85f06-f313-4a9b-8e1e-6c51f5a5efbd'
+import icoApptech from '../../assets/icon-apptech_1472-11343.svg'
+import icoWallet from '../../assets/icon-wallet_1472-11343.svg'
+import icoHome from '../../assets/icon-home_1472-11343.svg'
+import icoShopping from '../../assets/icon-shopping_1472-11343.svg'
+import icoAllmenu from '../../assets/icon-allmenu_1472-11343.svg'
 
-// Figma 24px 박스 내 정확한 inset 적용
+// ─── 로컬 에셋 (Figma bottom_appbar, node 1472:11343) ───
+// 전부 24×24 풀프레임 SVG라 inset 보정이 필요 없다.
+// (기존 CDN 에셋은 잘린 조각이라 inset으로 위치를 맞춰야 했다)
+
 export const DEFAULT_BOTTOM_NAV_ITEMS: BottomNavItem[] = [
-  { label: '적립', icon: [{ src: ICO_APPTECH, inset: '8.33% 10.42% 10.42% 8.33%' }] },
-  { label: '사용', icon: [{ src: ICO_WALLET }] },
-  { label: '홈',   icon: [{ src: ICO_HOME, inset: '7.71% 9.38% 9.38% 9.38%' }] },
-  { label: '쇼핑', icon: [
-    { src: ICO_SHOP_BODY, inset: '5.21% 32.81% 60.11% 32.8%', innerInset: '-6.01% -6.06%' },
-    { src: ICO_SHOP_HANDLE, inset: '25% 12.51% 12.5% 12.49%' },
-  ] },
-  { label: '메뉴', icon: [{ src: ICO_ALLMENU, inset: '9.38% 13.07% 13.07% 9.38%' }] },
+  { label: '적립', icon: [{ src: icoApptech }] },
+  { label: '사용', icon: [{ src: icoWallet }] },
+  { label: '홈',   icon: [{ src: icoHome }] },
+  { label: '쇼핑', icon: [{ src: icoShopping }] },
+  { label: '메뉴', icon: [{ src: icoAllmenu }] },
 ]
 
 function IconLayer({ layer }: { layer: BottomNavIconLayer }) {
