@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-01T07:19:14.307Z",
+  "generated": "2026-09-01T07:24:17.962Z",
   "note": "기존 부채 스냅샷. 신규 위반만 차단하기 위한 기준선. 부채를 갚으면 --write-baseline 으로 갱신.",
-  "total": 335,
+  "total": 337,
   "bySeverity": {
     "error": 81,
     "warn": 190,
-    "info": 64
+    "info": 66
   },
   "counts": {
     "src/App.tsx|inline-style-px|: '44px'": 2,
@@ -112,6 +112,7 @@
     "src/components/GroupbuyingHome/GroupbuyingHome.tsx|inline-style-px|: '14px'": 1,
     "src/components/GroupbuyingHome/GroupbuyingHome.tsx|inline-style-px|: '60px'": 1,
     "src/components/GroupbuyingHome/GroupbuyingHome.tsx|arbitrary-px|h-[12px]": 1,
+    "src/components/JeoklipHome/JeoklipHome.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/NotificationSetting/NotificationSetting.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/OrderHistoryCard/OrderHistoryCard.stories.tsx|inline-style-px|: '16px'": 1,
     "src/components/OrderHistoryCard/OrderHistoryCard.stories.tsx|inline-style-px|: '375px'": 1,
@@ -173,6 +174,7 @@
     "src/components/PromoBanner/PromoBanner.tsx|tailwind-numeric-scale|w-0": 2,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|gap-3": 1,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|p-4": 1,
+    "src/components/SearchInput/SearchInput.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/SectionTitle/SectionTitle.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/ShoppingHome/ShoppingHome.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/ShoppingHome/ShoppingHome.tsx|inline-style-px|: '20px'": 1,

@@ -5,6 +5,7 @@ import GroupbuyingHome from './components/GroupbuyingHome/GroupbuyingHome'
 import TodayDealHome from './components/TodayDealHome/TodayDealHome'
 import EcouponHome from './components/EcouponHome/EcouponHome'
 import JeoklipHome from './components/JeoklipHome'
+import ScrollPromptBanner from './components/ScrollPromptBanner'
 import CategorySheet from './components/CategorySheet'
 import BottomNavBar from './components/BottomNavBar'
 
@@ -100,6 +101,27 @@ export default function App() {
             </div>
           )}
         </div>
+
+        {/* Bottom group 19550:129843 — 적립쇼핑에만 뜨는 하단 오버레이 */}
+        {activeTab === 1 && (
+          <>
+            <div
+              className="pointer-events-none absolute left-0 right-0"
+              style={{
+                bottom: 'var(--bottom-appbar-h, 56px)',
+                height: 'var(--scroll-fade-h)',
+                background: 'var(--scroll-fade-gradient)',
+              }}
+              aria-hidden
+            />
+            <div
+              className="absolute left-1/2 -translate-x-1/2"
+              style={{ bottom: 'var(--scroll-prompt-bottom)' }}
+            >
+              <ScrollPromptBanner />
+            </div>
+          </>
+        )}
 
         {/* 하단 네비게이션 */}
         <BottomNavBar activeIndex={3} />

@@ -597,6 +597,23 @@
   --brand-pill-px:         5px;                /* 코드 결정 · Figma 변수 없음 */
   --brand-pill-r:          var(--radius-350);
 
+  /* 스크롤 유도 배너 (Scroll Prompt Banner 19550:129846) */
+  --scroll-prompt-px:      var(--products-spacing-16);
+  --scroll-prompt-py:      var(--products-spacing-08);
+  --scroll-prompt-r:       var(--radius-max);
+  --scroll-prompt-icon:    20px;               /* ico / 20 — 코드 결정 · Figma 변수 없음 */
+  --scroll-prompt-bottom:  80px;               /* bottom_appbar 높이만큼 띄운다 — 코드 결정 · Figma 변수 없음 */
+  --scroll-fade-h:         100px;              /* 하단 페이드 그라디언트 — 코드 결정 · Figma 변수 없음 */
+
+  /* 검색 입력 (search_input 19550:129839) */
+  --search-input-r:         var(--radius-150);
+  --search-input-pl:        var(--products-spacing-16);
+  --search-input-pr:        var(--products-spacing-12);
+  --search-input-py:        var(--products-spacing-08);
+  --search-input-gap:       var(--products-spacing-08);
+  --search-input-icon-area: 32px;               /* 코드 결정 · Figma 변수 없음 */
+  --search-input-icon:      28px;               /* ico / 28 / search — 코드 결정 · Figma 변수 없음 */
+
   /* 스탬프 카드 */
   --stampcard-gap:       var(--products-spacing-08);
   --stampcard-pb:        var(--products-spacing-10);
