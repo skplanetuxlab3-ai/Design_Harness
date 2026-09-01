@@ -125,6 +125,7 @@ npm run design:ci                    # CI용 — warn도 실패 처리
 npm run design:apply -- <경로> --only '<정규식>'   # 확신 추천을 실제로 치환 (--dry-run 지원)
 npm run design:assets                # 만료된 Figma 에셋 전수 조사 (--md / --json)
 npm run design:structure             # §2 4파일 규칙 검사
+npm run design:drift                 # Figma 변수 ↔ 레포 토큰 값 대조
 npm run design:qa                    # 전체 품질 검사 (아래 참조)
 npm run storybook                    # Storybook 개발 서버 (포트 6006)
 npm run build-storybook              # Storybook 정적 빌드
@@ -143,6 +144,7 @@ npm run design:qa [-- --skip-storybook]
 | 타입 + 빌드 | `tsc -b` + `vite build`. `tsc --noEmit` 보다 엄격 — 미사용 변수를 잡는다 |
 | 디자인 토큰 | 기준선 대비 신규 위반 + 접근성(§6) |
 | 컴포넌트 구조 | §2 — 1컴포넌트 = 4파일 |
+| 토큰 드리프트 | Figma 변수 스냅샷과 레포 토큰 값 대조 |
 | Storybook 빌드 | 96개 스토리가 실제로 컴파일되는지 |
 
 **§2 예외**: `*Home` 화면 조합 4개는 재사용 컴포넌트가 아니라
@@ -179,6 +181,35 @@ npm run design:qa [-- --skip-storybook]
 
 > 참고: 여러 명이 동시에 부채를 갚으면 이 파일이 충돌한다. 그때는 머지하지 말고 재생성해야 한다.
 > 다만 **현재는 단독 작업 중이라 이 이슈는 유예 상태다** (2026-08-31). 협업 시작 시 다시 볼 것.
+
+### 토큰 드리프트 검사 — Figma 가 바뀌었는데 코드가 안 따라간 경우
+
+`src/tokens/*.css` 헤더에 "Generated: auto" 라고 적혀 있지만 **생성기는 없다.**
+만들 수도 없다 — `get_variable_defs` 는 **노드가 쓰는 변수만** 돌려주므로 전체 컬렉션을
+한 번에 못 받고, 지금 토큰 파일에는 손으로 쓴 레이어 구조·섹션 주석·한글 설명이 들어 있어
+통째로 덮어쓰면 그게 다 날아간다.
+
+그래서 재생성 대신 **검사**한다. 값이 어긋난 것만 잡고, 고치는 건 사람이 판단한다.
+
+```bash
+npm run design:drift
+```
+
+**스냅샷은 에이전트가 채운다.** 스크립트는 MCP 를 호출할 수 없으므로,
+Figma 작업을 할 때 `get_variable_defs` 결과를 `scripts/figma-vars/<이름>.json` 에 저장한다.
+
+```json
+{ "_source": "... 노드 ID", "_captured": "2026-08-31",
+  "color/black/black200": "#626262", "radius/radius050": "4" }
+```
+
+이름 대응은 세 단계로 푼다:
+1. `scripts/figma-token-map.json` 예외표 — 이름과 값이 어긋나는 것들
+   (`products/radius/radius06` → `--products-radius-8`, `products/spacing08` → `--products-spacing-10`)
+2. **토큰 CSS 주석에 적힌 Figma 경로** — 315개가 이미 박혀 있어 이게 주 매핑 소스다.
+   앞으로 토큰을 추가할 때도 `/* color/black/black200 */` 형태로 경로를 남길 것.
+3. 규칙 유추 — `a/b/c` → `--a-b-c`, `typeset_{step}_{weight}/{prop}` → `--typeset-{step}-{prop}`
+   (레포는 weight 를 접어서 bold·regular 가 같은 size 토큰을 공유한다)
 
 ### 토큰 소스 건강 검사 (스캔 전 선행)
 

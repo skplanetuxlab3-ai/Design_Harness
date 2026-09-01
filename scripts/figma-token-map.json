@@ -1,0 +1,23 @@
+{
+  "_note": "Figma 변수 경로 → 레포 토큰. 자동 유추(주석·규칙)로 안 풀리는 것만 여기 적는다. 이름과 값이 어긋나는 경우가 실제로 있다.",
+  "products/radius/radius06": "--products-radius-8",
+  "products/spacing08": "--products-spacing-10",
+  "color/shopping/white": "--primitive-white",
+  "color/white": "--primitive-white",
+  "color/shopping/black": "--primitive-black",
+  "color/shopping/sp_black": "--primitive-sp-black",
+  "color/shopping/sp_pink": "--primitive-sp-pink",
+  "color/shopping/sp_yellow": "--primitive-sp-yellow",
+  "color/shopping/red": "--color-brand-ocb-pink",
+  "color/brand/ocb_pink": "--color-brand-ocb-pink",
+  "color/brand/primary": "--color-brand-primary",
+  "top_appbar/divider": "--primitive-black-800",
+  "scrim/thumbnail_border": "--primitive-shopping-border",
+  "color/shopping/opacity/black50": "--primitive-shopping-border",
+  "filled/primary/surface": "--filled-primary-surface",
+  "filled/primary/label": "--primitive-white",
+  "elevation/glow/position y": "--elevation-glow-y",
+  "elevation/glow/position x": "--elevation-glow-x",
+  "color/shopping/SP_yellow": "--primitive-sp-yellow",
+  "color/shopping/SP_pink": "--primitive-sp-pink"
+}

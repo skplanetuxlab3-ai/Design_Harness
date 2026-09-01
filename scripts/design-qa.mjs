@@ -28,6 +28,7 @@ const CHECKS = [
   { name: '타입 + 빌드', cmd: 'npm', args: ['run', 'build'], why: 'tsc -b 는 미사용 변수까지 잡는다 (tsc --noEmit 보다 엄격)' },
   { name: '디자인 토큰', cmd: process.execPath, args: ['scripts/scan-hardcode.mjs', 'src', '--baseline'], why: '기준선 대비 신규 하드코딩·토큰 위반·접근성(§6)' },
   { name: '컴포넌트 구조', cmd: process.execPath, args: ['scripts/check-structure.mjs'], why: 'CLAUDE.md §2 — 1컴포넌트 = 4파일' },
+  { name: '토큰 드리프트', cmd: process.execPath, args: ['scripts/check-token-drift.mjs'], why: 'Figma 변수 스냅샷과 레포 토큰 값 대조' },
 ]
 if (!skipSB) {
   CHECKS.push({ name: 'Storybook 빌드', cmd: 'npm', args: ['run', 'build-storybook'], why: '96개 스토리가 실제로 컴파일되는지' })
