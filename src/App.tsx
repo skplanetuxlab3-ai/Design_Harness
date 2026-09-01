@@ -2,20 +2,17 @@ import { useState } from 'react'
 import TopNavBar from './components/TopNavBar'
 import ShoppingHome from './components/ShoppingHome/ShoppingHome'
 import GroupbuyingHome from './components/GroupbuyingHome/GroupbuyingHome'
-import TodayDealHome from './components/TodayDealHome/TodayDealHome'
 import EcouponHome from './components/EcouponHome/EcouponHome'
 import JeoklipHome from './components/JeoklipHome'
 import ScrollPromptBanner from './components/ScrollPromptBanner'
 import CategorySheet from './components/CategorySheet'
 import BottomNavBar from './components/BottomNavBar'
 
-// Figma SP08_적립쇼핑 (19550:129755) 의 탭 구성은 추천·적립쇼핑·공동구매·e쿠폰·영화티켓 이다.
-// 오늘특가가 빠져 있으나 TodayDealHome 이 살아 있으므로 지우지 않고 뒤에 둔다.
+// Figma SP08_적립쇼핑 (19550:129755) 기준. 마지막 항목은 Trailing BTN 으로 렌더된다.
 const SHOPPING_TABS = [
   { label: '추천' },
   { label: '적립쇼핑', sublabel: 'NEW' },
   { label: '공동구매', sublabel: '최저가' },
-  { label: '오늘특가' },
   { label: 'e쿠폰' },
   { label: '영화티켓', sublabel: '4천원 할인' },
 ]
@@ -83,8 +80,6 @@ export default function App() {
           ) : activeTab === 2 ? (
             <GroupbuyingHome />
           ) : activeTab === 3 ? (
-            <TodayDealHome />
-          ) : activeTab === 4 ? (
             <EcouponHome onExpandCategory={() => setCatSheetOpen(true)} />
           ) : (
             /* 다른 탭 플레이스홀더 */
