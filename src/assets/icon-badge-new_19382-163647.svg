@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="badge / notification / new">
+<rect x="0.5" y="0.5" width="13" height="13" rx="6.5" fill="#FE0955"/>
+<rect x="0.5" y="0.5" width="13" height="13" rx="6.5" stroke="white"/>
+<path id="N" d="M5.70524 10.0625V6.03245L8.29476 10.0625H9.625V3.9375H8.2992V7.97596L5.70524 3.9375H4.375V10.0625H5.70524Z" fill="white"/>
+</g>
+</svg>

@@ -574,6 +574,22 @@
   --point-summary-gap:   var(--products-spacing-16);
   --point-summary-num-gap: var(--products-spacing-06);
 
+  /* 브랜드 바로가기 (brand_shortcut 18894:161635 / brand_list_item 19550:129832) */
+  --brand-shortcut-gap:    var(--products-spacing-16);
+  --brand-shortcut-logo:   48px;               /* 코드 결정 · Figma 변수 없음 */
+  --brand-shortcut-logo-r: var(--radius-200);
+  --brand-shortcut-w:      193px;              /* 코드 결정 · Figma 변수 없음 */
+  --brand-shortcut-row-gap: 18px;              /* 코드 결정 · Figma 변수 없음 */
+  --brand-col-w:           224px;              /* 1column / 2column 폭 — 코드 결정 · Figma 변수 없음 */
+  --brand-col-gap:         26px;               /* 코드 결정 · Figma 변수 없음 */
+  --brand-new-badge:       16px;               /* 코드 결정 · Figma 변수 없음 */
+  --brand-new-badge-icon:  14px;               /* 코드 결정 · Figma 변수 없음 */
+  --brand-fav-size:        20px;               /* 코드 결정 · Figma 변수 없음 */
+  --brand-fav-left:        34px;               /* 코드 결정 · Figma 변수 없음 */
+  --brand-fav-top:         -6px;               /* 코드 결정 · Figma 변수 없음 */
+  --brand-pill-px:         5px;                /* 코드 결정 · Figma 변수 없음 */
+  --brand-pill-r:          var(--radius-350);
+
   /* 스탬프 카드 */
   --stampcard-gap:       var(--products-spacing-08);
   --stampcard-pb:        var(--products-spacing-10);

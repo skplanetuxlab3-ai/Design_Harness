@@ -48,6 +48,8 @@ function NavBar({
         <Tab
           key={i}
           label={tab.label}
+          sublabel={tab.sublabel}
+          showSubLabel={!!tab.sublabel}
           active={activeIndex === i}
           fill
           onClick={() => onTabChange?.(i)}
@@ -58,6 +60,8 @@ function NavBar({
         <Tab
           type="Icon"
           label={trailingTab.label}
+          sublabel={trailingTab.sublabel}
+          showSubLabel={!!trailingTab.sublabel}
           active={false}
           fill
           onClick={() => onMoreClick?.()}

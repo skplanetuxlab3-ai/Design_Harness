@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-01T07:10:07.421Z",
+  "generated": "2026-09-01T07:16:17.525Z",
   "note": "기존 부채 스냅샷. 신규 위반만 차단하기 위한 기준선. 부채를 갚으면 --write-baseline 으로 갱신.",
-  "total": 335,
+  "total": 337,
   "bySeverity": {
     "error": 83,
     "warn": 190,
-    "info": 62
+    "info": 64
   },
   "counts": {
     "src/App.tsx|inline-style-px|: '44px'": 2,
@@ -59,6 +59,7 @@
     "src/components/BottomNavBar/BottomNavBar.stories.tsx|arbitrary-px|gap-[24px]": 1,
     "src/components/BottomNavBar/BottomNavBar.stories.tsx|arbitrary-px|mb-[4px]": 1,
     "src/components/BottomNavBar/BottomNavBar.tsx|tailwind-numeric-scale|w-0": 1,
+    "src/components/BrandShortcutList/BrandShortcutList.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/BrandsFilter/BrandsFilter.stories.tsx|inline-style-px|: '360px'": 1,
     "src/components/BrandsFilter/BrandsFilter.tsx|expiring-figma-asset|https://www.figma.com/api/mcp/asset/38e528ec-c6eb-477c-81d5-7f9c8a04ffeb": 1,
     "src/components/BrandsFilter/BrandsFilter.tsx|fixed-px-width|w-[64px]": 1,
@@ -173,6 +174,7 @@
     "src/components/PromoBanner/PromoBanner.tsx|tailwind-numeric-scale|w-0": 2,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|gap-3": 1,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|p-4": 1,
+    "src/components/SectionTitle/SectionTitle.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/ShoppingHome/ShoppingHome.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/ShoppingHome/ShoppingHome.tsx|inline-style-px|: '20px'": 1,
     "src/components/SocialDealCard/SocialDealCard.tsx|expiring-figma-asset|https://www.figma.com/api/mcp/asset/455e3aaa-0d2f-42a5-8036-8e3039d94009": 1,

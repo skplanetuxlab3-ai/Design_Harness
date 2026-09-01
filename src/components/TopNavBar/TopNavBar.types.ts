@@ -2,6 +2,8 @@ export type TopNavBarVariant = 'Default' | 'Scroll'
 
 export interface NavTabItem {
   label: string
+  /** Figma `SubLabel` — 탭 위에 뜨는 핑크 문구 (NEW / 최저가 / 4천원 할인) */
+  sublabel?: string
 }
 
 export interface TopNavBarProps {

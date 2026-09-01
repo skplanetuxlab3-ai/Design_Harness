@@ -8,12 +8,15 @@ import JeoklipHome from './components/JeoklipHome'
 import CategorySheet from './components/CategorySheet'
 import BottomNavBar from './components/BottomNavBar'
 
+// Figma SP08_적립쇼핑 (19550:129755) 의 탭 구성은 추천·적립쇼핑·공동구매·e쿠폰·영화티켓 이다.
+// 오늘특가가 빠져 있으나 TodayDealHome 이 살아 있으므로 지우지 않고 뒤에 둔다.
 const SHOPPING_TABS = [
   { label: '추천' },
-  { label: '공동구매' },
+  { label: '적립쇼핑', sublabel: 'NEW' },
+  { label: '공동구매', sublabel: '최저가' },
   { label: '오늘특가' },
   { label: 'e쿠폰' },
-  { label: '영화티켓' },
+  { label: '영화티켓', sublabel: '4천원 할인' },
 ]
 
 function StatusBar() {
@@ -37,8 +40,6 @@ function StatusBar() {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState(0)
-  // 하단 네비 — 0=적립 / 3=쇼핑. 적립은 쇼핑 하위 탭이 아니라 별도 화면(SP08)이다.
-  const [navTab, setNavTab] = useState(3)
   const [catSheetOpen, setCatSheetOpen] = useState(false)
 
   return (
@@ -56,16 +57,6 @@ export default function App() {
         {/* 상태바 */}
         <StatusBar />
 
-        {navTab === 0 ? (
-          /* 적립쇼핑 — 자체 헤더를 가진 별도 화면 */
-          <div
-            className="flex-1 overflow-y-auto"
-            style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' } as React.CSSProperties}
-          >
-            <JeoklipHome />
-          </div>
-        ) : (
-        <>
         {/* TopNavBar — 하네스 컴포넌트 */}
         <TopNavBar
           variant="Default"
@@ -87,10 +78,12 @@ export default function App() {
           {activeTab === 0 ? (
             <ShoppingHome />
           ) : activeTab === 1 ? (
-            <GroupbuyingHome />
+            <JeoklipHome />
           ) : activeTab === 2 ? (
-            <TodayDealHome />
+            <GroupbuyingHome />
           ) : activeTab === 3 ? (
+            <TodayDealHome />
+          ) : activeTab === 4 ? (
             <EcouponHome onExpandCategory={() => setCatSheetOpen(true)} />
           ) : (
             /* 다른 탭 플레이스홀더 */
@@ -107,11 +100,9 @@ export default function App() {
             </div>
           )}
         </div>
-        </>
-        )}
 
         {/* 하단 네비게이션 */}
-        <BottomNavBar activeIndex={navTab} onSelect={setNavTab} />
+        <BottomNavBar activeIndex={3} />
 
         {/* 카테고리별 브랜드 바텀시트 (e쿠폰 펼치기) */}
         <CategorySheet open={catSheetOpen} onClose={() => setCatSheetOpen(false)} />
