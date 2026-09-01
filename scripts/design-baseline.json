@@ -1,10 +1,10 @@
 {
-  "generated": "2026-09-01T04:33:25.006Z",
+  "generated": "2026-09-01T04:37:01.858Z",
   "note": "기존 부채 스냅샷. 신규 위반만 차단하기 위한 기준선. 부채를 갚으면 --write-baseline 으로 갱신.",
-  "total": 332,
+  "total": 331,
   "bySeverity": {
     "error": 83,
-    "warn": 190,
+    "warn": 189,
     "info": 59
   },
   "counts": {
@@ -164,7 +164,6 @@
     "src/components/ProductCard/ProductCard.tsx|arbitrary-px|tracking-[-0.3px]": 1,
     "src/components/ProductCard/ProductCard.tsx|arbitrary-px|h-[30px]": 2,
     "src/components/ProductCard/ProductCard.tsx|fixed-px-width|w-[100px]": 2,
-    "src/components/ProductCard/ProductCard.tsx|arbitrary-px|tracking-[-0.5px]": 1,
     "src/components/ProductCard/ProductCard.tsx|arbitrary-px|size-[120px]": 1,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|gap-3": 1,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|p-4": 1,

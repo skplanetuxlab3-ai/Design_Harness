@@ -547,7 +547,7 @@ function BannerCard({
             <img src={bannerTitleImage} alt="배너 제목" className="h-[30px] w-[100px] object-contain" />
           ) : (
             <div className="h-[30px] w-[100px] flex items-center justify-center">
-              <span className="text-[length:var(--typeset-xl-size)] font-bold text-[var(--primitive-blueblack)] tracking-[-0.5px]">
+              <span className="text-[length:var(--typeset-xl-size)] font-bold text-[var(--primitive-blueblack)] tracking-[var(--typeset-xl-tracking)]">
                 쇼핑적립
               </span>
             </div>
