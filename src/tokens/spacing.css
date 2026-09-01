@@ -49,6 +49,7 @@
   --top-nav-tab-pt:             12px;   /* top_nav/active_tab/padding_top */
   --top-nav-tab-pb:             5px;    /* top_nav/active_tab/padding_bottom */
   --top-nav-tab-dot-gap:        2px;    /* top_nav/tab/dot_gap (레이블 ↔ 도트) */
+  --top-nav-tab-dot-size:       3px;    /* ActiveDot 지름 — Figma ellipse 2474:69982 (3×3) · Figma 변수 없음, 코드 결정 */
   --top-nav-inactive-tab-pt:    2px;    /* top_nav/inactive_tab/padding_top */
   --top-nav-trailing-icon-size: 12px;   /* top_nav/trailing_btn/icon_size */
 

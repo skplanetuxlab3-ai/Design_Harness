@@ -173,7 +173,7 @@ npm run design:qa [-- --skip-storybook]
 
 ### 기준선(baseline)
 
-`scripts/design-baseline.json`에 **기존 부채 486건**이 기록되어 있다.
+`scripts/design-baseline.json`에 **기존 부채 324건**이 기록되어 있다.
 `--baseline` 플래그는 이 목록을 무시하고 **신규 위반만** 보고한다.
 부채를 갚으면서 기준선을 줄여나가는 래칫(ratchet) 구조다.
 
@@ -331,6 +331,8 @@ Claude가 `src/**/*.tsx`를 수정할 때마다 그 파일을 스캔하고, 기�
 | DiscountDeal_Soldout ver=02 | `19665:336915` | |
 | 타이머 Flag | `18562:125857` | |
 | `❖ Blocks` (PDS) | `2022:226` | `ico / 24 / notification` = `2038:252` |
+| `Elements / Tab` | `2220:97063` | **탭 variant 4종** (Type=Basic\|Icon × State=active\|inactive) |
+| `Navigation bar` | `2474:116649` | Tab 인스턴스 4개 + Trailing BTN(`2474:116630`) |
 
 ⚠️ `쇼핑` 페이지(`1401:42907`)는 메타데이터가 너무 커서 `get_metadata` 가 실패한다.
 컴포넌트 페이지 덤프를 grep 하는 쪽이 빠르다.
@@ -356,6 +358,19 @@ Claude가 `src/**/*.tsx`를 수정할 때마다 그 파일을 스캔하고, 기�
 
 ⚠️ 배지 안의 로고 `<img>`에는 **`shrink-0` 이 필수**다. preflight 의 `img{max-width:100%}` 가
 너비가 확정되지 않은 컨테이너(feed 배지)에서 0으로 해석돼 로고가 사라진다.
+
+### Tab — 탭은 하나다 (2026-09-01 결정)
+
+`Elements / Tab`(`2220:97063`)이 **유일한** 탭 컴포넌트다. variant 는 4종뿐이고,
+`Navigation bar`(`2474:116649`)는 이 컴포넌트의 인스턴스 4개 + Trailing BTN 으로 조립된다.
+Trailing BTN(`2474:116630`)도 별도 컴포넌트가 아니라 **Tab 의 Type=Icon 인스턴스**다.
+
+그래서 `TopNavBar` 는 탭을 자체 구현하지 않고 `<Tab>` 을 렌더한다.
+
+⚠️ **활성 인디케이터 점은 흰색(#ffffff)이다.** `TopNavBar` 가 갖고 있던 인라인 `ActiveDot` 은
+`--color-brand-ocb-pink` 를 썼지만 **Figma 에 그런 variant 는 없다** — 렌더 PNG 픽셀을 재서 확인했다
+(ActiveDot `2474:69982`, 3×3, `#ffffff`). 핑크는 드리프트였고 제거했다.
+OCB 핑크가 쓰이는 곳은 `Alert` 배지(8×8)와 `SubLabel` 뿐이다.
 
 ### CheckoutPanel — 2026-05 개편 (Figma 결제화면 섹션 4972:30276)
 

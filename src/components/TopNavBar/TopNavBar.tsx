@@ -1,5 +1,6 @@
 import type { TopNavBarProps, NavTabItem } from './TopNavBar.types'
 
+import Tab from '../Tab'
 import icoNotification from '../../assets/icon-notification_2038-252.svg'
 
 // 로컬 에셋 — OCB PDS 3.0, ico / 24 / notification (node 2038:252)
@@ -15,49 +16,9 @@ const DEFAULT_TABS: NavTabItem[] = [
   { label: '메뉴명' },
 ]
 
-// ─── Active 탭 언더 도트 ────────────────────────────────────────
-function ActiveDot() {
-  return (
-    <div
-      className="shrink-0 size-[3px] rounded-full"
-      style={{ backgroundColor: 'var(--color-brand-ocb-pink)' }}
-      aria-hidden
-    />
-  )
-}
-
-// ─── Goto chevron (Trailing BTN 전용, 12×12) ───────────────────
-function GotoChevron() {
-  return (
-    <div
-      className="shrink-0 opacity-60 overflow-clip"
-      style={{
-        width: 'var(--top-nav-trailing-icon-size)',
-        height: 'var(--top-nav-trailing-icon-size)',
-      }}
-      aria-hidden
-    >
-      <svg
-        width="9"
-        height="10"
-        viewBox="0 0 9 10"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ display: 'block', margin: '1px 1.5px' }}
-      >
-        <path
-          d="M3 2L6.5 5L3 8"
-          stroke="white"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </div>
-  )
-}
-
 // ─── 탭 바 ─────────────────────────────────────────────────────
+// Figma `Navigation bar` (2474:116649) = Tab 인스턴스 4개 + Trailing BTN.
+// Trailing BTN(2474:116630)은 Tab 의 Type=Icon variant 인스턴스다 — 별도 구현이 아니다.
 function NavBar({
   tabs,
   activeIndex,
@@ -74,6 +35,7 @@ function NavBar({
 
   return (
     <div
+      role="tablist"
       className="flex items-center overflow-hidden w-full"
       style={{
         height: 'var(--top-nav-bar-height)',
@@ -82,65 +44,24 @@ function NavBar({
         gap: 'var(--top-nav-tab-gap)',
       }}
     >
-      {/* 일반 탭 */}
-      {regularTabs.map((tab, i) => {
-        const isActive = activeIndex === i
-        return (
-          <button
-            key={i}
-            type="button"
-            onClick={() => onTabChange?.(i)}
-            className="flex-1 h-full min-w-0"
-          >
-            {isActive ? (
-              /* Active: flex-col, label + dot 스택 */
-              <div
-                className="flex flex-col items-center size-full"
-                style={{
-                  paddingTop: 'var(--top-nav-tab-pt)',
-                  paddingBottom: 'var(--top-nav-tab-pb)',
-                  gap: 'var(--top-nav-tab-dot-gap)',
-                }}
-              >
-                <span className="text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] font-bold tracking-[0] whitespace-nowrap text-[var(--primitive-white)]">
-                  {tab.label}
-                </span>
-                <ActiveDot />
-              </div>
-            ) : (
-              /* Inactive: flex-row, 중앙 정렬 */
-              <div
-                className="flex items-center justify-center size-full"
-                style={{ paddingTop: 'var(--top-nav-inactive-tab-pt)' }}
-              >
-                <span className="text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] font-normal tracking-[0] whitespace-nowrap text-[var(--primitive-white)] opacity-60">
-                  {tab.label}
-                </span>
-              </div>
-            )}
-          </button>
-        )
-      })}
+      {regularTabs.map((tab, i) => (
+        <Tab
+          key={i}
+          label={tab.label}
+          active={activeIndex === i}
+          fill
+          onClick={() => onTabChange?.(i)}
+        />
+      ))}
 
-      {/* Trailing BTN */}
       {trailingTab && (
-        <button
-          type="button"
-          onClick={onMoreClick}
-          className="flex-1 h-full min-w-0"
-        >
-          <div
-            className="flex items-center justify-center size-full"
-            style={{ paddingTop: 'var(--top-nav-inactive-tab-pt)' }}
-          >
-            <div className="flex items-center" style={{ gap: '1px' }}>
-              <span className="text-[length:var(--typeset-md-size)] leading-[var(--typeset-md-lh)] font-normal tracking-[0] whitespace-nowrap text-[var(--primitive-white)] opacity-60">
-                {trailingTab.label}
-              </span>
-              <GotoChevron />
-            </div>
-          </div>
-        </button>
+        <Tab
+          type="Icon"
+          label={trailingTab.label}
+          active={false}
+          fill
+          onClick={() => onMoreClick?.()}
+        />
       )}
     </div>
   )

@@ -120,6 +120,18 @@ let checked = 0
 for (const file of readdirSync(SNAP_DIR).filter((f) => f.endsWith('.json')).sort()) {
   const snap = JSON.parse(readFileSync(join(SNAP_DIR, file), 'utf8'))
   const source = basename(file, '.json')
+
+  // 스냅샷은 { _source, _captured, "figma/path": "값", ... } 평탄 구조다.
+  // { variables: {...} } 처럼 감싸면 래퍼 키가 변수 하나로 세어져 --variables 라는
+  // 없는 토큰을 찾는다. 조용히 틀리느니 여기서 멈춘다.
+  const wrapped = Object.entries(snap).find(
+    ([k, v]) => !k.startsWith('_') && v !== null && typeof v === 'object'
+  )
+  if (wrapped) {
+    console.error(`${C.red('✗')} ${file} 형식 오류 — '${wrapped[0]}' 의 값이 객체입니다.`)
+    console.error(C.gray("   스냅샷은 감싸지 않고 평탄해야 합니다: { \"_source\": …, \"figma/path\": \"값\" }"))
+    process.exit(2)
+  }
   for (const [path, figmaVal] of Object.entries(snap)) {
     if (path.startsWith('_')) continue
     // 합성 이펙트(Effect(...))는 값 비교 대상이 아니다

@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-01T04:37:01.858Z",
+  "generated": "2026-09-01T04:43:47.219Z",
   "note": "기존 부채 스냅샷. 신규 위반만 차단하기 위한 기준선. 부채를 갚으면 --write-baseline 으로 갱신.",
-  "total": 331,
+  "total": 324,
   "bySeverity": {
     "error": 83,
-    "warn": 189,
-    "info": 59
+    "warn": 184,
+    "info": 57
   },
   "counts": {
     "src/App.tsx|inline-style-px|: '44px'": 2,
@@ -178,12 +178,9 @@
     "src/components/Tab/Tab.stories.tsx|raw-hex-color|#fafafa": 1,
     "src/components/Tab/Tab.stories.tsx|tailwind-numeric-scale|gap-6": 1,
     "src/components/Tab/Tab.stories.tsx|tailwind-numeric-scale|px-4": 1,
-    "src/components/Tab/Tab.tsx|arbitrary-px|h-[42px]": 1,
-    "src/components/Tab/Tab.tsx|arbitrary-px|pb-[5px]": 1,
-    "src/components/Tab/Tab.tsx|tailwind-numeric-scale|pt-3": 1,
+    "src/components/Tab/Tab.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/Tab/Tab.tsx|arbitrary-px|right-[9px]": 1,
     "src/components/Tab/Tab.tsx|tailwind-numeric-scale|size-2": 1,
-    "src/components/Tab/Tab.tsx|arbitrary-px|size-[3px]": 1,
     "src/components/Tab/Tab.tsx|arbitrary-px|leading-[11px]": 1,
     "src/components/Tag/Tag.stories.tsx|tailwind-numeric-scale|gap-2": 1,
     "src/components/Tag/Tag.stories.tsx|tailwind-numeric-scale|p-4": 1,
@@ -254,9 +251,6 @@
     "src/components/TopBanner/TopBanner.tsx|inline-style-px|: '8px'": 1,
     "src/components/TopNavBar/TopNavBar.stories.tsx|inline-style-px|: '360px'": 1,
     "src/components/TopNavBar/TopNavBar.tsx|expiring-figma-asset|https://www.figma.com/api/mcp/asset/9a12debd-5f26-460e-98e7-8f72a5e12e5c": 1,
-    "src/components/TopNavBar/TopNavBar.tsx|arbitrary-px|size-[3px]": 1,
-    "src/components/TopNavBar/TopNavBar.tsx|tailwind-numeric-scale|w-0": 2,
-    "src/components/TopNavBar/TopNavBar.tsx|inline-style-px|: '1px'": 1,
     "src/components/TopNavBar/TopNavBar.tsx|arbitrary-px|h-[18px]": 1
   }
 }

@@ -51,7 +51,7 @@
           "src/components/Badge/Badge.tsx:77",
           "src/components/Badge/Badge.tsx:78"
         ],
-        "note": "feed=26 / detail=32 쌍. PDS Badge 에 크기 변수가 아예 없어 새 변수군을 만드는 결정이 된다."
+        "note": "feed=26 / detail=32 쌍. PDS Badge 에 크기 변수가 아예 없어 새 변수군을 만드는 결정이 된다. ※ --product-deal-join-h(26px) 가 같은 값을 가리킨다 — ProductCard.tsx:94 는 Figma Badge 인스턴스(0,0 · 45×26)다. 변수를 만들 때 둘을 하나로 합칠 것."
       },
       {
         "token": "--product-deal-tag-h",
@@ -84,12 +84,12 @@
       },
       {
         "token": "--product-deal-join-inset",
-        "px": "7",
+        "px": "8",
         "figma": "products/deal/join_badge/inset",
         "places": [
           "src/components/ProductCard/ProductCard.tsx:34"
         ],
-        "note": "right·top 동일. --product-deal-join-px/py 가족."
+        "note": "right·top 동일. Figma 좌표에서 역산: 카드 162폭, Joining 이 x=112 폭 42 → 오른쪽 8. 코드는 7px 로 되어 있어 1px 어긋난다 (2026-09-01 확인). 변수는 8 로 만들고, 만든 뒤 코드를 8 로 고칠 것."
       }
     ]
   }
