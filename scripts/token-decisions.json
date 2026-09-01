@@ -56,16 +56,6 @@
     "why": "Figma PDS 에 변수를 먼저 만든 뒤 토큰화하기로 한 값들. 그때까지 코드에는 하드코딩으로 남는다. 변수가 생기면 스냅샷에 잡히고, 드리프트 체크가 감시할 수 있게 된다. (2026-09-01 결정)",
     "items": [
       {
-        "token": "--top-nav-tab-dot-size",
-        "px": "3",
-        "figma": "top_nav/active_tab/dot/size",
-        "places": [
-          "src/components/Tab/Tab.tsx:76",
-          "src/components/TopNavBar/TopNavBar.tsx:22"
-        ],
-        "note": "두 곳 모두 size-[3px] rounded-full 인디케이터. --top-nav-tab-dot-gap 이 이미 있다."
-      },
-      {
         "token": "--badge-feed-h",
         "px": "26",
         "figma": "products/badge/feed/height",
