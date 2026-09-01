@@ -19,7 +19,7 @@ const DEFAULT_ITEMS: CategoryItem[] = [
 function ExpandButton({ onClick }: { onClick?: () => void }) {
   return (
     <div
-      className="absolute right-0 top-0 bottom-0 flex items-center pl-[var(--category-expand-fade-pl)] pr-[var(--products-spacing-40)]"
+      className="absolute right-0 top-0 bottom-0 flex items-center pl-[var(--category-expand-fade-pl)] pr-[var(--products-spacing-14)]"
       style={{
         background: 'linear-gradient(to right, rgba(255,255,255,0) 0%, #ffffff 38.571%)',
       }}

@@ -149,7 +149,7 @@ export default function SocialDealCard({
       className={`relative flex flex-col items-center justify-end overflow-clip w-full ${className ?? ''}`}
       style={{
         height: 'var(--socialdeal-card-large-h)',
-        borderRadius: 'var(--products-spacing-50)',
+        borderRadius: 'var(--products-spacing-16)',
       }}
     >
       {/* 배경 이미지 */}

@@ -231,7 +231,7 @@ export default function AIRecommendSection({
       className={className}
     >
       {/* 섹션 헤더 */}
-      <div className="flex flex-col gap-[var(--ai-recommend-header-gap)] px-[var(--spacing-4)] pt-[var(--spacing-4)] pb-[var(--products-spacing-40)]">
+      <div className="flex flex-col gap-[var(--ai-recommend-header-gap)] px-[var(--spacing-4)] pt-[var(--spacing-4)] pb-[var(--products-spacing-14)]">
         {/* AI 배지 */}
         <div
           className="inline-flex items-center gap-[var(--spacing-1)] self-start px-[var(--spacing-2)] py-[var(--ai-recommend-badge-py)] rounded-[var(--radius-max)]"

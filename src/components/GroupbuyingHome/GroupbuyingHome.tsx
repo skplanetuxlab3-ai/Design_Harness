@@ -79,7 +79,7 @@ function ComingSoonCard({ item, center }: { item: typeof COMINGSOON[number]; cen
         style={{
           backgroundColor: 'var(--socialdeal-upcoming-overlay)',
           paddingTop: center ? undefined : '60px',
-          gap: 'var(--products-spacing-40)',
+          gap: 'var(--products-spacing-14)',
         }}
       >
         <div className="flex flex-col items-center w-full" style={{ gap: 'var(--socialdeal-upcoming-date-gap)' }}>

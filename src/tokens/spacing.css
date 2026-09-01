@@ -27,14 +27,20 @@
      ※ 숫자는 Figma 내부 스케일 ID (실제 px값과 다를 수 있음)
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
+  /* Figma 의 products/spacingNN 은 NN 이 곧 픽셀값이다.
+     예전엔 NN 을 단계 인덱스로 오해해 10=8px, 20=10px … 로 적혀 있었다.
+     값은 맞고 이름만 틀렸던 것이라 2026-09-01 에 이름만 정정했다 (렌더 변화 없음). */
   --products-spacing-02:  2px;   /* products/spacing02 */
   --products-spacing-04:  4px;   /* products/spacing04 */
-  --products-spacing-10:  8px;   /* products/spacing10 */
-  --products-spacing-20:  10px;  /* products/spacing20 */
-  --products-spacing-40:  14px;  /* products/spacing40 */
-  --products-spacing-50:  16px;  /* products/spacing50 */
-  --products-spacing-60:  20px;  /* products/spacing60 */
-  --products-spacing-80:  60px;  /* products/spacing80 */
+  --products-spacing-06:  6px;   /* products/spacing06 */
+  --products-spacing-08:  8px;   /* products/spacing08 */
+  --products-spacing-10:  10px;  /* products/spacing10 */
+  --products-spacing-12:  12px;  /* products/spacing12 */
+  --products-spacing-14:  14px;  /* products/spacing14 */
+  --products-spacing-16:  16px;  /* products/spacing16 */
+  --products-spacing-20:  20px;  /* products/spacing20 */
+  --products-spacing-28:  28px;  /* products/spacing28 */
+  --products-spacing-60:  60px;  /* products/spacing60 */
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      Component Spacing
@@ -356,8 +362,8 @@
 
   --plist-px:          14px;                      /* 컨테이너 좌우 마진 (Margin 14) */
   --plist-gutter:      8px;                       /* 컬럼 간격 (Gutter 8) */
-  --plist-pt:          var(--products-spacing-40); /* 컨테이너 상단 패딩 14px */
-  --plist-pb:          var(--products-spacing-80); /* 컨테이너 하단 패딩 60px */
+  --plist-pt:          var(--products-spacing-14); /* 컨테이너 상단 패딩 14px */
+  --plist-pb:          var(--products-spacing-60); /* 컨테이너 하단 패딩 60px */
   --plist-item-pb:     8px;                       /* 아이템 셀 하단 패딩 */
   --plist-contents-px: 4px;                       /* 컨텐츠 영역 좌우 패딩 */
   --plist-price-gap:   3px;                       /* 할인율↔가격 사이 간격 */
@@ -376,8 +382,8 @@
 
   --slist-px:          14px;                      /* 컨테이너 좌우 마진 (Margin 14) */
   --slist-gutter:      8px;                       /* 컬럼 간격 (Gutter 8) */
-  --slist-pt:          var(--products-spacing-40); /* 컨테이너 상단 패딩 14px */
-  --slist-pb:          var(--products-spacing-80); /* 컨테이너 하단 패딩 60px */
+  --slist-pt:          var(--products-spacing-14); /* 컨테이너 상단 패딩 14px */
+  --slist-pb:          var(--products-spacing-60); /* 컨테이너 하단 패딩 60px */
   --slist-col-gap:     8px;                       /* 컬럼 내부 카드 세로 간격 */
   --slist-item-pb:     8px;                       /* 아이템 셀 하단 패딩 */
   --slist-contents-gap: 2px;                      /* 컨텐츠 블록 간 간격 */
@@ -393,14 +399,14 @@
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
   --gbuying-px:              14px;                     /* 컨테이너 좌우 마진 (Margin 14) */
-  --gbuying-gap:            var(--products-spacing-10); /* 카드 세로 간격 8px */
-  --gbuying-comingsoon-gap: var(--products-spacing-10); /* comingsoon 카드 가로 간격 8px */
+  --gbuying-gap:            var(--products-spacing-08); /* 카드 세로 간격 8px */
+  --gbuying-comingsoon-gap: var(--products-spacing-08); /* comingsoon 카드 가로 간격 8px */
 
   /* socialdeal 카드 — 갭 보완 (Groupbuying에서 처음 노출된 값) */
-  --socialdeal-card-r:           var(--products-spacing-50); /* 딜 카드 radius = 16px */
+  --socialdeal-card-r:           var(--products-spacing-16); /* 딜 카드 radius = 16px */
   --socialdeal-card-small-w:     162px;                /* comingsoon(upcoming) 카드 너비 */
   --socialdeal-card-small-h:     250px;                /* comingsoon(upcoming) 카드 높이 */
-  --socialdeal-upcoming-gap:     var(--products-spacing-40); /* 날짜 블록 ↔ 상품명 간격 14px */
+  --socialdeal-upcoming-gap:     var(--products-spacing-14); /* 날짜 블록 ↔ 상품명 간격 14px */
   --socialdeal-upcoming-date-gap: 2px;                 /* D-day ↔ 날짜 간격 */
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -430,7 +436,7 @@
      구조: 컨테이너(좌우 14, 칩 간격 6) + Eventchip(썸네일 24 + 텍스트)
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-  --chipmenu-px:             var(--products-spacing-40); /* 컨테이너 좌우 패딩 14px (products/spacing40) */
+  --chipmenu-px:             var(--products-spacing-14); /* 컨테이너 좌우 패딩 14px (products/spacing40) */
   --chipmenu-gap:            6px;                /* 칩 가로 간격 */
   --chipmenu-row-gap:        6px;                /* 칩 세로 간격 (2줄 스와이프) */
   --event-chip-h:            38px;               /* 칩 높이 */
@@ -452,11 +458,11 @@
   --gbuying-banner-pl:       54px;               /* 메인 카피 좌측 위치 */
 
   /* 카드 리스트 */
-  --gbuying-list-gap:        var(--products-spacing-10); /* 소셜딜 카드 세로 간격 8px */
+  --gbuying-list-gap:        var(--products-spacing-08); /* 소셜딜 카드 세로 간격 8px */
 
   /* 알림설정 카드 */
-  --gbuying-noti-p:          var(--products-spacing-60); /* 카드 패딩 20px */
-  --gbuying-noti-gap:        var(--products-spacing-50); /* 텍스트 ↔ 토글 간격 16px */
+  --gbuying-noti-p:          var(--products-spacing-20); /* 카드 패딩 20px */
+  --gbuying-noti-gap:        var(--products-spacing-16); /* 텍스트 ↔ 토글 간격 16px */
   --gbuying-noti-r:          var(--radius-200);  /* 카드 radius 16px */
   --gbuying-noti-toggle-w:   56px;               /* 토글 너비 */
   --gbuying-noti-toggle-h:   32px;               /* 토글 높이 */
@@ -464,7 +470,7 @@
   --gbuying-noti-toggle-knob: 24px;              /* 토글 손잡이 크기 */
 
   /* 푸터 */
-  --gbuying-footer-px:       var(--products-spacing-60); /* 푸터 좌우 패딩 20px */
+  --gbuying-footer-px:       var(--products-spacing-20); /* 푸터 좌우 패딩 20px */
   --gbuying-footer-py:       40px;               /* 푸터 상하 패딩 */
   --gbuying-footer-gap:      12px;               /* 회사명 ↔ 약관 메뉴 간격 */
 
@@ -476,16 +482,16 @@
 
   --todaydeal-banner-h:      142px;              /* 히어로 배너 높이 */
   --todaydeal-content-r:     var(--radius-250);  /* 컨텐츠 상단 라운드 20px */
-  --todaydeal-timer-py:      var(--products-spacing-10); /* 타이머 바 상하 패딩 8px */
+  --todaydeal-timer-py:      var(--products-spacing-08); /* 타이머 바 상하 패딩 8px */
   --todaydeal-timer-gap:     2px;                /* 타이머 요소 간격 */
   --todaydeal-timer-icon:    20px;               /* 시계 아이콘 크기 */
-  --todaydeal-list-px:       var(--products-spacing-40); /* 리스트 좌우 패딩 14px */
-  --todaydeal-list-pt:       var(--products-spacing-40); /* 리스트 상단 패딩 14px */
+  --todaydeal-list-px:       var(--products-spacing-14); /* 리스트 좌우 패딩 14px */
+  --todaydeal-list-pt:       var(--products-spacing-14); /* 리스트 상단 패딩 14px */
   --todaydeal-list-pb:       14px;               /* 리스트 하단 패딩 */
-  --todaydeal-list-gutter:   var(--products-spacing-10); /* 컬럼 간격 8px */
+  --todaydeal-list-gutter:   var(--products-spacing-08); /* 컬럼 간격 8px */
   --todaydeal-viewmore-section-h: 64px;          /* 더보기 버튼 영역 높이 */
   --todaydeal-viewmore-h:    48px;               /* 더보기 버튼 높이 */
-  --todaydeal-viewmore-p:    var(--products-spacing-50); /* 더보기 버튼 패딩 16px */
+  --todaydeal-viewmore-p:    var(--products-spacing-16); /* 더보기 버튼 패딩 16px */
   --todaydeal-viewmore-min-w: 200px;             /* 더보기 버튼 최소 너비 */
   --todaydeal-viewmore-max-w: 240px;             /* 더보기 버튼 최대 너비 */
   --todaydeal-info-pt:       32px;               /* 안내 문구 상단 패딩 */
@@ -498,12 +504,12 @@
 
   /* 큐레이션 (Offering 가로 스크롤) */
   --ecoupon-curation-pt:     12px;               /* 큐레이션 상단 패딩 */
-  --ecoupon-curation-px:     var(--products-spacing-40); /* 좌우 패딩 14px */
-  --ecoupon-curation-gap:    var(--products-spacing-10); /* 카드 간격 8px */
+  --ecoupon-curation-px:     var(--products-spacing-14); /* 좌우 패딩 14px */
+  --ecoupon-curation-gap:    var(--products-spacing-08); /* 카드 간격 8px */
   --ecoupon-curation-card-w: 162px;              /* Offering 카드 너비 */
 
   /* 브랜드 숏컷 (5열 × 2행 그리드) */
-  --ecoupon-shortcut-px:     var(--products-spacing-40); /* 좌우 패딩 14px */
+  --ecoupon-shortcut-px:     var(--products-spacing-14); /* 좌우 패딩 14px */
   --ecoupon-shortcut-col-gap: 3px;               /* 컬럼 간격 */
   --ecoupon-shortcut-row-gap: 12px;              /* 행 간격 */
   --ecoupon-shortcut-item-w: 64px;               /* 아이템 너비 */

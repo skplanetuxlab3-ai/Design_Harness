@@ -24,8 +24,8 @@
   --typeset-2xs-lh:        15px;
   --typeset-2xs-tracking:  0px;
 
-  /* 3xs — 10px compact  (typeset_3xs — 2xs와 size 동일, lh만 다름) */
-  --typeset-3xs-size:      10px;
+  /* 3xs — 9px compact  (typeset_3xs_bold) */
+  --typeset-3xs-size:      9px;     /* typeset_3xs_bold/size */
   --typeset-3xs-lh:        14px;
   --typeset-3xs-tracking:  0px;
 
@@ -62,7 +62,7 @@
   /* xl — 18px  (typeset_xl) */
   --typeset-xl-size:       18px;
   --typeset-xl-lh:         24px;
-  --typeset-xl-tracking:   -0.4px;
+  --typeset-xl-tracking:   0px;    /* typeset_xl_bold/letterspacing — 종전 -0.4px 는 출처 불명이었다 */
 
   /* 2xl — 20px  (typeset_2xl) */
   --typeset-2xl-size:      20px;   /* typeset_2xl/size */

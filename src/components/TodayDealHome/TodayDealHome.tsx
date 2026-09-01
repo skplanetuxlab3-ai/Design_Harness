@@ -128,7 +128,7 @@ function TimerBar({ time = '12:23:12' }: { time?: string }) {
 // ── 더보기 버튼 ─────────────────────────────────────────────────
 function ViewMoreButton() {
   return (
-    <div className="flex items-center justify-center w-full shrink-0" style={{ height: 'var(--todaydeal-viewmore-section-h)', paddingInline: 'var(--products-spacing-60)' }}>
+    <div className="flex items-center justify-center w-full shrink-0" style={{ height: 'var(--todaydeal-viewmore-section-h)', paddingInline: 'var(--products-spacing-20)' }}>
       <button
         type="button"
         className="flex items-center justify-center gap-[var(--spacing-1)] overflow-clip border border-solid"
@@ -177,13 +177,13 @@ function Footer() {
   return (
     <>
       {/* 안내 문구 */}
-      <div className="flex items-center justify-center w-full shrink-0" style={{ paddingTop: 'var(--todaydeal-info-pt)', paddingInline: 'var(--products-spacing-60)' }}>
+      <div className="flex items-center justify-center w-full shrink-0" style={{ paddingTop: 'var(--todaydeal-info-pt)', paddingInline: 'var(--products-spacing-20)' }}>
         <p className="flex-1 min-w-0 font-normal" style={{ fontSize: 'var(--typeset-sm-size)', lineHeight: 'var(--typeset-sm-lh)', color: 'var(--todaydeal-info-text)' }}>
           OK캐쉬백은 오늘만 초특가 쇼핑으로 연결하는 역할만 수행하며,<br />해당 쇼핑몰은 (주)레브잇의 책임하에 운영됩니다.
         </p>
       </div>
       {/* 회사/약관 */}
-      <div className="flex flex-col items-start w-full overflow-clip shrink-0" style={{ paddingTop: 'var(--products-spacing-60)', paddingBottom: 'var(--gbuying-footer-py)', paddingInline: 'var(--products-spacing-60)' }}>
+      <div className="flex flex-col items-start w-full overflow-clip shrink-0" style={{ paddingTop: 'var(--products-spacing-20)', paddingBottom: 'var(--gbuying-footer-py)', paddingInline: 'var(--products-spacing-20)' }}>
         <p className="font-normal whitespace-nowrap" style={{ fontSize: 'var(--typeset-md-size)', lineHeight: 'var(--typeset-md-lh)', color: 'var(--gbuying-footer-company)' }}>OK캐쉬백 쇼핑</p>
         <div className="flex flex-wrap items-center pt-[var(--spacing-3)] gap-[4px_8px] w-full">
           <span className="font-normal whitespace-nowrap" style={{ fontSize: 'var(--typeset-sm-size)', lineHeight: 'var(--typeset-sm-lh)', color: 'var(--gbuying-footer-link)' }}>쇼핑 서비스 이용약관</span>

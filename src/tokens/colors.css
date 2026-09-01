@@ -18,6 +18,7 @@
   /* Brand */
   --primitive-brand-purple:     #6c40f0;   /* color/brand/primary */
   --primitive-brand-pink:       #fe0955;   /* color/brand/ocb_pink */
+  --primitive-brand-instant:    #aa23e9;   /* color/brand/ocb_instant */
 
   /* Black Scale  ※ OCB 역순: 100=진함 → 900=연함 */
   --primitive-black:            #000000;   /* color/black */
@@ -69,7 +70,8 @@
   --primitive-shopping-magenta: #ff427d;   /* color/shopping/magenta — 오늘특가 타이머 그라데이션 종착 */
   --primitive-shopping-purple-600: #8058f7; /* color/shopping/purple600 */
   --primitive-shopping-purple-900: #f4f0ff; /* color/shopping/purple900 (Tag/Point 배경) */
-  --primitive-shopping-border:  #00000005; /* color/shopping/border (5% opacity) */
+  --primitive-shopping-border:  #00000005; /* color/shopping/opacity/black50 */
+  --primitive-scrim-thumb-border: #0000000d; /* scrim/thumbnail_border */
 
   /* Opacity Palette */
   --primitive-black-opacity-50:  #0000000a; /* color/shopping/opacity/black50  (4%) */
@@ -120,6 +122,7 @@
   /* Brand */
   --color-brand-primary:    var(--primitive-brand-purple);
   --color-brand-ocb-pink:   var(--primitive-brand-pink);
+  --color-brand-ocb-instant: var(--primitive-brand-instant);  /* color/brand/ocb_instant */
 
   /* Price */
   --color-price-primary:    var(--primitive-brand-pink);    /* color/price/primary */
@@ -158,7 +161,7 @@
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
   /* Filled Button — Primary */
-  --filled-primary-surface:   var(--primitive-sp-black);    /* filled/primary/surface */
+  --filled-primary-surface:   var(--primitive-blueblack);   /* filled/primary/surface #1e2032 */
   --filled-primary-label:     var(--primitive-white);       /* filled/primary/label */
 
   /* Filled Button — Secondary */

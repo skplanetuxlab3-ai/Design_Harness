@@ -419,7 +419,7 @@ function ListRankingCard({
   const displayItems = items.slice(0, 4)
 
   return (
-    <div className={className ?? `flex flex-col gap-[var(--products-spacing-20)] items-start py-[var(--product-ranking-py)] ${CARD_RADIUS} w-full`}>
+    <div className={className ?? `flex flex-col gap-[var(--products-spacing-10)] items-start py-[var(--product-ranking-py)] ${CARD_RADIUS} w-full`}>
       <p className="text-[length:var(--typeset-md-compact-size)] leading-[var(--typeset-md-compact-lh)] font-bold text-[var(--primitive-black)] overflow-hidden text-ellipsis whitespace-nowrap w-full tracking-[0]">
         {listTitle}
       </p>
@@ -480,7 +480,7 @@ function GifticonOfferingCard({
       className={className ?? `${CARD_BORDER} flex flex-col h-[var(--product-deal-h)] items-center justify-center overflow-clip ${CARD_RADIUS} w-full`}
       style={{ backgroundColor: bg }}
     >
-      <div className="flex flex-1 flex-col items-center justify-between min-h-0 pb-[var(--products-spacing-20)] pt-[24px] px-[var(--product-deal-btn-px)] w-full">
+      <div className="flex flex-1 flex-col items-center justify-between min-h-0 pb-[var(--products-spacing-10)] pt-[24px] px-[var(--product-deal-btn-px)] w-full">
         {/* 텍스트 + 태그 */}
         <div className="flex flex-col gap-[var(--product-card-gap)] items-center w-full shrink-0">
           <div className="flex flex-col gap-[2px] items-start text-center w-full">
@@ -537,7 +537,7 @@ function BannerCard({
       style={{ backgroundColor: 'var(--color-theme-bg-light)' }}
     >
       {/* 상단 콘텐츠 */}
-      <div className="flex flex-col gap-[var(--products-spacing-20)] items-center shrink-0">
+      <div className="flex flex-col gap-[var(--products-spacing-10)] items-center shrink-0">
         <div className="flex flex-col gap-[4px] items-center">
           <span className="text-[length:var(--typeset-xs-size)] leading-[var(--typeset-xs-lh)] font-normal text-[var(--primitive-black)] text-center tracking-[-0.3px]">
             {bannerSubtitle}
@@ -584,7 +584,7 @@ function UpcomingCard({
   return (
     <div
       className={className ?? `${CARD_BORDER} flex flex-col h-[var(--product-deal-h)] items-center justify-center overflow-clip relative w-full`}
-      style={{ borderRadius: 'var(--products-spacing-50)' }}
+      style={{ borderRadius: 'var(--products-spacing-16)' }}
     >
       {/* 배경 이미지 + 다크 오버레이 */}
       {imageUrl && (
@@ -593,19 +593,19 @@ function UpcomingCard({
           alt=""
           aria-hidden
           className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
-          style={{ borderRadius: 'var(--products-spacing-50)' }}
+          style={{ borderRadius: 'var(--products-spacing-16)' }}
         />
       )}
       <div
         className="absolute inset-0"
         style={{
           backgroundColor: 'var(--primitive-black-opacity-400)',
-          borderRadius: 'var(--products-spacing-50)',
+          borderRadius: 'var(--products-spacing-16)',
         }}
       />
 
       {/* 중앙 콘텐츠 */}
-      <div className="relative flex flex-col gap-[var(--products-spacing-40)] items-center justify-center whitespace-nowrap">
+      <div className="relative flex flex-col gap-[var(--products-spacing-14)] items-center justify-center whitespace-nowrap">
         <div className="flex flex-col gap-[2px] items-center text-center">
           <span className="text-[length:var(--typeset-lg-size)] leading-[var(--typeset-lg-lh)] font-bold text-[var(--primitive-sp-yellow)] tracking-[0]">
             {countdown}
