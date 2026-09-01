@@ -18,7 +18,8 @@
     "design:assets": "node scripts/list-figma-assets.mjs",
     "design:qa": "node scripts/design-qa.mjs",
     "design:structure": "node scripts/check-structure.mjs",
-    "design:drift": "node scripts/check-token-drift.mjs"
+    "design:drift": "node scripts/check-token-drift.mjs",
+    "design:decisions": "node scripts/token-decisions.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",
