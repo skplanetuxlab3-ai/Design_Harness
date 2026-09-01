@@ -86,6 +86,27 @@ function inlineAxis(snippet, px) {
   return CSS_PROP[m[1].toLowerCase()] || m[1]
 }
 
+// ─── 확정 결정 원장 ───────────────────────────────────────────────
+// 토큰화하지 않기로 이미 정한 값은 큐에 다시 올리지 않는다.
+let KEEP = []
+try {
+  const raw = JSON.parse(readFileSync(resolve(ROOT, 'scripts/token-decisions.json'), 'utf8'))
+  for (const d of raw.keep || []) for (const r of d.rules || []) KEEP.push({ ...r, why: d.why })
+} catch { /* 원장 없으면 전부 큐에 올린다 */ }
+const isDecided = (file, px, line) =>
+  KEEP.some((r) => r.file === file && r.px.includes(px) && (r.line == null || r.line === line))
+
+// Figma 승격 대기 중인 값도 큐에 다시 올리지 않는다. 결정은 끝났고 Figma 작업을 기다릴 뿐이다.
+let PENDING = []
+try {
+  const raw = JSON.parse(readFileSync(resolve(ROOT, 'scripts/token-decisions.json'), 'utf8'))
+  PENDING = raw.pending?.items || []
+} catch { /* 없으면 빈 목록 */ }
+const isPending = (file, px, line) =>
+  PENDING.some((it) => it.px === px && it.places.includes(`${file}:${line}`))
+let decidedCount = 0
+let pendingCount = 0
+
 const groups = {}
 for (const f of findings) {
   if (!/대응 토큰 없음|토큰 없음|네임스페이스·축이 맞는 토큰 없음/.test(f.message)) continue
@@ -94,10 +115,26 @@ for (const f of findings) {
   const pxm = /(\d+(?:\.\d+)?)px/.exec(f.match) || /(\d+(?:\.\d+)?)px/.exec(f.message)
   if (!pxm) continue
   const px = pxm[1]
+  if (isDecided(f.file, px, f.line)) { decidedCount++; continue }
+  if (isPending(f.file, px, f.line)) { pendingCount++; continue }
   const util = f.match.includes('-[') ? f.match.slice(0, f.match.indexOf('-[')) : null
   const axis = util ? (AXIS[util] || util) : (inlineAxis(f.snippet, px) || '(인라인)')
   const comp = (/components\/([^/]+)\//.exec(f.file) || [, 'App'])[1]
   ;(groups[px] ??= []).push({ comp, util: util || 'style', axis, file: f.file, line: f.line, match: f.match, snippet: f.snippet })
+}
+
+if (argv.includes('--pending')) {
+  if (!PENDING.length) { console.log('Figma 승격 대기 항목 없음.'); process.exit(0) }
+  console.log(C.bold(`Figma 에 만들 변수 ${PENDING.length}개`))
+  console.log(C.gray('만들고 나면 스냅샷을 다시 떠서 드리프트 체크 대상에 넣는다.\n'))
+  for (const it of PENDING) {
+    console.log(`${C.cyan(it.figma)}  ${C.bold(it.px + 'px')}`)
+    console.log(C.gray(`   → 토큰 ${it.token}`))
+    console.log(C.gray(`   ${it.note}`))
+    for (const pl of it.places) console.log(C.gray(`   · ${pl}`))
+    console.log()
+  }
+  process.exit(0)
 }
 
 let entries = Object.entries(groups).sort((a, b) => b[1].length - a[1].length)
@@ -114,6 +151,9 @@ if (argv.includes('--json')) {
 const total = Object.values(groups).reduce((a, b) => a + b.length, 0)
 console.log(C.bold(`토큰 없는 값 ${Object.keys(groups).length}종 · ${total}곳`))
 console.log(C.gray('값 하나를 결정하면 그 값이 쓰인 모든 곳이 정리된다.\n'))
+if (decidedCount) console.log(C.gray(`├ 토큰화 안 함으로 결정된 곳 ${decidedCount}개`))
+if (pendingCount) console.log(C.gray(`└ Figma 승격 대기 ${pendingCount}개 — \`--pending\` 으로 볼 것`))
+if (decidedCount || pendingCount) console.log()
 
 for (const [px, uses] of entries) {
   console.log(C.bold(C.cyan(`${px}px`)) + C.gray(`  ${uses.length}곳`))

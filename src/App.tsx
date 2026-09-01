@@ -18,7 +18,7 @@ const SHOPPING_TABS = [
 function StatusBar() {
   return (
     <div
-      className="flex items-center justify-between px-[20px] shrink-0"
+      className="flex items-center justify-between px-[var(--spacing-5)] shrink-0"
       style={{ height: '44px', backgroundColor: 'var(--primitive-sp-black)' }}
     >
       <span className="text-[length:var(--typeset-lg-compact-size)] font-semibold text-[var(--primitive-white)]">9:41</span>
@@ -81,7 +81,7 @@ export default function App() {
             <EcouponHome onExpandCategory={() => setCatSheetOpen(true)} />
           ) : (
             /* 다른 탭 플레이스홀더 */
-            <div className="flex flex-col items-center justify-center h-full gap-[8px]">
+            <div className="flex flex-col items-center justify-center h-full gap-[var(--spacing-2)]">
               <div
                 className="size-[48px] rounded-full"
                 style={{ backgroundColor: 'var(--primitive-black-800)' }}

@@ -1,0 +1,96 @@
+{
+  "$comment": "토큰화하지 않기로 확정한 값의 원장. token-decisions.mjs가 읽어 큐에서 제외한다. 키는 file + px + match이므로 해당 줄을 고치면 결정이 무효가 되어 큐에 다시 올라온다 — 의도된 동작이다.",
+  "keep": [
+    {
+      "why": "배너 장식 에셋의 절대 좌표·크기. 디자인 규칙이 아니라 특정 배너에서 특정 장식이 놓인 자리다. 토큰화하면 토큰 파일이 좌표표가 된다. (2026-09-01 결정)",
+      "rules": [
+        {
+          "file": "src/components/TodayDealHome/TodayDealHome.tsx",
+          "px": [
+            "249.004",
+            "139.993",
+            "40.2",
+            "118"
+          ]
+        },
+        {
+          "file": "src/components/GroupbuyingHome/GroupbuyingHome.tsx",
+          "px": [
+            "92"
+          ],
+          "line": 46
+        },
+        {
+          "file": "src/components/GroupbuyingHome/GroupbuyingHome.tsx",
+          "px": [
+            "138"
+          ],
+          "line": 55
+        }
+      ]
+    }
+  ],
+  "pending": {
+    "why": "Figma PDS 에 변수를 먼저 만든 뒤 토큰화하기로 한 값들. 그때까지 코드에는 하드코딩으로 남는다. 변수가 생기면 스냅샷에 잡히고, 드리프트 체크가 감시할 수 있게 된다. (2026-09-01 결정)",
+    "items": [
+      {
+        "token": "--top-nav-tab-dot-size",
+        "px": "3",
+        "figma": "top_nav/active_tab/dot/size",
+        "places": [
+          "src/components/Tab/Tab.tsx:76",
+          "src/components/TopNavBar/TopNavBar.tsx:22"
+        ],
+        "note": "두 곳 모두 size-[3px] rounded-full 인디케이터. --top-nav-tab-dot-gap 이 이미 있다."
+      },
+      {
+        "token": "--badge-feed-h",
+        "px": "26",
+        "figma": "products/badge/feed/height",
+        "places": [
+          "src/components/Badge/Badge.tsx:77",
+          "src/components/Badge/Badge.tsx:78"
+        ],
+        "note": "feed=26 / detail=32 쌍. PDS Badge 에 크기 변수가 아예 없어 새 변수군을 만드는 결정이 된다."
+      },
+      {
+        "token": "--product-deal-tag-h",
+        "px": "22",
+        "figma": "products/deal/tag/height",
+        "places": [
+          "src/components/ProductCard/ProductCard.tsx:495",
+          "src/components/ProductCard/ProductCard.tsx:557"
+        ],
+        "note": "MD 태그·CTA 태그 공통 pill 높이."
+      },
+      {
+        "token": "--product-deal-tag-px",
+        "px": "7",
+        "figma": "products/deal/tag/padding_inline",
+        "places": [
+          "src/components/ProductCard/ProductCard.tsx:495"
+        ],
+        "note": "위 tag-h 와 한 요소다. Figma 에서 높이·패딩을 같이 만들 것."
+      },
+      {
+        "token": "--product-deal-banner-title-h",
+        "px": "30",
+        "figma": "products/deal/banner/title/height",
+        "places": [
+          "src/components/ProductCard/ProductCard.tsx:547",
+          "src/components/ProductCard/ProductCard.tsx:549"
+        ],
+        "note": "타이틀 이미지와 그 플레이스홀더가 같은 높이를 쓴다."
+      },
+      {
+        "token": "--product-deal-join-inset",
+        "px": "7",
+        "figma": "products/deal/join_badge/inset",
+        "places": [
+          "src/components/ProductCard/ProductCard.tsx:34"
+        ],
+        "note": "right·top 동일. --product-deal-join-px/py 가족."
+      }
+    ]
+  }
+}

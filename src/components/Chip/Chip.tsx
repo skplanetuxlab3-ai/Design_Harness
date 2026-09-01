@@ -38,7 +38,7 @@ export default function Chip({
           src={FIRE_ICON_URL}
           alt=""
           aria-hidden="true"
-          className="size-[var(--category-chip-icon-size)] shrink-0 mr-[2px]"
+          className="size-[var(--category-chip-icon-size)] shrink-0 mr-[var(--products-spacing-02)]"
         />
       )}
       <span className={textCls}>{label}</span>

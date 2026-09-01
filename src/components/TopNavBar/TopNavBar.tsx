@@ -188,7 +188,7 @@ function TopAppbar({
           <div className="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
             style={{ width: 'var(--top-appbar-icon-size)', height: 'var(--top-appbar-icon-size)' }}
           >
-            <div className="absolute left-0 top-[3px] w-full h-[18px]">
+            <div className="absolute left-0 top-[var(--top-appbar-icon-offset-y)] w-full h-[18px]">
               <img
                 src={MY_SHOPPING_ICON}
                 alt=""

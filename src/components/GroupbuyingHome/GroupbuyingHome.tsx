@@ -162,7 +162,7 @@ function Footer() {
       <p className="font-normal whitespace-nowrap" style={{ fontSize: 'var(--typeset-md-size)', lineHeight: 'var(--typeset-md-lh)', color: 'var(--gbuying-footer-company)' }}>
         OK캐쉬백 쇼핑
       </p>
-      <div className="flex flex-wrap items-center pt-[12px] gap-[4px_8px] w-full">
+      <div className="flex flex-wrap items-center pt-[var(--spacing-3)] gap-[4px_8px] w-full">
         <span className="font-normal whitespace-nowrap" style={{ fontSize: 'var(--typeset-sm-size)', lineHeight: 'var(--typeset-sm-lh)', color: 'var(--gbuying-footer-link)' }}>
           쇼핑 서비스 이용약관
         </span>
@@ -182,7 +182,7 @@ export default function GroupbuyingHome() {
       <GroupBuyingBanner />
 
       {/* ② Building Blocks */}
-      <div className="flex flex-col items-center pb-[20px]" style={{ gap: 'var(--gbuying-list-gap)' }}>
+      <div className="flex flex-col items-center pb-[var(--spacing-5)]" style={{ gap: 'var(--gbuying-list-gap)' }}>
         {/* 소셜딜 카드 리스트 */}
         <div className="flex flex-col items-center w-full" style={{ gap: 'var(--gbuying-list-gap)', paddingInline: 'var(--gbuying-px)' }}>
           {DEALS.map((deal, i) => (

@@ -73,11 +73,11 @@ function ProductFeed() {
 function Footer() {
   return (
     <div
-      className="flex flex-col gap-[8px] bg-[var(--primitive-white)]"
+      className="flex flex-col gap-[var(--spacing-2)] bg-[var(--primitive-white)]"
       style={{ paddingInline: 'var(--plist-px)', paddingBlock: '20px' }}
     >
       <span className="text-[length:var(--typeset-sm-size)] leading-[var(--typeset-sm-lh)] font-bold text-[var(--primitive-blueblack)]">OK캐쉬백 쇼핑</span>
-      <div className="flex gap-[12px]">
+      <div className="flex gap-[var(--spacing-3)]">
         <span className="text-[length:var(--typeset-xs-size)] leading-[var(--typeset-xs-lh)] text-[var(--primitive-blueblack-300)]">쇼핑 서비스 이용약관</span>
         <span className="text-[length:var(--typeset-xs-size)] leading-[var(--typeset-xs-lh)] text-[var(--primitive-blueblack-300)]">통신판매중개자 안내</span>
       </div>
@@ -94,7 +94,7 @@ export default function ShoppingHome() {
       </div>
 
       {/* ② 칩 메뉴 (Figma node 20327-20543) */}
-      <div className="pb-[8px]">
+      <div className="pb-[var(--spacing-2)]">
         <ChipMenu />
       </div>
 

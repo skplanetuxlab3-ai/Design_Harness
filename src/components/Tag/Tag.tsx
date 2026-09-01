@@ -75,7 +75,7 @@ export default function Tag({
       'inline-flex h-[var(--plist-tag-h)] items-center px-[var(--plist-tag-px)] py-[var(--plist-tag-py)] rounded-[var(--radius-050)]',
       style.bg,
       style.border,
-      (type === 'Point' || type === 'Type6') ? 'gap-[2px]' : '',
+      (type === 'Point' || type === 'Type6') ? 'gap-[var(--products-spacing-02)]' : '',
     ]
       .filter(Boolean)
       .join(' ')

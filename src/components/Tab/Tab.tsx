@@ -35,8 +35,8 @@ export default function Tab({
   const containerCls =
     className ??
     [
-      'relative flex gap-[2px] h-[42px] items-center',
-      active ? 'flex-col pb-[5px] pt-3' : 'justify-center pt-[2px]',
+      'relative flex gap-[var(--products-spacing-02)] h-[42px] items-center',
+      active ? 'flex-col pb-[5px] pt-3' : 'justify-center pt-[var(--products-spacing-02)]',
     ].join(' ')
 
   const textCls = [

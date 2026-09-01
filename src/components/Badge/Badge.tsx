@@ -69,13 +69,13 @@ export default function Badge({
 
   // 배지 크기·패딩
   // 라벨형 배지(New·First·Primary)는 크기가 같다 — 클래스 문자열을 공유한다
-  const labelPill = { feed: 'h-[26px] px-[8px] py-[4px]', detail: 'h-8 px-[8px] py-[4px]' }
+  const labelPill = { feed: 'h-[26px] px-[var(--spacing-2)] py-[var(--spacing-1)]', detail: 'h-8 px-[var(--spacing-2)] py-[var(--spacing-1)]' }
   const sizeMap: Record<string, Record<string, string>> = {
-    Timer:   { feed: `${labelPill.feed} gap-[2px]`, detail: `${labelPill.detail} gap-[2px]` },
+    Timer:   { feed: `${labelPill.feed} gap-[var(--products-spacing-02)]`, detail: `${labelPill.detail} gap-[var(--products-spacing-02)]` },
     New:     labelPill,
     First:   labelPill,
-    Ranking: { feed: 'h-[20px] w-[18px] justify-center py-[2px]', detail: 'size-8 justify-center py-[2px]' },
-    OkiClub: { feed: 'h-[26px] px-[6px] py-[4px]',  detail: 'h-8 w-[70px] px-[8px] py-[4px]' },
+    Ranking: { feed: 'h-[20px] w-[18px] justify-center py-[var(--products-spacing-02)]', detail: 'size-8 justify-center py-[var(--products-spacing-02)]' },
+    OkiClub: { feed: 'h-[26px] px-[var(--badge-okiclub-feed-px)] py-[var(--spacing-1)]',  detail: 'h-8 w-[70px] px-[var(--spacing-2)] py-[var(--spacing-1)]' },
     Primary: labelPill,
   }
   const sizeCls = sizeMap[type]?.[size] ?? ''

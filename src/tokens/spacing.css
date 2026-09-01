@@ -56,6 +56,7 @@
   --top-appbar-height:          52px;   /* top_appbar/height */
   --top-appbar-icon-touch:      40px;   /* top_appbar/icon/touch_target */
   --top-appbar-icon-size:       24px;   /* top_appbar/icon/size */
+  --top-appbar-icon-offset-y:   3px;    /* 아이콘 이미지 수직 보정 — 코드 결정 · Figma 변수 없음 */
   --top-appbar-pr:              8px;    /* top_appbar/padding_right (아이콘 영역) */
 
   /* BrandBar — 컴포넌트 스펙 (Figma node: 20312-39385) */
@@ -80,6 +81,7 @@
   --category-expand-size:       28px;   /* category_bar/expand_btn/size */
   --category-expand-icon-size:  12px;   /* category_bar/expand_btn/icon_size */
   --category-expand-px:         10px;   /* category_bar/expand_btn/padding_inline */
+  --category-expand-fade-pl:    28px;   /* 펼치기 버튼 좌측 페이드 폭 (버튼 크기와 값만 같다) — 코드 결정 · Figma 변수 없음 */
 
   /* EventChip — 컴포넌트 스펙 (Figma node: 20312-56390) */
   --event-chip-height:   38px;   /* event_chip/height */
@@ -103,6 +105,9 @@
   --product-deal-items-pb:    12px;  /* products/deal/items/padding_bottom  (ver=01: 9px) */
   --product-deal-items-px:    12px;  /* products/deal/items/padding_inline */
   --product-deal-items-gap:    1px;  /* products/deal/items/gap             (ver=01: 2px) */
+  --product-deal-pt:          30px;  /* 카드 상단 패딩 (--product-deal-btn-pb 의 짝) — 코드 결정 · Figma 변수 없음 */
+  --product-deal-info-gap:     5px;  /* 콘텐츠 컬럼 간격 — 코드 결정 · Figma 변수 없음 */
+  --product-deal-img-max-h:  138px;  /* 상품 이미지 컨테이너 최대 높이 — 코드 결정 · Figma 변수 없음 */
 
   /* 하단 타이머 바 — ver=02 신설 */
   --product-deal-timer-h:     24px;  /* products/deal/timer/height */
@@ -121,8 +126,11 @@
   --product-deal-badge-pb:     6px;  /* products/deal/badge/padding_bottom */
   --product-deal-badge-px:    10px;  /* products/deal/badge/padding_inline */
   --product-deal-badge-gap:    2px;  /* products/deal/badge/gap (로고 ↔ 타이머) */
+
+  /* 참여중 뱃지 — ver=02 에서도 쓰인다. 위 deprecated 블록에 속하지 않는다. */
   --product-deal-join-px:      8px;  /* products/deal/join_badge/padding_inline */
   --product-deal-join-py:      3px;  /* products/deal/join_badge/padding_block */
+  --product-deal-join-h:      26px;  /* 참여중 뱃지 높이 — 코드 결정 · Figma 변수 없음 */
 
   /* ProductCard — Ranking 변형 */
   --product-ranking-item-size: 44px; /* products/ranking/item/size */
@@ -519,4 +527,13 @@
   --catsheet-section-title-gap: 12px;           /* 섹션 타이틀 ↔ 그리드 간격 */
   --catsheet-close-touch:    48px;               /* 닫기 터치영역 */
   --catsheet-close-icon:     16px;               /* 닫기 아이콘 */
+
+  /* Badge — OkiClub 변형 (node 20085-160163) */
+  --badge-okiclub-feed-px:   6px;                /* feed 사이즈 좌우 패딩 (다른 feed 뱃지는 8px) — 코드 결정 · Figma 변수 없음 */
+
+  /* AIRecommendSection */
+  --ai-recommend-menu-py:   11px;                /* 드롭다운 메뉴 아이템 세로 패딩 — 코드 결정 · Figma 변수 없음 */
+  --ai-recommend-header-gap: 6px;                /* 섹션 헤더 컬럼 간격 — 코드 결정 · Figma 변수 없음 */
+  --ai-recommend-badge-py:   3px;                /* AI 배지 세로 패딩 — 코드 결정 · Figma 변수 없음 */
+  --ai-recommend-reason-gap: 3px;                /* 추천 이유 아이콘 ↔ 문구 간격 — 코드 결정 · Figma 변수 없음 */
 }

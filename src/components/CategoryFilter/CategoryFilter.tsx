@@ -19,7 +19,7 @@ const DEFAULT_ITEMS: CategoryItem[] = [
 function ExpandButton({ onClick }: { onClick?: () => void }) {
   return (
     <div
-      className="absolute right-0 top-0 bottom-0 flex items-center pl-[28px] pr-[14px]"
+      className="absolute right-0 top-0 bottom-0 flex items-center pl-[var(--category-expand-fade-pl)] pr-[var(--products-spacing-40)]"
       style={{
         background: 'linear-gradient(to right, rgba(255,255,255,0) 0%, #ffffff 38.571%)',
       }}
@@ -66,7 +66,7 @@ export default function CategoryFilter({
             key={i}
             type="button"
             onClick={() => onSelect?.(i)}
-            className={`flex h-[var(--category-chip-height)] items-center justify-center gap-[2px] px-[var(--category-chip-px)] rounded-[var(--radius-max)] shrink-0 max-h-[var(--category-chip-height)] ${
+            className={`flex h-[var(--category-chip-height)] items-center justify-center gap-[var(--products-spacing-02)] px-[var(--category-chip-px)] rounded-[var(--radius-max)] shrink-0 max-h-[var(--category-chip-height)] ${
               isActive
                 ? 'bg-[var(--primitive-sp-black)]'
                 : 'bg-[var(--primitive-white)]'

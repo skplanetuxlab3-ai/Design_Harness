@@ -103,20 +103,20 @@ function FeedbackMenu({
     <div
       role="dialog"
       aria-label="카드 피드백"
-      className="absolute bottom-full right-0 mb-[4px] z-30 overflow-hidden rounded-[var(--radius-md)] bg-[var(--primitive-white)] border border-[var(--primitive-blueblack-700)]"
+      className="absolute bottom-full right-0 mb-[var(--spacing-1)] z-30 overflow-hidden rounded-[var(--radius-md)] bg-[var(--primitive-white)] border border-[var(--primitive-blueblack-700)]"
       style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.12)', minWidth: '144px' }}
     >
       <button
         type="button"
         onClick={() => { onDismiss(); onClose() }}
-        className="block w-full px-[16px] py-[11px] text-left text-[length:var(--typeset-md-compact-size)] font-medium text-[var(--primitive-blueblack)] border-b border-[var(--primitive-blueblack-700)] hover:bg-[var(--primitive-black-900)] cursor-pointer"
+        className="block w-full px-[var(--spacing-4)] py-[var(--ai-recommend-menu-py)] text-left text-[length:var(--typeset-md-compact-size)] font-medium text-[var(--primitive-blueblack)] border-b border-[var(--primitive-blueblack-700)] hover:bg-[var(--primitive-black-900)] cursor-pointer"
       >
         관심 없음
       </button>
       <button
         type="button"
         onClick={() => { onSimilar(); onClose() }}
-        className="block w-full px-[16px] py-[11px] text-left text-[length:var(--typeset-md-compact-size)] font-medium text-[var(--primitive-blueblack)] hover:bg-[var(--primitive-black-900)] cursor-pointer"
+        className="block w-full px-[var(--spacing-4)] py-[var(--ai-recommend-menu-py)] text-left text-[length:var(--typeset-md-compact-size)] font-medium text-[var(--primitive-blueblack)] hover:bg-[var(--primitive-black-900)] cursor-pointer"
       >
         비슷한 혜택 더 보기
       </button>
@@ -141,7 +141,7 @@ function CardSlot({
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <div className="relative shrink-0 w-[152px] flex flex-col gap-[8px]">
+    <div className="relative shrink-0 w-[152px] flex flex-col gap-[var(--spacing-2)]">
       {/* ProductCard — 이미지 없음 → 컴포넌트 내 투명 플레이스홀더 */}
       <button
         type="button"
@@ -153,8 +153,8 @@ function CardSlot({
       </button>
 
       {/* 추천 이유 문구 + 피드백 버튼 */}
-      <div className="flex items-center justify-between gap-[4px] px-[2px]">
-        <div className="flex items-center gap-[3px] min-w-0">
+      <div className="flex items-center justify-between gap-[var(--spacing-1)] px-[var(--products-spacing-02)]">
+        <div className="flex items-center gap-[var(--ai-recommend-reason-gap)] min-w-0">
           <SparkleIcon />
           <span className="text-[length:var(--typeset-xs-size)] leading-[15px] font-normal text-[var(--primitive-blueblack-300)] overflow-hidden text-ellipsis whitespace-nowrap">
             {item.reason}
@@ -231,10 +231,10 @@ export default function AIRecommendSection({
       className={className}
     >
       {/* 섹션 헤더 */}
-      <div className="flex flex-col gap-[6px] px-[16px] pt-[16px] pb-[14px]">
+      <div className="flex flex-col gap-[var(--ai-recommend-header-gap)] px-[var(--spacing-4)] pt-[var(--spacing-4)] pb-[var(--products-spacing-40)]">
         {/* AI 배지 */}
         <div
-          className="inline-flex items-center gap-[4px] self-start px-[8px] py-[3px] rounded-[var(--radius-max)]"
+          className="inline-flex items-center gap-[var(--spacing-1)] self-start px-[var(--spacing-2)] py-[var(--ai-recommend-badge-py)] rounded-[var(--radius-max)]"
           style={{ background: 'linear-gradient(90deg, var(--primitive-system-bg-pink), var(--primitive-system-bg-purple))' }}
         >
           <SparkleIcon />
@@ -261,7 +261,7 @@ export default function AIRecommendSection({
       <div
         role="list"
         aria-label="AI 추천 상품 목록"
-        className="flex items-start gap-[8px] overflow-x-auto pb-[16px]"
+        className="flex items-start gap-[var(--spacing-2)] overflow-x-auto pb-[var(--spacing-4)]"
         style={{
           marginInline: '16px',
           msOverflowStyle: 'none',
@@ -270,7 +270,7 @@ export default function AIRecommendSection({
         } as React.CSSProperties}
       >
         {visibleItems.length === 0 ? (
-          <div className="flex items-center justify-center w-full py-[32px]">
+          <div className="flex items-center justify-center w-full py-[var(--spacing-8)]">
             <p className="text-[length:var(--typeset-md-compact-size)] text-[var(--primitive-blueblack-300)]">
               표시할 추천이 없어요.
             </p>

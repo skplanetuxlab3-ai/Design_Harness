@@ -131,7 +131,7 @@ function ViewMoreButton() {
     <div className="flex items-center justify-center w-full shrink-0" style={{ height: 'var(--todaydeal-viewmore-section-h)', paddingInline: 'var(--products-spacing-60)' }}>
       <button
         type="button"
-        className="flex items-center justify-center gap-[4px] overflow-clip border border-solid"
+        className="flex items-center justify-center gap-[var(--spacing-1)] overflow-clip border border-solid"
         style={{
           height: 'var(--todaydeal-viewmore-h)',
           padding: 'var(--todaydeal-viewmore-p)',
@@ -185,7 +185,7 @@ function Footer() {
       {/* 회사/약관 */}
       <div className="flex flex-col items-start w-full overflow-clip shrink-0" style={{ paddingTop: 'var(--products-spacing-60)', paddingBottom: 'var(--gbuying-footer-py)', paddingInline: 'var(--products-spacing-60)' }}>
         <p className="font-normal whitespace-nowrap" style={{ fontSize: 'var(--typeset-md-size)', lineHeight: 'var(--typeset-md-lh)', color: 'var(--gbuying-footer-company)' }}>OK캐쉬백 쇼핑</p>
-        <div className="flex flex-wrap items-center pt-[12px] gap-[4px_8px] w-full">
+        <div className="flex flex-wrap items-center pt-[var(--spacing-3)] gap-[4px_8px] w-full">
           <span className="font-normal whitespace-nowrap" style={{ fontSize: 'var(--typeset-sm-size)', lineHeight: 'var(--typeset-sm-lh)', color: 'var(--gbuying-footer-link)' }}>쇼핑 서비스 이용약관</span>
           <span className="w-px h-[12px]" style={{ backgroundColor: 'var(--gbuying-footer-divider)' }} />
           <span className="font-normal whitespace-nowrap" style={{ fontSize: 'var(--typeset-sm-size)', lineHeight: 'var(--typeset-sm-lh)', color: 'var(--gbuying-footer-company)' }}>통신판매중개자 안내</span>

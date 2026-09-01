@@ -57,7 +57,7 @@ function EventChip({ item, onClick }: { item: EventChipItem; onClick?: () => voi
             alt=""
             aria-hidden
             className="absolute max-w-none object-cover pointer-events-none"
-            style={{ inset: '-0.5px' }}
+            style={{ inset: 'calc(var(--event-chip-thumb-border-w) * -1)' }}
           />
         )}
       </span>

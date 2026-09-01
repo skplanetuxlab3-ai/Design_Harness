@@ -474,7 +474,8 @@ function walk(dir, out = []) {
 /** 라인이 주석인지 (전부는 못 잡지만 명백한 건 거른다) */
 function isComment(line) {
   const t = line.trim()
-  return t.startsWith('//') || t.startsWith('*') || t.startsWith('/*')
+  // JSX 주석 {/* ... */} 도 주석이다. 이걸 빼먹어서 주석 안의 px가 결정 큐에 올라온 적이 있다.
+  return t.startsWith('//') || t.startsWith('*') || t.startsWith('/*') || t.startsWith('{/*')
 }
 
 function scanFile(abs) {
@@ -643,6 +644,16 @@ export function scan(targets) {
 function main() {
   const argv = process.argv.slice(2)
   const flags = new Set(argv.filter((a) => a.startsWith('--')))
+
+  // 오타난 플래그를 조용히 무시하면 안 된다. `--update-baseline` 을 쳐놓고
+  // 기준선을 갱신했다고 믿은 적이 있다 — 스캔은 돌고 파일은 그대로였다.
+  const KNOWN = new Set(['--all', '--baseline', '--json', '--strict', '--write-baseline', '--lines'])
+  const unknown = [...flags].filter((f) => !KNOWN.has(f.split('=')[0]))
+  if (unknown.length) {
+    console.error(`${C.red('✗')} 알 수 없는 옵션: ${unknown.join(', ')}`)
+    console.error(C.gray(`   쓸 수 있는 옵션: ${[...KNOWN].join(' ')}`))
+    return 2
+  }
   const targets = argv.filter((a) => !a.startsWith('--'))
   if (!targets.length) targets.push('src')
 

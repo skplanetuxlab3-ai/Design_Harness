@@ -139,7 +139,7 @@ export default function CategorySheet({
                   </div>
                 </div>
                 {gi < groups.length - 1 && (
-                  <div className="w-full h-px mb-[20px]" style={{ backgroundColor: 'var(--catsheet-divider)' }} aria-hidden />
+                  <div className="w-full h-px mb-[var(--spacing-5)]" style={{ backgroundColor: 'var(--catsheet-divider)' }} aria-hidden />
                 )}
               </div>
             ))}
