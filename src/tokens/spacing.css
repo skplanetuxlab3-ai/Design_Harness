@@ -605,6 +605,34 @@
   --scroll-prompt-bottom:  80px;               /* bottom_appbar 높이만큼 띄운다 — 코드 결정 · Figma 변수 없음 */
   --scroll-fade-h:         100px;              /* 하단 페이드 그라디언트 — 코드 결정 · Figma 변수 없음 */
 
+  /* 앱바 (top_appbar mode=light 19449:147727) */
+  --appbar-h:              52px;               /* 코드 결정 · Figma 변수 없음 */
+  --appbar-px:             var(--products-spacing-08);
+  --appbar-touch:          40px;               /* 코드 결정 · Figma 변수 없음 */
+  --appbar-icon:           24px;               /* 코드 결정 · Figma 변수 없음 */
+
+  /* 검색 바 추가분 (search_bar 19449:147729) */
+  --search-clear-area:     32px;               /* 코드 결정 · Figma 변수 없음 */
+  --search-clear-icon:     12px;               /* ico / 12 / delete — 코드 결정 · Figma 변수 없음 */
+  --search-caret-w:        1px;                /* 코드 결정 · Figma 변수 없음 */
+  --search-caret-h:        16px;               /* 코드 결정 · Figma 변수 없음 */
+  --search-bar-px:         var(--products-spacing-16);
+  --search-bar-pb:         var(--products-spacing-04);
+
+  /* 검색 제안 목록 (list 19449:147730) */
+  --suggest-p:             var(--products-spacing-14);
+  --suggest-gap:           var(--products-spacing-20);
+  --suggest-row-gap:       var(--products-spacing-08);
+  --suggest-icon:          24px;               /* 코드 결정 · Figma 변수 없음 */
+
+  /* 키보드 목업 (Keyboard 19449:147766) — 안드로이드 시스템 UI */
+  --kbd-h:                 326px;              /* 코드 결정 · Figma 변수 없음 */
+  --kbd-px:                8px;                /* 코드 결정 · Figma 변수 없음 */
+  --kbd-key-h:             41px;               /* 코드 결정 · Figma 변수 없음 */
+  --kbd-row-gap:           8px;                /* 코드 결정 · Figma 변수 없음 */
+  --kbd-key-r:             6px;                /* 코드 결정 · Figma 변수 없음 */
+  --kbd-top:               52px;               /* 코드 결정 · Figma 변수 없음 */
+
   /* 검색 입력 (search_input 19550:129839) */
   --search-input-r:         var(--radius-150);
   --search-input-pl:        var(--products-spacing-16);

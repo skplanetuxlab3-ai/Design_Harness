@@ -269,6 +269,12 @@
 
   /* Gifticon 카드 뱃지 — 그라디언트 (node 20312-39930) */
   /* 적립쇼핑 — brand_shortcut (18894:161635) */
+  /* 검색 (SP08_1~3) */
+  --search-match-text:    var(--primitive-shopping-purple-700);  /* 제안 목록의 일치 접두어 */
+  --search-caret:         var(--primitive-black);                /* 입력 커서 */
+  --kbd-surface:          #f2f2f2;   /* Screen Color/black800 — 안드로이드 키보드 배경 */
+  --kbd-key-surface:      var(--primitive-white);
+
   --scroll-fade-gradient: linear-gradient(to bottom, #ffffff00, var(--primitive-white)); /* Bottom group gradient 19550:129844 */
 
   --brand-pill-gradient:  linear-gradient(119.27deg, #0946fe 15.98%, #9544ff 85.59%);   /* Badge 21117:135155 */
