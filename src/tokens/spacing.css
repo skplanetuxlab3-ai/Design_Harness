@@ -340,6 +340,13 @@
   --elevation-glow-spread: 3px;
   --elevation-glow-color:  #00000008;  /* elevation/glow/color */
 
+  /* elevation / 105dp — 토글 손잡이 등 작은 부양 요소 */
+  --elevation-105dp-x:      0px;      /* elevation/105dp/position x */
+  --elevation-105dp-y:      1.5px;    /* elevation/105dp/position y */
+  --elevation-105dp-blur:   5px;      /* elevation/105dp/blur */
+  --elevation-105dp-spread: 0px;      /* elevation/105dp/spread */
+  --elevation-105dp-color:  #0000001a; /* elevation/105dp/color */
+
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      Elevation — Shadow Compositions
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -464,13 +471,13 @@
   --gbuying-list-gap:        var(--products-spacing-08); /* 소셜딜 카드 세로 간격 8px */
 
   /* 알림설정 카드 */
-  --gbuying-noti-p:          var(--products-spacing-20); /* 카드 패딩 20px */
-  --gbuying-noti-gap:        var(--products-spacing-16); /* 텍스트 ↔ 토글 간격 16px */
-  --gbuying-noti-r:          var(--radius-200);  /* 카드 radius 16px */
-  --gbuying-noti-toggle-w:   56px;               /* 토글 너비 */
-  --gbuying-noti-toggle-h:   32px;               /* 토글 높이 */
-  --gbuying-noti-toggle-p:   4px;                /* 토글 내부 패딩 */
-  --gbuying-noti-toggle-knob: 24px;              /* 토글 손잡이 크기 */
+  --noti-setting-p:          var(--products-spacing-20); /* 카드 패딩 20px */
+  --noti-setting-gap:        var(--products-spacing-16); /* 텍스트 ↔ 토글 간격 16px */
+  --noti-setting-r:          var(--radius-200);  /* 카드 radius 16px */
+  --noti-setting-toggle-w:   56px;               /* 토글 너비 */
+  --noti-setting-toggle-h:   32px;               /* 토글 높이 */
+  --noti-setting-toggle-p:   4px;                /* 토글 내부 패딩 */
+  --noti-setting-knob-size: 24px;              /* 토글 손잡이 크기 */
 
   /* 푸터 */
   --gbuying-footer-px:       var(--products-spacing-20); /* 푸터 좌우 패딩 20px */

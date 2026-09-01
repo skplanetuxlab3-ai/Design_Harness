@@ -4,6 +4,7 @@ import StampCard from '../StampCard'
 import SectionTitle from '../SectionTitle'
 import CategoryFilter from '../CategoryFilter'
 import BrandShortcutList from '../BrandShortcutList'
+import NotificationSetting from '../NotificationSetting'
 
 /**
  * SP08_적립쇼핑 — Figma node 19550:129755 (360×2409)
@@ -38,6 +39,11 @@ export default function JeoklipHome() {
         <CategoryFilter items={STORE_CATEGORIES} activeIndex={0} showExpandBtn />
         <BrandShortcutList />
       </section>
+
+      {/* ── notification area 19960:176168 ───────────────────── */}
+      <div className="w-full px-[var(--products-spacing-14)] py-[var(--products-spacing-08)]">
+        <NotificationSetting />
+      </div>
     </div>
   )
 }

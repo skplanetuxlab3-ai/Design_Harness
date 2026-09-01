@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import SocialDealCard from '../SocialDealCard'
+import NotificationSetting from '../NotificationSetting'
 import type { SocialDealCardProps } from '../SocialDealCard/SocialDealCard.types'
 
 // ─── Figma CDN 에셋 (node 20341-19611, 7일 만료 — TODO: src/assets/ 로컬 교체) ───
@@ -99,58 +99,6 @@ function ComingSoonCard({ item, center }: { item: typeof COMINGSOON[number]; cen
   )
 }
 
-// ── 알림설정 카드 ───────────────────────────────────────────────
-function NotificationCard() {
-  const [on, setOn] = useState(false)
-  return (
-    <div
-      className="flex items-center justify-center w-full border border-solid"
-      style={{
-        gap: 'var(--gbuying-noti-gap)',
-        padding: 'var(--gbuying-noti-p)',
-        borderRadius: 'var(--gbuying-noti-r)',
-        backgroundColor: 'var(--gbuying-noti-surface)',
-        borderColor: 'var(--gbuying-noti-border)',
-        boxShadow: '0px 3px 20px 3px rgba(0,0,0,0.03)',
-      }}
-    >
-      <p
-        className="flex-1 min-w-0 font-bold"
-        style={{ fontSize: 'var(--typeset-md-size)', lineHeight: 'var(--typeset-md-lh)', color: 'var(--gbuying-noti-text)' }}
-      >
-        공동구매 혜택과<br />이벤트가 있을 때 알려드려요
-      </p>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={on}
-        aria-label="공동구매 알림 받기"
-        onClick={() => setOn(v => !v)}
-        className="flex items-center shrink-0"
-        style={{
-          width: 'var(--gbuying-noti-toggle-w)',
-          height: 'var(--gbuying-noti-toggle-h)',
-          padding: 'var(--gbuying-noti-toggle-p)',
-          borderRadius: 'var(--radius-max)',
-          backgroundColor: on ? 'var(--filled-primary-surface)' : 'var(--gbuying-noti-toggle-track)',
-          justifyContent: on ? 'flex-end' : 'flex-start',
-          transition: 'background-color 0.15s, justify-content 0.15s',
-        }}
-      >
-        <span
-          className="block"
-          style={{
-            width: 'var(--gbuying-noti-toggle-knob)',
-            height: 'var(--gbuying-noti-toggle-knob)',
-            borderRadius: 'var(--radius-max)',
-            backgroundColor: 'var(--gbuying-noti-toggle-knob)',
-            boxShadow: '0px 1.5px 5px 0px rgba(0,0,0,0.1)',
-          }}
-        />
-      </button>
-    </div>
-  )
-}
 
 // ── 푸터 ───────────────────────────────────────────────────────
 function Footer() {
@@ -202,7 +150,10 @@ export default function GroupbuyingHome() {
 
         {/* 알림설정 카드 */}
         <div className="w-full" style={{ paddingInline: 'var(--gbuying-px)' }}>
-          <NotificationCard />
+          <NotificationSetting
+        message={<>공동구매 혜택과<br />이벤트가 있을 때 알려드려요</>}
+        switchLabel="공동구매 알림 받기"
+      />
         </div>
       </div>
 

@@ -309,11 +309,11 @@
   --gbuying-banner-surface:    var(--primitive-white);              /* #ffffff 일러스트 배너 배경 */
   --gbuying-banner-title:      var(--primitive-black);              /* #000000 메인 카피 "가격이 내려가는" */
   --gbuying-banner-subtitle:   var(--primitive-black-opacity-800);  /* rgba(0,0,0,0.8) 서브 카피 "모이면 모일수록" */
-  --gbuying-noti-surface:      var(--primitive-white);              /* #ffffff 알림설정 카드 배경 */
-  --gbuying-noti-border:       var(--primitive-black-800);          /* #f4f4f4 알림설정 카드 테두리 */
-  --gbuying-noti-text:         var(--primitive-black);              /* #000000 알림설정 안내 텍스트 */
-  --gbuying-noti-toggle-track: var(--primitive-black-600);          /* #d5d5d5 토글 트랙 (off) */
-  --gbuying-noti-toggle-knob:  var(--primitive-white);              /* #ffffff 토글 손잡이 */
+  --noti-setting-surface:      var(--primitive-white);              /* #ffffff 알림설정 카드 배경 */
+  --noti-setting-border:       var(--primitive-black-800);          /* #f4f4f4 알림설정 카드 테두리 */
+  --noti-setting-text:         var(--primitive-black);              /* #000000 알림설정 안내 텍스트 */
+  --noti-setting-toggle-track: var(--primitive-black-600);          /* #d5d5d5 토글 트랙 (off) */
+  --noti-setting-knob-color:  var(--primitive-white);              /* #ffffff 토글 손잡이 */
   --gbuying-footer-company:    var(--primitive-black);              /* #000000 "OK캐쉬백 쇼핑" */
   --gbuying-footer-link:       var(--primitive-black-300);          /* #868686 약관 링크 */
   --gbuying-footer-divider:    var(--primitive-black-500);          /* #c7c7c7 구분선 */
