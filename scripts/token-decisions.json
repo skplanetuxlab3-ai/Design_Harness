@@ -28,6 +28,28 @@
           "line": 55
         }
       ]
+    },
+    {
+      "why": "SVG 에셋의 고유 기하값(뷰박스에서 온 leaf 크기·오프셋). figma-design-to-code 스킬이 'outer box 와 inner leaf 의 치수를 각각 보존하라'고 요구하는 값이라 토큰화 대상이 아니다. 토큰으로 빼면 다른 에셋에 잘못 재사용될 수 있다. (2026-09-01 결정)",
+      "rules": [
+        {
+          "file": "src/components/PromoBanner/PromoBanner.tsx",
+          "px": [
+            "29.4",
+            "30.319",
+            "5.25",
+            "5.18"
+          ]
+        },
+        {
+          "file": "src/components/StampCard/StampCard.tsx",
+          "px": [
+            "25.444",
+            "22",
+            "0.2"
+          ]
+        }
+      ]
     }
   ],
   "pending": {

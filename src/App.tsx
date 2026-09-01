@@ -4,6 +4,7 @@ import ShoppingHome from './components/ShoppingHome/ShoppingHome'
 import GroupbuyingHome from './components/GroupbuyingHome/GroupbuyingHome'
 import TodayDealHome from './components/TodayDealHome/TodayDealHome'
 import EcouponHome from './components/EcouponHome/EcouponHome'
+import JeoklipHome from './components/JeoklipHome'
 import CategorySheet from './components/CategorySheet'
 import BottomNavBar from './components/BottomNavBar'
 
@@ -36,6 +37,8 @@ function StatusBar() {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState(0)
+  // 하단 네비 — 0=적립 / 3=쇼핑. 적립은 쇼핑 하위 탭이 아니라 별도 화면(SP08)이다.
+  const [navTab, setNavTab] = useState(3)
   const [catSheetOpen, setCatSheetOpen] = useState(false)
 
   return (
@@ -53,6 +56,16 @@ export default function App() {
         {/* 상태바 */}
         <StatusBar />
 
+        {navTab === 0 ? (
+          /* 적립쇼핑 — 자체 헤더를 가진 별도 화면 */
+          <div
+            className="flex-1 overflow-y-auto"
+            style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' } as React.CSSProperties}
+          >
+            <JeoklipHome />
+          </div>
+        ) : (
+        <>
         {/* TopNavBar — 하네스 컴포넌트 */}
         <TopNavBar
           variant="Default"
@@ -94,9 +107,11 @@ export default function App() {
             </div>
           )}
         </div>
+        </>
+        )}
 
         {/* 하단 네비게이션 */}
-        <BottomNavBar activeIndex={3} />
+        <BottomNavBar activeIndex={navTab} onSelect={setNavTab} />
 
         {/* 카테고리별 브랜드 바텀시트 (e쿠폰 펼치기) */}
         <CategorySheet open={catSheetOpen} onClose={() => setCatSheetOpen(false)} />

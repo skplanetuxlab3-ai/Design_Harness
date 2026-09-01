@@ -69,12 +69,13 @@
   --primitive-shopping-pink:    #fe4881;   /* color/shopping/pink */
   --primitive-shopping-magenta: #ff427d;   /* color/shopping/magenta — 오늘특가 타이머 그라데이션 종착 */
   --primitive-shopping-purple-600: #8058f7; /* color/shopping/purple600 */
+  --primitive-shopping-purple-700: #6c40f0; /* color/shopping/purple700 */
   --primitive-shopping-purple-900: #f4f0ff; /* color/shopping/purple900 (Tag/Point 배경) */
   --primitive-shopping-border:  #00000005; /* color/shopping/opacity/black50 */
   --primitive-scrim-thumb-border: #0000000d; /* scrim/thumbnail_border */
 
   /* Opacity Palette */
-  --primitive-black-opacity-50:  #0000000a; /* color/shopping/opacity/black50  (4%) */
+  --primitive-black-opacity-50:  #0000000a; /* color/shopping/opacity/black100 — 이름은 50 이지만 Figma 경로는 black100 이다 */
   --primitive-black-opacity-80:  #00000014; /* color/shopping/opacity/black80  (8%) — GifticonOffering tag overlay */
   --primitive-black-opacity-200: #00000033; /* color/shopping/opacity/black200 (20%) */
   --primitive-black-opacity-400: #00000066; /* color/shopping/opacity/black400 (40%) */

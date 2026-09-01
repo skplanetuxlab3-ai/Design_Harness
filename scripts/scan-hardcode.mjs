@@ -597,6 +597,33 @@ function toCounts(findings) {
   return counts
 }
 
+/**
+ * 토큰화하지 않기로 확정한 값은 스캔 결과에서도 뺀다.
+ * 기준선(baseline)이 "이미 있는 부채" 라면, 원장은 "부채가 아니라고 판단한 것" 이다.
+ * 둘을 섞지 않는다 — 원장 항목은 기준선을 갱신해도 다시 올라오지 않는다.
+ */
+let DECIDED = null
+function loadDecided() {
+  if (DECIDED) return DECIDED
+  DECIDED = []
+  try {
+    const raw = JSON.parse(readFileSync(join(ROOT, 'scripts', 'token-decisions.json'), 'utf8'))
+    for (const d of raw.keep || []) for (const r of d.rules || []) DECIDED.push(r)
+  } catch { /* 원장이 없으면 전부 보고한다 */ }
+  return DECIDED
+}
+function filterDecided(findings) {
+  const rules = loadDecided()
+  if (!rules.length) return findings
+  return findings.filter((f) => {
+    const px = /(-?\d+(?:\.\d+)?)px/.exec(f.match || '')
+    if (!px) return true
+    return !rules.some(
+      (r) => r.file === f.file && r.px.includes(px[1]) && (r.line == null || r.line === f.line)
+    )
+  })
+}
+
 function filterNew(findings, baseline) {
   if (!baseline) return findings
   const seen = {}
@@ -689,7 +716,7 @@ function main() {
   }
 
   const baseline = flags.has('--baseline') ? loadBaseline() : null
-  const findings = flags.has('--baseline') ? filterNew(all, baseline) : all
+  const findings = filterDecided(flags.has('--baseline') ? filterNew(all, baseline) : all)
 
   if (flags.has('--json')) {
     console.log(JSON.stringify({ findings, tally: tally(findings) }, null, 2))

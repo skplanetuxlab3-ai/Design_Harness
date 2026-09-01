@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-01T06:55:20.583Z",
+  "generated": "2026-09-01T07:10:07.421Z",
   "note": "기존 부채 스냅샷. 신규 위반만 차단하기 위한 기준선. 부채를 갚으면 --write-baseline 으로 갱신.",
-  "total": 324,
+  "total": 335,
   "bySeverity": {
     "error": 83,
-    "warn": 184,
-    "info": 57
+    "warn": 190,
+    "info": 62
   },
   "counts": {
     "src/App.tsx|inline-style-px|: '44px'": 2,
@@ -125,6 +125,7 @@
     "src/components/OrderHistoryCard/OrderHistoryCard.tsx|inline-style-px|: '56px'": 2,
     "src/components/OrderHistoryCard/OrderHistoryCard.tsx|inline-style-px|: '4px'": 2,
     "src/components/OrderHistoryCard/OrderHistoryCard.tsx|inline-style-px|: '1px'": 1,
+    "src/components/PointSummary/PointSummary.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/ProductCard/ProductCard.stories.tsx|inline-style-px|: '162px'": 1,
     "src/components/ProductCard/ProductCard.stories.tsx|arbitrary-px|gap-[8px]": 1,
     "src/components/ProductCard/ProductCard.stories.tsx|inline-style-px|: '340px'": 1,
@@ -165,6 +166,11 @@
     "src/components/ProductCard/ProductCard.tsx|arbitrary-px|h-[30px]": 2,
     "src/components/ProductCard/ProductCard.tsx|fixed-px-width|w-[100px]": 2,
     "src/components/ProductCard/ProductCard.tsx|arbitrary-px|size-[120px]": 1,
+    "src/components/PromoBanner/PromoBanner.tsx|inline-style-px|: '5.25px'": 1,
+    "src/components/PromoBanner/PromoBanner.tsx|inline-style-px|: '5.18px'": 1,
+    "src/components/PromoBanner/PromoBanner.tsx|inline-style-px|: '29.4px'": 1,
+    "src/components/PromoBanner/PromoBanner.tsx|inline-style-px|: '30.319px'": 1,
+    "src/components/PromoBanner/PromoBanner.tsx|tailwind-numeric-scale|w-0": 2,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|gap-3": 1,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|p-4": 1,
     "src/components/ShoppingHome/ShoppingHome.tsx|tailwind-numeric-scale|w-0": 1,
@@ -174,6 +180,9 @@
     "src/components/SocialDealCard/SocialDealCard.tsx|expiring-figma-asset|https://www.figma.com/api/mcp/asset/0e91cdc9-c5bf-483b-97a9-4f2c81377966": 1,
     "src/components/SocialDealCard/SocialDealCard.tsx|inline-style-px|: '48px'": 1,
     "src/components/SocialDealCard/SocialDealCard.tsx|inline-style-px|: '210px'": 1,
+    "src/components/StampCard/StampCard.tsx|inline-style-px|: '25.444px'": 1,
+    "src/components/StampCard/StampCard.tsx|inline-style-px|: '22px'": 1,
+    "src/components/StampCard/StampCard.tsx|tailwind-numeric-scale|w-0": 2,
     "src/components/Tab/Tab.stories.tsx|raw-hex-color|#181818": 1,
     "src/components/Tab/Tab.stories.tsx|raw-hex-color|#fafafa": 1,
     "src/components/Tab/Tab.stories.tsx|tailwind-numeric-scale|gap-6": 1,

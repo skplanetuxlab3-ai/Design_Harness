@@ -10,6 +10,9 @@
      Border Radius Scale
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
+  /* Figma 아트보드 폭. 컴포넌트는 w-full 이고(§4) 이 값은 스토리·페이지 프레임에서만 쓴다. */
+  --frame-mobile-w: 360px;   /* 코드 결정 · Figma 변수 없음 */
+
   --radius-050:  4px;    /* radius/radius050 */
   --radius-100:  8px;    /* radius/radius100 */
   --radius-150:  12px;   /* radius/radius150 */
@@ -543,4 +546,42 @@
   --ai-recommend-header-gap: 6px;                /* 섹션 헤더 컬럼 간격 — 코드 결정 · Figma 변수 없음 */
   --ai-recommend-badge-py:   3px;                /* AI 배지 세로 패딩 — 코드 결정 · Figma 변수 없음 */
   --ai-recommend-reason-gap: 3px;                /* 추천 이유 아이콘 ↔ 문구 간격 — 코드 결정 · Figma 변수 없음 */
+
+  /* ── 적립쇼핑 (SP08 19550:129755) ───────────────────────────── */
+
+  /* btn / sm / filled — Figma 컴포넌트 (OCB_PDS3.0 · OCB_적립 두 라이브러리에 존재) */
+  --btn-sm-h:            32px;               /* 코드 결정 · Figma 변수 없음 */
+  --btn-sm-px:           var(--products-spacing-14);
+  --btn-sm-py:           var(--products-spacing-08);
+  --btn-sm-r:            var(--radius-100);
+  --btn-xs-h:            26px;               /* 코드 결정 · Figma 변수 없음 */
+  --btn-xs-w:            40px;               /* 코드 결정 · Figma 변수 없음 */
+  --btn-xs-r:            var(--products-radius-8);   /* products/radius/radius06 = 6px */
+
+  /* 프로모션 배너 S-2 */
+  --promo-banner-r:      var(--radius-200);
+  --promo-banner-pl:     var(--products-spacing-16);
+  --promo-banner-pr:     var(--products-spacing-20);
+  --promo-banner-py:     var(--products-spacing-16);
+  --promo-banner-gap:    var(--products-spacing-10);
+  --promo-banner-img:    42px;               /* image / 42 / BannerS — 코드 결정 · Figma 변수 없음 */
+  --promo-banner-close:  16px;               /* ico / 16 / close — 코드 결정 · Figma 변수 없음 */
+
+  /* 포인트 요약 */
+  --point-summary-pt:    var(--products-spacing-28);
+  --point-summary-pb:    var(--products-spacing-16);
+  --point-summary-px:    var(--products-spacing-20);
+  --point-summary-gap:   var(--products-spacing-16);
+  --point-summary-num-gap: var(--products-spacing-06);
+
+  /* 스탬프 카드 */
+  --stampcard-gap:       var(--products-spacing-08);
+  --stampcard-pb:        var(--products-spacing-10);
+  --stampcard-px:        var(--products-spacing-14);
+  --stampcard-r:         var(--radius-150);
+  --stampcard-inner-gap: var(--products-spacing-16);
+  --stampcard-inner-px:  var(--products-spacing-16);
+  --stamp-size:          26px;               /* Elements / Stamp — 코드 결정 · Figma 변수 없음 */
+  --stamp-num-size:      24px;               /* 코드 결정 · Figma 변수 없음 */
+  --stamp-bar-h:         6px;                /* 코드 결정 · Figma 변수 없음 */
 }
