@@ -80,7 +80,13 @@ function toToken(path) {
 
   // 일반 규칙: a/b/c → --a-b-c (공백·언더스코어를 하이픈으로)
   const guess = '--' + path.toLowerCase().replace(/[/\s_]+/g, '-').replace(/-+/g, '-')
-  return TOKEN[guess] !== undefined ? guess : null
+  if (TOKEN[guess] !== undefined) return guess
+
+  // 유추한 이름의 계열이 레포에 이미 있으면 "이름을 못 풀었다"가 아니라
+  // "Figma 에는 있는데 레포에 선언이 없다"로 본다. 후자가 훨씬 actionable 하다.
+  const family = guess.replace(/-[^-]+$/, '')
+  const hasFamily = Object.keys(TOKEN).some((k) => k.startsWith(family + '-'))
+  return hasFamily ? guess : null
 }
 
 /** Figma 값과 레포 값이 같은가 (Figma 치수는 단위 없는 숫자) */
