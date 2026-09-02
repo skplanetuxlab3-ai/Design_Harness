@@ -43,6 +43,7 @@
   --products-spacing-16:  16px;  /* products/spacing16 */
   --products-spacing-20:  20px;  /* products/spacing20 */
   --products-spacing-28:  28px;  /* products/spacing28 */
+  --products-spacing-36:  36px;  /* products/spacing36 */
   --products-spacing-60:  60px;  /* products/spacing60 */
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -621,6 +622,21 @@
   --sresult-point-px:      var(--products-spacing-04);
   --sresult-point-r:       20px;               /* 코드 결정 · Figma 변수 없음 */
   --sresult-stamp-icon:    var(--products-spacing-12);  /* ico_12_stamp */
+
+  /* 이용가이드 (SP08_4 20041:130474) */
+  --guide-top-pt:          var(--products-spacing-14);
+  --guide-top-gap:         var(--products-spacing-06);
+  --guide-hero:            360px;              /* img_360_shoppingpoint_main — 코드 결정 · Figma 변수 없음 */
+  --guide-card-px:         var(--products-spacing-20);
+  --guide-card-pt:         var(--products-spacing-36);
+  --guide-card-pb:         var(--products-spacing-20);
+  --guide-card-gap:        30px;               /* 코드 결정 · Figma 변수 없음 */
+  --guide-card-r:          var(--radius-250);
+  --guide-card-max-w:      420px;              /* 코드 결정 · Figma 변수 없음 */
+  --guide-text-gap:        var(--products-spacing-08);
+  --guide-sub-gap:         var(--products-spacing-16);
+  --guide-btn-h:           40px;               /* 코드 결정 · Figma 변수 없음 */
+  --guide-noti-py:         var(--products-spacing-08);
 
   /* 쇼핑몰 브릿지 (OC19 19532:140203) */
   --bridge-head-pt:        var(--products-spacing-16);

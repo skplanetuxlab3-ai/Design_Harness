@@ -27,7 +27,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const DIR = join(ROOT, 'src', 'components')
 
 /** 화면 조합 — 재사용 컴포넌트가 아니므로 types/index 를 요구하지 않는다 */
-const EXEMPT = new Set(['ShoppingHome', 'GroupbuyingHome', 'TodayDealHome', 'EcouponHome', 'JeoklipHome', 'SearchHome', 'SearchTyping', 'SearchResults', 'ShoppingBridge'])
+const EXEMPT = new Set(['ShoppingHome', 'GroupbuyingHome', 'TodayDealHome', 'EcouponHome', 'JeoklipHome', 'SearchHome', 'SearchTyping', 'SearchResults', 'ShoppingBridge', 'ShoppingGuide'])
 
 const C = {
   red: (s) => `\x1b[31m${s}\x1b[0m`,

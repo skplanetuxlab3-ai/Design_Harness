@@ -78,12 +78,17 @@ function BonusList({ items }: { items: ProductCardProps[] }) {
 export default function JeoklipHome({
   onOpenSearch,
   onOpenBridge,
-}: { onOpenSearch?: () => void; onOpenBridge?: (brand: string) => void } = {}) {
+  onOpenGuide,
+}: {
+  onOpenSearch?: () => void
+  onOpenBridge?: (brand: string) => void
+  onOpenGuide?: () => void
+} = {}) {
   return (
     <div className="flex w-full flex-col items-start bg-[var(--primitive-white)]">
       {/* ── Monthly Stats 19550:129760 ───────────────────────── */}
       <section className="flex w-full flex-col items-start" aria-label="이달의 적립 현황">
-        <PromoBanner />
+        <PromoBanner onClick={onOpenGuide} />
         <PointSummary />
         <StampCard />
       </section>
