@@ -75,7 +75,7 @@ function BonusList({ items }: { items: ProductCardProps[] }) {
   )
 }
 
-export default function JeoklipHome() {
+export default function JeoklipHome({ onOpenSearch }: { onOpenSearch?: () => void } = {}) {
   return (
     <div className="flex w-full flex-col items-start bg-[var(--primitive-white)]">
       {/* ── Monthly Stats 19550:129760 ───────────────────────── */}
@@ -100,8 +100,8 @@ export default function JeoklipHome() {
       {/* ── Bonus Shopping 19550:129836 ──────────────────────── */}
       <section className="flex w-full flex-col items-start" aria-label="보너스 적립쇼핑">
         <SectionTitle title="보너스 적립쇼핑" />
-        <div className="w-full px-[var(--products-spacing-14)] py-[var(--products-spacing-08)]">
-          <SearchInput />
+        <div className="w-full px-[var(--products-spacing-14)] py-[var(--products-spacing-08)]" onClick={onOpenSearch}>
+          <SearchInput readOnlyDisplay />
         </div>
         <CategoryFilter items={BONUS_CATEGORIES} activeIndex={0} showExpandBtn />
         <BonusList items={BONUS_ITEMS} />

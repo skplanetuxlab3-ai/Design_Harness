@@ -73,6 +73,7 @@
   --primitive-shopping-purple-900: #f4f0ff; /* color/shopping/purple900 (Tag/Point 배경) */
   --primitive-shopping-border:  #00000005; /* color/shopping/opacity/black50 */
   --primitive-scrim-thumb-border: #0000000d; /* scrim/thumbnail_border */
+  --primitive-scrim-thumb-overlay: #00000008; /* scrim/thumbnail_overlay — 반전색 브랜드 로고 위 필수 오버레이 */
 
   /* Opacity Palette */
   --primitive-black-opacity-50:  #0000000a; /* color/shopping/opacity/black100 — 이름은 50 이지만 Figma 경로는 black100 이다 */

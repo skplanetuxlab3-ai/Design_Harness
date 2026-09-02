@@ -605,6 +605,36 @@
   --scroll-prompt-bottom:  80px;               /* bottom_appbar 높이만큼 띄운다 — 코드 결정 · Figma 변수 없음 */
   --scroll-fade-h:         100px;              /* 하단 페이드 그라디언트 — 코드 결정 · Figma 변수 없음 */
 
+  /* 빈 결과 (nodata 19807:157630) */
+  --nodata-px:             24px;               /* 코드 결정 · Figma 변수 없음 */
+  --nodata-py:             var(--products-spacing-60);
+  --nodata-gap:            var(--products-spacing-16);
+  --nodata-icon:           48px;               /* ico / 48 / nodata — 코드 결정 · Figma 변수 없음 */
+  --nodata-text-w:         312px;              /* 코드 결정 · Figma 변수 없음 */
+
+  /* 브랜드별 상품 블록 (contents 19449:147691) */
+  --brandblock-title-gap:  var(--products-spacing-08);
+  --brandblock-title-py:   var(--products-spacing-08);
+  --brandblock-logo:       32px;               /* contentarea / 48dp — 코드 결정 · Figma 변수 없음 */
+  --brandblock-logo-r:     10px;               /* 코드 결정 · Figma 변수 없음 */
+  --brandblock-text-gap:   var(--products-spacing-04);
+
+  /* 검색어 칩 (Chip 19449:147665 / tag 19449:147680) */
+  --search-chip-h:         32px;               /* 코드 결정 · Figma 변수 없음 */
+  --search-chip-px:        var(--products-spacing-12);
+  --search-chip-py:        7px;                /* 코드 결정 · Figma 변수 없음 */
+  --search-chip-gap:       var(--products-spacing-04);
+  --search-chip-close:     var(--products-spacing-12);
+  --search-chip-r:         var(--radius-max);  /* Figma 는 recent 32 / recommended 16 — 높이 32 에서 둘 다 알약이라 동일하게 렌더된다 */
+
+  /* 검색 섹션 (Recent 19449:147660 / Recommended 19449:147677) */
+  --search-sec-px:         var(--products-spacing-14);
+  --search-sec-pt:         var(--products-spacing-20);
+  --search-sec-pb:         var(--products-spacing-10);
+  --search-sec-gap:        var(--products-spacing-12);
+  --search-chips-col-gap:  var(--products-spacing-06);
+  --search-chips-row-gap:  var(--products-spacing-10);
+
   /* 앱바 (top_appbar mode=light 19449:147727) */
   --appbar-h:              52px;               /* 코드 결정 · Figma 변수 없음 */
   --appbar-px:             var(--products-spacing-08);

@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-01T07:24:17.962Z",
+  "generated": "2026-09-02T00:01:22.004Z",
   "note": "기존 부채 스냅샷. 신규 위반만 차단하기 위한 기준선. 부채를 갚으면 --write-baseline 으로 갱신.",
-  "total": 337,
+  "total": 350,
   "bySeverity": {
     "error": 81,
-    "warn": 190,
-    "info": 66
+    "warn": 197,
+    "info": 72
   },
   "counts": {
     "src/App.tsx|inline-style-px|: '44px'": 2,
@@ -34,6 +34,7 @@
     "src/components/AIRecommendSection/AIRecommendSection.tsx|arbitrary-px|tracking-[0.2px]": 1,
     "src/components/AIRecommendSection/AIRecommendSection.tsx|arbitrary-px|leading-[19px]": 1,
     "src/components/AIRecommendSection/AIRecommendSection.tsx|inline-style-px|: '16px'": 1,
+    "src/components/AppBar/AppBar.tsx|tailwind-numeric-scale|w-0": 2,
     "src/components/Badge/Badge.stories.tsx|tailwind-numeric-scale|gap-2": 2,
     "src/components/Badge/Badge.stories.tsx|tailwind-numeric-scale|p-4": 2,
     "src/components/Badge/Badge.tsx|raw-hex-color|#0946fe": 1,
@@ -59,6 +60,7 @@
     "src/components/BottomNavBar/BottomNavBar.stories.tsx|arbitrary-px|gap-[24px]": 1,
     "src/components/BottomNavBar/BottomNavBar.stories.tsx|arbitrary-px|mb-[4px]": 1,
     "src/components/BottomNavBar/BottomNavBar.tsx|tailwind-numeric-scale|w-0": 1,
+    "src/components/BrandProductBlock/BrandProductBlock.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/BrandShortcutList/BrandShortcutList.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/BrandsFilter/BrandsFilter.stories.tsx|inline-style-px|: '360px'": 1,
     "src/components/BrandsFilter/BrandsFilter.tsx|expiring-figma-asset|https://www.figma.com/api/mcp/asset/38e528ec-c6eb-477c-81d5-7f9c8a04ffeb": 1,
@@ -113,6 +115,11 @@
     "src/components/GroupbuyingHome/GroupbuyingHome.tsx|inline-style-px|: '60px'": 1,
     "src/components/GroupbuyingHome/GroupbuyingHome.tsx|arbitrary-px|h-[12px]": 1,
     "src/components/JeoklipHome/JeoklipHome.tsx|tailwind-numeric-scale|w-0": 1,
+    "src/components/KeyboardMock/KeyboardMock.tsx|arbitrary-px|text-[21px]": 1,
+    "src/components/KeyboardMock/KeyboardMock.tsx|arbitrary-px|leading-[24px]": 1,
+    "src/components/KeyboardMock/KeyboardMock.tsx|arbitrary-px|size-[20px]": 3,
+    "src/components/KeyboardMock/KeyboardMock.tsx|arbitrary-px|text-[12px]": 1,
+    "src/components/KeyboardMock/KeyboardMock.tsx|arbitrary-px|leading-[16px]": 1,
     "src/components/NotificationSetting/NotificationSetting.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/OrderHistoryCard/OrderHistoryCard.stories.tsx|inline-style-px|: '16px'": 1,
     "src/components/OrderHistoryCard/OrderHistoryCard.stories.tsx|inline-style-px|: '375px'": 1,
@@ -174,7 +181,8 @@
     "src/components/PromoBanner/PromoBanner.tsx|tailwind-numeric-scale|w-0": 2,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|gap-3": 1,
     "src/components/QuantityControl/QuantityControl.stories.tsx|tailwind-numeric-scale|p-4": 1,
-    "src/components/SearchInput/SearchInput.tsx|tailwind-numeric-scale|w-0": 1,
+    "src/components/SearchInput/SearchInput.tsx|tailwind-numeric-scale|w-0": 3,
+    "src/components/SearchResults/SearchResults.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/SectionTitle/SectionTitle.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/ShoppingHome/ShoppingHome.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/ShoppingHome/ShoppingHome.tsx|inline-style-px|: '20px'": 1,

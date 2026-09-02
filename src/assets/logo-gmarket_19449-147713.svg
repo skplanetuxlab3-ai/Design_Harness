@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="img/brand/solidcolor/11st" clip-path="url(#clip0_0_65)">
+<rect width="200" height="200" fill="url(#paint0_linear_0_65)"/>
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M46.4245 70L30.1105 82.756V89.89H37.2625L45.1915 83.722V128.824L46.3705 130H54.0595L55.2355 128.824V71.176L54.0595 70H46.4215H46.4245ZM139.842 70H106.662L105.483 71.176V78.847L106.662 80.023H135.684L155.712 100L135.681 119.98H90.4105V71.176L89.2315 70H81.5965L65.2855 82.756V89.89H72.4375L80.3635 83.722V128.824L81.5275 129.979L81.5455 130H139.845L169.92 100L139.845 70H139.842Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_65" x1="0" y1="0" x2="198.5" y2="203" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF5930"/>
+<stop offset="0.461109" stop-color="#FF0638"/>
+<stop offset="1" stop-color="#FF02EA"/>
+</linearGradient>
+<clipPath id="clip0_0_65">
+<rect width="200" height="200" fill="white"/>
+</clipPath>
+</defs>
+</svg>
