@@ -623,6 +623,25 @@
   --sresult-point-r:       20px;               /* 코드 결정 · Figma 변수 없음 */
   --sresult-stamp-icon:    var(--products-spacing-12);  /* ico_12_stamp */
 
+  /* BannerL (21551:41039) — 적립쇼핑 상단 L 타입 배너 */
+  --banner-l-r:            var(--radius-150);
+  --banner-l-pt:           18px;               /* 코드 결정 · Figma 변수 없음 */
+  --banner-l-pb:           var(--products-spacing-16);
+  --banner-l-px:           var(--products-spacing-16);
+  --banner-l-gap:          var(--products-spacing-14);
+  --banner-l-text-gap:     var(--products-spacing-06);
+  --banner-l-text-pl:      var(--products-spacing-04);
+  --banner-l-cta-py:       11px;               /* 코드 결정 · Figma 변수 없음 */
+  --banner-l-cta-r:        var(--radius-150);
+  --banner-l-close-area:   32px;               /* ico / 32 / close — 코드 결정 · Figma 변수 없음 */
+  --banner-l-close-bg:     28px;               /* 코드 결정 · Figma 변수 없음 */
+  --banner-l-close-icon:   var(--products-spacing-12);
+  --banner-l-close-right:  -4px;               /* 코드 결정 · Figma 변수 없음 */
+  --banner-l-close-top:    -8px;               /* 코드 결정 · Figma 변수 없음 */
+  --banner-l-close-bg-inset: var(--products-spacing-02);
+  --banner-l-art-w:        127px;              /* img / BannerL / 쇼핑스탬프 — 코드 결정 · Figma 변수 없음 */
+  --banner-l-art-h:        104px;              /* 코드 결정 · Figma 변수 없음 */
+
   /* 이용가이드 (SP08_4 20041:130474) */
   --guide-top-pt:          var(--products-spacing-14);
   --guide-top-gap:         var(--products-spacing-06);

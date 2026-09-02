@@ -1,4 +1,5 @@
 import PromoBanner from '../PromoBanner'
+import BannerL from '../BannerL'
 import PointSummary from '../PointSummary'
 import StampCard from '../StampCard'
 import SectionTitle from '../SectionTitle'
@@ -79,16 +80,32 @@ export default function JeoklipHome({
   onOpenSearch,
   onOpenBridge,
   onOpenGuide,
+  onStamp,
+  bannerType = 'S',
 }: {
   onOpenSearch?: () => void
   onOpenBridge?: (brand: string) => void
   onOpenGuide?: () => void
+  onStamp?: () => void
+  /** 상단 배너 — S: 한 줄 알림(PromoBanner) / L: CTA 카드(BannerL) */
+  bannerType?: 'S' | 'L'
 } = {}) {
   return (
     <div className="flex w-full flex-col items-start bg-[var(--primitive-white)]">
       {/* ── Monthly Stats 19550:129760 ───────────────────────── */}
       <section className="flex w-full flex-col items-start" aria-label="이달의 적립 현황">
-        <PromoBanner onClick={onOpenGuide} />
+        {bannerType === 'L' ? (
+          <div className="w-full px-[var(--products-spacing-14)] pt-[var(--products-spacing-14)]">
+            <BannerL
+              eyebrow="쇼핑 스탬프"
+              title={<>축하합니다!<br />스탬프 7개가 도착했어요</>}
+              ctaLabel="스탬프 7개 받기"
+              onClick={onStamp}
+            />
+          </div>
+        ) : (
+          <PromoBanner onClick={onOpenGuide} />
+        )}
         <PointSummary />
         <StampCard />
       </section>

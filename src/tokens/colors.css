@@ -34,6 +34,15 @@
   --primitive-bridge-accent:    #6642ff;   /* 브릿지 타이틀 강조 — Figma 변수 없음 */
   --primitive-bridge-tooltip:   #fc1e63;   /* 즐겨찾기 툴팁 — Figma 변수 없음 */
 
+  /* M3(Material 3) 참조 계층 — BannerL 이 처음 들여왔다.
+     Semantic/* · zuro_color/* 에 이어 네 번째 색 계열이다. */
+  --primitive-m3-neutral-50:    #79767D;   /* M3/ref/neutral/neutral50 */
+  --primitive-m3-white:         #FFFFFF;   /* M3/white */
+
+  /* BannerL (21551:41039) */
+  --primitive-banner-l-cta:     #764df1;   /* CTA 보라 — Figma 변수 없음 */
+  --primitive-banner-l-tint:    #eae4ff;   /* 배경 그라디언트 끝색 — Figma 변수 없음 */
+
   /* Black Scale  ※ OCB 역순: 100=진함 → 900=연함 */
   --primitive-black:            #000000;   /* color/black */
   --primitive-black-100:        #333333;   /* color/black/black100 */
@@ -299,6 +308,8 @@
   --search-caret:         var(--primitive-black);                /* 입력 커서 */
   --kbd-surface:          #f2f2f2;   /* Screen Color/black800 — 안드로이드 키보드 배경 */
   --kbd-key-surface:      var(--primitive-white);
+
+  --banner-l-gradient: linear-gradient(64.27deg, var(--primitive-white) 65.715%, var(--primitive-banner-l-tint) 100%); /* BannerL 배경 */
 
   --scroll-fade-gradient: linear-gradient(to bottom, #ffffff00, var(--primitive-white)); /* Bottom group gradient 19550:129844 */
 

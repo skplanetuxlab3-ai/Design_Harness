@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-02T00:55:07.039Z",
+  "generated": "2026-09-02T01:43:23.096Z",
   "note": "기존 부채 스냅샷. 신규 위반만 차단하기 위한 기준선. 부채를 갚으면 --write-baseline 으로 갱신.",
-  "total": 358,
+  "total": 371,
   "bySeverity": {
     "error": 81,
-    "warn": 200,
-    "info": 77
+    "warn": 212,
+    "info": 78
   },
   "counts": {
     "src/App.tsx|inline-style-px|: '44px'": 2,
@@ -56,6 +56,17 @@
     "src/components/Badge/Badge.tsx|fixed-px-width|w-[44px]": 1,
     "src/components/Badge/Badge.tsx|fixed-px-width|w-[54px]": 1,
     "src/components/Badge/Badge.tsx|tailwind-numeric-scale|h-3": 1,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '65px'": 1,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '-141px'": 1,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '288px'": 1,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '194px'": 1,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '-1px'": 2,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '88.258px'": 1,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '68px'": 1,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '61.96px'": 1,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '59.04px'": 1,
+    "src/components/BannerL/BannerL.tsx|inline-style-px|: '41.687px'": 2,
+    "src/components/BannerL/BannerL.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/BottomNavBar/BottomNavBar.stories.tsx|inline-style-px|: '360px'": 2,
     "src/components/BottomNavBar/BottomNavBar.stories.tsx|arbitrary-px|gap-[24px]": 1,
     "src/components/BottomNavBar/BottomNavBar.stories.tsx|arbitrary-px|mb-[4px]": 1,

@@ -61,6 +61,8 @@ export default function App() {
   const [query, setQuery] = useState('')
   const [bridge, setBridge] = useState<string | null>(null)
   const [guide, setGuide] = useState(false)
+  // 상단 배너 S/L 전환 — 디자인 확인용 토글
+  const [bannerL, setBannerL] = useState(true)
 
   return (
     <div className="min-h-screen bg-[var(--primitive-black-800)] flex items-center justify-center p-[var(--spacing-8)]">
@@ -102,6 +104,7 @@ export default function App() {
               onOpenSearch={() => setSearch('home')}
               onOpenBridge={setBridge}
               onOpenGuide={() => setGuide(true)}
+              bannerType={bannerL ? 'L' : 'S'}
             />
           ) : activeTab === 2 ? (
             <GroupbuyingHome />
@@ -146,6 +149,17 @@ export default function App() {
 
         {/* 하단 네비게이션 */}
         <BottomNavBar activeIndex={3} />
+
+        {/* 배너 S/L 전환 — 하네스 확인용 */}
+        {activeTab === 1 && !guide && !bridge && !search && (
+          <button
+            type="button"
+            onClick={() => setBannerL((v) => !v)}
+            className="absolute right-[var(--products-spacing-08)] top-[var(--products-spacing-08)] z-30 rounded-[var(--radius-max)] bg-[var(--primitive-blueblack)] px-[var(--products-spacing-08)] py-[var(--products-spacing-02)] text-[length:var(--typeset-2xs-size)] leading-[var(--typeset-2xs-lh)] font-bold text-[var(--primitive-white)]"
+          >
+            배너 {bannerL ? 'L' : 'S'}
+          </button>
+        )}
 
         {/* 이용가이드 SP08_4 */}
         {guide && (
