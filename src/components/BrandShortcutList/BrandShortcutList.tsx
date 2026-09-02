@@ -90,6 +90,7 @@ function BrandShortcut({ item }: { item: BrandShortcutItem }) {
 export default function BrandShortcutList({
   items = DEFAULT_ITEMS,
   perColumn = 5,
+  onSelect,
   className,
 }: BrandShortcutListProps) {
   const columns: BrandShortcutItem[][] = []
@@ -109,7 +110,7 @@ export default function BrandShortcutList({
           className="flex shrink-0 flex-col gap-[var(--brand-shortcut-row-gap)] w-[var(--brand-col-w)]"
         >
           {col.map((it, i) => (
-            <BrandShortcut key={i} item={it} />
+            <BrandShortcut key={i} item={{ ...it, onClick: it.onClick ?? (() => onSelect?.(it.brand)) }} />
           ))}
         </div>
       ))}

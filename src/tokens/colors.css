@@ -20,6 +20,20 @@
   --primitive-brand-pink:       #fe0955;   /* color/brand/ocb_pink */
   --primitive-brand-instant:    #aa23e9;   /* color/brand/ocb_instant */
 
+  /* ── Semantic 계층 (2026-09-02, 쇼핑몰 브릿지 OC19 에서 처음 등장) ────
+     이 화면은 지금까지의 color/shopping/* 가 아니라 Semantic/* + zuro_color/*
+     를 쓴다. Figma 에서 zuro_color 가 primitive 이고 Semantic 이 그 별칭이라,
+     레포의 Primitive → Semantic 구조와 층이 그대로 맞는다. */
+  --primitive-zuro-gray-50:     #111111;   /* zuro_color/gray_50 */
+  --primitive-zuro-gray-200:    #555555;   /* zuro_color/gray_200 */
+  --primitive-zuro-gray-400:    #888888;   /* zuro_color/gray_400 */
+  --primitive-neutral-gray-750: #666666;   /* color/Neutral/gray_750 */
+  --primitive-line-component:   #dddddd;   /* Semantic/Line/Component/Normal */
+  --primitive-bg-elevated:      #f4f6f8;   /* Semantic/Background/Elevated */
+  --primitive-white-opacity-600:#ffffff4d; /* color/Opacity/opacity_w_600 */
+  --primitive-bridge-accent:    #6642ff;   /* 브릿지 타이틀 강조 — Figma 변수 없음 */
+  --primitive-bridge-tooltip:   #fc1e63;   /* 즐겨찾기 툴팁 — Figma 변수 없음 */
+
   /* Black Scale  ※ OCB 역순: 100=진함 → 900=연함 */
   --primitive-black:            #000000;   /* color/black */
   --primitive-black-100:        #333333;   /* color/black/black100 */
@@ -126,6 +140,19 @@
   --color-brand-ocb-pink:   var(--primitive-brand-pink);
   --color-brand-ocb-instant: var(--primitive-brand-instant);  /* color/brand/ocb_instant */
 
+  /* Semantic/* — Figma 이름을 그대로 옮긴다. 다섯 이름이 같은 #111 을 가리키는데
+     의미가 다르므로 합치지 않는다 (label / fill / primary). */
+  --semantic-label-strong:      var(--primitive-zuro-gray-50);      /* Semantic/Label/Strong */
+  --semantic-label-normal:      var(--primitive-zuro-gray-50);      /* Semantic/Label/Normal */
+  --semantic-label-neutral:     var(--primitive-black-100);         /* Semantic/Label/Neutral #333 */
+  --semantic-label-alternative: var(--primitive-zuro-gray-400);     /* Semantic/Label/Alternative #888 */
+  --semantic-fill-strong:       var(--primitive-zuro-gray-50);      /* Semantic/Fill/Strong */
+  --semantic-primary-strong:    var(--primitive-zuro-gray-50);      /* Semantic/Primary/Strong */
+  --semantic-background-normal: var(--primitive-white);             /* Semantic/Background/Normal */
+  --semantic-background-elevated: var(--primitive-bg-elevated);     /* Semantic/Background/Elevated */
+  --semantic-line-component:    var(--primitive-line-component);    /* Semantic/Line/Component/Normal */
+  --semantic-static-white:      var(--primitive-white);             /* Semantic/Static/White */
+
   /* Price */
   --color-price-primary:    var(--primitive-brand-pink);    /* color/price/primary */
 
@@ -134,9 +161,6 @@
 
   /* Theme Background */
   --color-theme-bg-light:   var(--primitive-black-900);     /* color/theme/bg_light */
-
-  /* Label */
-  --semantic-label-alternative: #37383C;                    /* Semantic/Label/Alternative */
 
   /* System Badge — 조합 토큰 (Sub + BG 세트) */
   --color-badge-pink-text:       var(--primitive-system-sub-pink);

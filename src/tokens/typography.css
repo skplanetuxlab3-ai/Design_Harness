@@ -64,6 +64,17 @@
   --typeset-xl-lh:         24px;
   --typeset-xl-tracking:   0px;    /* typeset_xl_bold/letterspacing — 종전 -0.4px 는 출처 불명이었다 */
 
+  /* typo/* — 브릿지 화면(OC19)이 쓰는 별개 스케일. typeset_* 과 lh 가 다르다.
+     typo/b6_700 은 15/21 인데 --typeset-lg-compact 는 15/20 이다. 합치지 않는다. */
+  --typo-b6-700-size:      15px;   /* typo/b6_700 */
+  --typo-b6-700-lh:        21px;
+  --typo-b7-400-size:      14px;   /* typo/b7_400 */
+  --typo-b7-400-lh:        20px;
+
+  /* 브릿지 미적립 안내 — 11/14. typeset_xs(11/16) 도 2xs(10/15) 도 아닌 조합이라
+     스케일에 넣지 않고 컴포넌트 토큰으로 둔다. */
+  --bridge-footnote-lh:    14px;   /* 코드 결정 · Figma 변수 없음 */
+
   /* 2xl — 20px  (typeset_2xl) */
   --typeset-2xl-size:      20px;   /* typeset_2xl/size */
   --typeset-2xl-lh:        28px;   /* typeset_2xl/lineheight */

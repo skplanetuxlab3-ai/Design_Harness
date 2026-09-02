@@ -20,6 +20,8 @@ export interface BrandShortcutItem {
 
 export interface BrandShortcutListProps {
   items?: BrandShortcutItem[]
+  /** 항목 클릭 — 쇼핑몰 브릿지로 넘어간다 */
+  onSelect?: (brand: string) => void
   /** 한 컬럼에 들어갈 항목 수 (Figma 기준 5) */
   perColumn?: number
   className?: string

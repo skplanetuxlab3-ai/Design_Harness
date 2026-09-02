@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-02T00:12:30.965Z",
+  "generated": "2026-09-02T00:36:40.861Z",
   "note": "기존 부채 스냅샷. 신규 위반만 차단하기 위한 기준선. 부채를 갚으면 --write-baseline 으로 갱신.",
-  "total": 353,
+  "total": 358,
   "bySeverity": {
     "error": 81,
     "warn": 200,
-    "info": 72
+    "info": 77
   },
   "counts": {
     "src/App.tsx|inline-style-px|: '44px'": 2,
@@ -72,6 +72,7 @@
     "src/components/BrandsFilter/BrandsFilter.tsx|inline-style-px|: '16px'": 1,
     "src/components/BrandsFilter/BrandsFilter.tsx|inline-style-px|: '12px'": 1,
     "src/components/BrandsFilter/BrandsFilter.tsx|inline-style-px|: '8px'": 1,
+    "src/components/BridgeCta/BridgeCta.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/CategoryFilter/CategoryFilter.stories.tsx|inline-style-px|: '360px'": 1,
     "src/components/CategoryFilter/CategoryFilter.tsx|expiring-figma-asset|https://www.figma.com/api/mcp/asset/3eaa46e0-e28c-41e3-984d-3ace998c3d42": 1,
     "src/components/CategoryFilter/CategoryFilter.tsx|expiring-figma-asset|https://www.figma.com/api/mcp/asset/2f4786d0-2362-4bfa-9f5b-d85d362be56d": 1,
@@ -120,6 +121,7 @@
     "src/components/KeyboardMock/KeyboardMock.tsx|arbitrary-px|size-[20px]": 3,
     "src/components/KeyboardMock/KeyboardMock.tsx|arbitrary-px|text-[12px]": 1,
     "src/components/KeyboardMock/KeyboardMock.tsx|arbitrary-px|leading-[16px]": 1,
+    "src/components/NoticeAccordion/NoticeAccordion.tsx|tailwind-numeric-scale|w-0": 2,
     "src/components/NotificationSetting/NotificationSetting.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/OrderHistoryCard/OrderHistoryCard.stories.tsx|inline-style-px|: '16px'": 1,
     "src/components/OrderHistoryCard/OrderHistoryCard.stories.tsx|inline-style-px|: '375px'": 1,
@@ -187,6 +189,7 @@
     "src/components/SearchResultItem/SearchResultItem.tsx|inline-style-px|: '10.312px'": 1,
     "src/components/SearchResults/SearchResults.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/SectionTitle/SectionTitle.tsx|tailwind-numeric-scale|w-0": 1,
+    "src/components/ShoppingBridge/ShoppingBridge.tsx|tailwind-numeric-scale|w-0": 2,
     "src/components/ShoppingHome/ShoppingHome.tsx|tailwind-numeric-scale|w-0": 1,
     "src/components/ShoppingHome/ShoppingHome.tsx|inline-style-px|: '20px'": 1,
     "src/components/SocialDealCard/SocialDealCard.tsx|expiring-figma-asset|https://www.figma.com/api/mcp/asset/455e3aaa-0d2f-42a5-8036-8e3039d94009": 1,

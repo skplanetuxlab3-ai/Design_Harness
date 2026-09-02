@@ -8,6 +8,7 @@ import ScrollPromptBanner from './components/ScrollPromptBanner'
 import SearchHome from './components/SearchHome'
 import SearchTyping from './components/SearchTyping'
 import SearchResults from './components/SearchResults'
+import ShoppingBridge from './components/ShoppingBridge'
 import type { SearchResultItemProps } from './components/SearchResultItem/SearchResultItem.types'
 
 /** SP08_1 → SP08_2 → SP08_3 검색 흐름 */
@@ -57,6 +58,7 @@ export default function App() {
   const [catSheetOpen, setCatSheetOpen] = useState(false)
   const [search, setSearch] = useState<SearchStep>(null)
   const [query, setQuery] = useState('')
+  const [bridge, setBridge] = useState<string | null>(null)
 
   return (
     <div className="min-h-screen bg-[var(--primitive-black-800)] flex items-center justify-center p-[var(--spacing-8)]">
@@ -94,7 +96,7 @@ export default function App() {
           {activeTab === 0 ? (
             <ShoppingHome />
           ) : activeTab === 1 ? (
-            <JeoklipHome onOpenSearch={() => setSearch('home')} />
+            <JeoklipHome onOpenSearch={() => setSearch('home')} onOpenBridge={setBridge} />
           ) : activeTab === 2 ? (
             <GroupbuyingHome />
           ) : activeTab === 3 ? (
@@ -138,6 +140,16 @@ export default function App() {
 
         {/* 하단 네비게이션 */}
         <BottomNavBar activeIndex={3} />
+
+        {/* 쇼핑몰 브릿지 OC19 — 제휴처로 나가기 직전 */}
+        {bridge && (
+          <div
+            className="absolute inset-0 z-20 flex flex-col overflow-y-auto"
+            style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' } as React.CSSProperties}
+          >
+            <ShoppingBridge brand={bridge} onClose={() => setBridge(null)} onGo={() => setBridge(null)} />
+          </div>
+        )}
 
         {/* 검색 흐름 SP08_1~3 — 프레임 전체를 덮는 오버레이 */}
         {search && (

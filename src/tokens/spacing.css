@@ -622,6 +622,43 @@
   --sresult-point-r:       20px;               /* 코드 결정 · Figma 변수 없음 */
   --sresult-stamp-icon:    var(--products-spacing-12);  /* ico_12_stamp */
 
+  /* 쇼핑몰 브릿지 (OC19 19532:140203) */
+  --bridge-head-pt:        var(--products-spacing-16);
+  --bridge-head-pb:        24px;               /* 코드 결정 · Figma 변수 없음 */
+  --bridge-head-px:        var(--products-spacing-20);
+  --bridge-head-gap:       var(--products-spacing-16);
+  --bridge-logo:           64px;               /* list/img_logo_60 — 코드 결정 · Figma 변수 없음 */
+  --bridge-coin:           24px;               /* img_coin_24*24 — 코드 결정 · Figma 변수 없음 */
+  --bridge-coin-inner:     36px;               /* 코드 결정 · Figma 변수 없음 */
+  --bridge-sheet-r:        var(--radius-350);
+  --bridge-max-w:          492px;              /* 태블릿 상한 — 코드 결정 · Figma 변수 없음 */
+  --bridge-block-pt:       var(--products-spacing-28);
+  --bridge-block-pb:       var(--products-spacing-12);
+  --bridge-block-px:       var(--products-spacing-20);
+  --bridge-card-r:         var(--radius-100);
+  --bridge-card-py:        var(--products-spacing-20);
+  --bridge-card-gap:       var(--products-spacing-16);
+  --bridge-check-gap:      var(--products-spacing-10);
+  --bridge-check-icon:     20px;               /* icon/ico_check_18_nobg — 코드 결정 · Figma 변수 없음 */
+  --bridge-notice-pb:      28px;               /* 코드 결정 · Figma 변수 없음 */
+  --bridge-accordion-py:   var(--products-spacing-08);
+  --bridge-accordion-icon: 18px;               /* 코드 결정 · Figma 변수 없음 */
+  --bridge-bullet-gap:     var(--products-spacing-04);
+  --bridge-cta-pt:         var(--products-spacing-12);
+  --bridge-cta-pb:         var(--products-spacing-20);
+  --bridge-cta-px:         var(--products-spacing-16);
+  --bridge-cta-gap:        var(--products-spacing-16);
+  --bridge-fav-size:       50px;               /* 코드 결정 · Figma 변수 없음 */
+  --bridge-fav-icon:       23.438px;           /* iconoir:star-solid — 코드 결정 · Figma 변수 없음 */
+  --bridge-cta-h:          50px;               /* 코드 결정 · Figma 변수 없음 */
+  --bridge-tooltip-px:     var(--products-spacing-06);
+  --bridge-tooltip-r:      var(--products-radius-8);
+  --bridge-tooltip-arrow-w: 28px;              /* 코드 결정 · Figma 변수 없음 */
+  --bridge-tooltip-arrow-h: 4px;               /* 코드 결정 · Figma 변수 없음 */
+  --bridge-banner-icon:    40px;               /* contentarea / 40dp — 코드 결정 · Figma 변수 없음 */
+  --bridge-notice-gap:     3px;                /* 유의사항 블록 간격 — 코드 결정 · Figma 변수 없음 */
+  --bridge-dropdown-icon:  16px;               /* icon/ico_btn_b_dropdown_up — 코드 결정 · Figma 변수 없음 */
+
   /* 빈 결과 (nodata 19807:157630) */
   --nodata-px:             24px;               /* 코드 결정 · Figma 변수 없음 */
   --nodata-py:             var(--products-spacing-60);

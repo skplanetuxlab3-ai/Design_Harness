@@ -75,7 +75,10 @@ function BonusList({ items }: { items: ProductCardProps[] }) {
   )
 }
 
-export default function JeoklipHome({ onOpenSearch }: { onOpenSearch?: () => void } = {}) {
+export default function JeoklipHome({
+  onOpenSearch,
+  onOpenBridge,
+}: { onOpenSearch?: () => void; onOpenBridge?: (brand: string) => void } = {}) {
   return (
     <div className="flex w-full flex-col items-start bg-[var(--primitive-white)]">
       {/* ── Monthly Stats 19550:129760 ───────────────────────── */}
@@ -89,7 +92,7 @@ export default function JeoklipHome({ onOpenSearch }: { onOpenSearch?: () => voi
       <section className="flex w-full flex-col items-start" aria-label="쇼핑몰 바로가기">
         <SectionTitle title="쇼핑몰 바로가기" />
         <CategoryFilter items={STORE_CATEGORIES} activeIndex={0} showExpandBtn />
-        <BrandShortcutList />
+        <BrandShortcutList onSelect={onOpenBridge} />
       </section>
 
       {/* ── notification area 19960:176168 ───────────────────── */}
