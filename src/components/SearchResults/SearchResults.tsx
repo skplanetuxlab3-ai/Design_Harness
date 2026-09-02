@@ -1,9 +1,9 @@
 import AppBar from '../AppBar'
 import SearchInput from '../SearchInput'
 import CategoryFilter from '../CategoryFilter'
-import ProductCard from '../ProductCard'
+import SearchResultItem from '../SearchResultItem'
 import NoData from '../NoData'
-import type { ProductCardProps } from '../ProductCard/ProductCard.types'
+import type { SearchResultItemProps } from '../SearchResultItem/SearchResultItem.types'
 
 /**
  * SP08_3_검색 결과 — Figma node 19449:147767 (750×780)
@@ -23,8 +23,11 @@ const CATEGORIES = [
   { label: '생활' },
 ]
 
-/** Primary List — 2컬럼 매스너리 (Figma 162px 아이템). ShoppingHome 과 같은 배치다. */
-function PrimaryList({ items }: { items: ProductCardProps[] }) {
+/**
+ * Primary List (19449:147789) — list1 / list2 두 슬롯의 2열 매스너리.
+ * 아이템 높이가 제각각이라 컬럼별로 쌓는다.
+ */
+function PrimaryList({ items }: { items: SearchResultItemProps[] }) {
   const left = items.filter((_, i) => i % 2 === 0)
   const right = items.filter((_, i) => i % 2 === 1)
   return (
@@ -39,8 +42,8 @@ function PrimaryList({ items }: { items: ProductCardProps[] }) {
     >
       {[left, right].map((col, ci) => (
         <div key={ci} className="flex min-w-0 flex-1 flex-col" style={{ rowGap: 'var(--plist-gutter)' }}>
-          {col.map((card, i) => (
-            <ProductCard key={i} {...card} />
+          {col.map((item, i) => (
+            <SearchResultItem key={i} {...item} />
           ))}
         </div>
       ))}
@@ -55,7 +58,7 @@ export default function SearchResults({
   onEditQuery,
 }: {
   query?: string
-  items?: ProductCardProps[]
+  items?: SearchResultItemProps[]
   onBack?: () => void
   onEditQuery?: () => void
 }) {

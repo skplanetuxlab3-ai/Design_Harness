@@ -8,18 +8,18 @@ import ScrollPromptBanner from './components/ScrollPromptBanner'
 import SearchHome from './components/SearchHome'
 import SearchTyping from './components/SearchTyping'
 import SearchResults from './components/SearchResults'
-import type { ProductCardProps } from './components/ProductCard/ProductCard.types'
+import type { SearchResultItemProps } from './components/SearchResultItem/SearchResultItem.types'
 
 /** SP08_1 → SP08_2 → SP08_3 검색 흐름 */
 type SearchStep = null | 'home' | 'typing' | 'results'
 
-const SEARCH_RESULTS: ProductCardProps[] = [
-  { type: 'Outbound', title: '투명 강화 아이폰16 프로 케이스', showDiscount: true, discount: '24%', price: '12,900원', showRating: true, rating: '4.6', reviewCount: '1,204', showTag: true, pointLabel: '380P 적립' },
-  { type: 'Outbound', title: '마그네틱 카드수납 아이폰 케이스', showDiscount: true, discount: '31%', price: '18,700원', showRating: true, rating: '4.8', reviewCount: '2,910', showTag: true, pointLabel: '560P 적립' },
-  { type: 'Outbound', title: '실리콘 슬림핏 아이폰케이스', showDiscount: true, discount: '18%', price: '9,800원', showRating: true, rating: '4.3', reviewCount: '733', showTag: true, pointLabel: '290P 적립' },
-  { type: 'Outbound', title: '가죽 플립 아이폰 케이스 6종', showDiscount: true, discount: '27%', price: '24,500원', showRating: true, rating: '4.7', reviewCount: '1,588', showTag: true, pointLabel: '730P 적립' },
-  { type: 'Outbound', title: '충격흡수 범퍼 아이폰케이스', showDiscount: true, discount: '15%', price: '14,200원', showRating: true, rating: '4.4', reviewCount: '452', showTag: true, pointLabel: '420P 적립' },
-  { type: 'Outbound', title: '투명 아크릴 아이폰 하드케이스', showDiscount: true, discount: '35%', price: '7,900원', showRating: true, rating: '4.1', reviewCount: '318', showTag: true, pointLabel: '230P 적립' },
+const SEARCH_RESULTS: SearchResultItemProps[] = [
+  { brand: '쿠팡',    title: '카페 아메리카노 T+탕종 파마산 치즈 베이글', discount: '20%', price: '38,200원', point: '1P', stampLabel: '최대 스탬프 2개' },
+  { brand: 'G마켓',   title: '마그네틱 카드수납 아이폰 케이스', discount: '31%', price: '18,700원', stampLabel: '최대 스탬프 1개' },
+  { brand: 'SSG',    title: '실리콘 슬림핏 아이폰케이스', discount: '18%', price: '9,800원', point: '3P' },
+  { brand: '이마트몰', title: '가죽 플립 아이폰 케이스 6종', discount: '27%', price: '24,500원' },
+  { brand: '오늘의집', title: '충격흡수 범퍼 아이폰케이스', discount: '15%', price: '14,200원', stampLabel: '최대 스탬프 2개' },
+  { brand: '쿠팡',    title: '투명 아크릴 아이폰 하드케이스', discount: '35%', price: '7,900원', point: '2P' },
 ]
 import CategorySheet from './components/CategorySheet'
 import BottomNavBar from './components/BottomNavBar'

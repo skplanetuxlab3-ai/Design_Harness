@@ -605,6 +605,23 @@
   --scroll-prompt-bottom:  80px;               /* bottom_appbar 높이만큼 띄운다 — 코드 결정 · Figma 변수 없음 */
   --scroll-fade-h:         100px;              /* 하단 페이드 그라디언트 — 코드 결정 · Figma 변수 없음 */
 
+  /* 검색 결과 아이템 (Item 19723:155593 — Primary List) */
+  --sresult-gap:           var(--products-spacing-08);  /* 이미지 ↔ 콘텐츠 */
+  --sresult-pb:            var(--plist-item-pb);
+  --sresult-img-r:         var(--products-radius-8);    /* products/radius/radius06 = 6px */
+  --sresult-contents-gap:  5px;                /* 코드 결정 · Figma 변수 없음 */
+  --sresult-contents-px:   var(--plist-contents-px);
+  --sresult-text-gap:      var(--products-spacing-02);
+  --sresult-title-max-h:   32px;               /* 두 줄 — 코드 결정 · Figma 변수 없음 */
+  --sresult-bullet-inset:  var(--products-spacing-04);
+  --sresult-bullet-p:      var(--products-spacing-02);
+  --sresult-bullet-min-w:  28px;               /* 코드 결정 · Figma 변수 없음 */
+  --sresult-point-h:       24px;               /* 코드 결정 · Figma 변수 없음 */
+  --sresult-point-min-w:   24px;               /* 코드 결정 · Figma 변수 없음 */
+  --sresult-point-px:      var(--products-spacing-04);
+  --sresult-point-r:       20px;               /* 코드 결정 · Figma 변수 없음 */
+  --sresult-stamp-icon:    var(--products-spacing-12);  /* ico_12_stamp */
+
   /* 빈 결과 (nodata 19807:157630) */
   --nodata-px:             24px;               /* 코드 결정 · Figma 변수 없음 */
   --nodata-py:             var(--products-spacing-60);

@@ -48,6 +48,14 @@
             "22",
             "0.2"
           ]
+        },
+        {
+          "file": "src/components/SearchResultItem/SearchResultItem.tsx",
+          "px": [
+            "1",
+            "10",
+            "10.312"
+          ]
         }
       ]
     },
