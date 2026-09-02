@@ -1,5 +1,5 @@
-import AppBar from '../AppBar'
-import GuideCard from '../GuideCard'
+import AppBar from '../../components/AppBar'
+import GuideCard from '../../components/GuideCard'
 import hero from '../../assets/guide-hero_21361-39907.png'
 import screen1 from '../../assets/guide-screen1_21361-39588.png'
 import screen2 from '../../assets/guide-screen2_21112-75301.png'

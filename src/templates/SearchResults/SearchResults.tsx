@@ -1,9 +1,9 @@
-import AppBar from '../AppBar'
-import SearchInput from '../SearchInput'
-import CategoryFilter from '../CategoryFilter'
-import SearchResultItem from '../SearchResultItem'
-import NoData from '../NoData'
-import type { SearchResultItemProps } from '../SearchResultItem/SearchResultItem.types'
+import AppBar from '../../components/AppBar'
+import SearchInput from '../../components/SearchInput'
+import CategoryFilter from '../../components/CategoryFilter'
+import SearchResultItem from '../../components/SearchResultItem'
+import NoData from '../../components/NoData'
+import type { SearchResultItemProps } from '../../components/SearchResultItem/SearchResultItem.types'
 
 /**
  * SP08_3_검색 결과 — Figma node 19449:147767 (750×780)

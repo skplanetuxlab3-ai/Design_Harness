@@ -1,7 +1,7 @@
-import AppBar from '../AppBar'
-import SearchInput from '../SearchInput'
-import SearchSuggestList from '../SearchSuggestList'
-import KeyboardMock from '../KeyboardMock'
+import AppBar from '../../components/AppBar'
+import SearchInput from '../../components/SearchInput'
+import SearchSuggestList from '../../components/SearchSuggestList'
+import KeyboardMock from '../../components/KeyboardMock'
 
 /**
  * SP08_2_검색중 — Figma node 19449:147721 (360×780)

@@ -45,28 +45,39 @@ npm run lint         # ESLint 검사
 
 ---
 
-## 2. 컴포넌트 구조 규칙 (1컴포넌트 = 4파일)
+## 2. 컴포넌트 구조 규칙
+
+디렉터리가 종류를 정한다. 이름 목록으로 예외를 두지 않는다.
+
+### src/components/ — 재사용 컴포넌트 (4파일)
 
 ```
-src/components/{ComponentName}/
-├── {ComponentName}.tsx          # 컴포넌트 구현
-├── {ComponentName}.types.ts     # Props 타입 정의
-├── {ComponentName}.stories.tsx  # Storybook Stories
-└── index.ts                     # re-export
+{Name}/
+├── {Name}.tsx          렌더링
+├── {Name}.types.ts     props 타입
+├── {Name}.stories.tsx  Storybook
+└── index.ts            재수출
 ```
 
-### 파일별 책임
-- `.tsx`: JSX + 로직만. CSS-in-JS나 인라인 스타일 최소화
-- `.types.ts`: Props 인터페이스, 유니온 타입만. 로직 없음
-- `.stories.tsx`: 각 variant마다 Story 1개 이상 필수
-- `index.ts`: `export { default } from './ComponentName'` 형태
+### src/templates/ — 화면 (2파일)
 
-### 네이밍
-- 컴포넌트: PascalCase (`Button`, `InputField`)
-- Props 타입: `{ComponentName}Props` (`ButtonProps`)
-- Stories: `{ComponentName}Stories` export name
+```
+{Name}/
+├── {Name}.tsx
+└── index.ts
+```
 
----
+화면은 컴포넌트를 조립한 결과라 types·stories 를 요구하지 않는다.
+대신 **의존 방향이 한쪽이어야 한다** — 화면 → 컴포넌트만 허용하고,
+컴포넌트가 화면을 import 하거나 화면끼리 서로 부르면 안 된다.
+App.tsx 만 화면을 부른다.
+
+> 2026-09-02 이전에는 화면도 components/ 에 두고 check-structure 의
+> EXEMPT 이름 목록으로 걸렀다. 목록이 4 → 10 개로 늘면서 화면을 하나
+> 추가할 때마다 스크립트를 고쳐야 했다. 분류를 디렉터리가 지게 바꿨고
+> EXEMPT 는 사라졌다.
+
+`npm run design:qa` 의 구조 검사가 두 규칙을 각각 적용한다.
 
 ## 3. Figma 충실도 규칙
 

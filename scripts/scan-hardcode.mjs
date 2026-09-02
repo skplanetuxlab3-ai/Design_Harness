@@ -616,10 +616,12 @@ function filterDecided(findings) {
   const rules = loadDecided()
   if (!rules.length) return findings
   return findings.filter((f) => {
+    // rule 기반 제외 — px 가 없는 검사(만료 에셋 등)를 파일 단위로 뺀다
+    if (rules.some((r) => r.rule === f.rule && r.file === f.file)) return false
     const px = /(-?\d+(?:\.\d+)?)px/.exec(f.match || '')
     if (!px) return true
     return !rules.some(
-      (r) => r.file === f.file && r.px.includes(px[1]) && (r.line == null || r.line === f.line)
+      (r) => r.px && r.file === f.file && r.px.includes(px[1]) && (r.line == null || r.line === f.line)
     )
   })
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import ProductCard from '../ProductCard'
-import type { ProductCardProps } from '../ProductCard/ProductCard.types'
-import CategoryFilter from '../CategoryFilter'
+import ProductCard from '../../components/ProductCard'
+import type { ProductCardProps } from '../../components/ProductCard/ProductCard.types'
+import CategoryFilter from '../../components/CategoryFilter'
 
 // ── 큐레이션 Offering 데이터 ───────────────────────────────────
 const CURATION: ProductCardProps[] = [

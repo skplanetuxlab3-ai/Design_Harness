@@ -1,5 +1,5 @@
-import NoticeAccordion from '../NoticeAccordion'
-import BridgeCta from '../BridgeCta'
+import NoticeAccordion from '../../components/NoticeAccordion'
+import BridgeCta from '../../components/BridgeCta'
 import closeIcon from '../../assets/icon-close-24-white_19532-140205.svg'
 import coinIcon from '../../assets/icon-point-coin_19532-140213.svg'
 import bannerIcon from '../../assets/icon-contentarea-40_19532-140228.svg'

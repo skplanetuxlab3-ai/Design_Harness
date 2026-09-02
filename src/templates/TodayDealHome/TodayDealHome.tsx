@@ -1,5 +1,5 @@
-import ProductCard from '../ProductCard'
-import type { ProductCardProps } from '../ProductCard/ProductCard.types'
+import ProductCard from '../../components/ProductCard'
+import type { ProductCardProps } from '../../components/ProductCard/ProductCard.types'
 
 // ─── Figma CDN 에셋 (node 20343-20697 img_banner, 7일 만료 — TODO: src/assets/ 로컬 교체) ───
 const BANNER = {

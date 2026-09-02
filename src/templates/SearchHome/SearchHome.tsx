@@ -1,8 +1,8 @@
-import AppBar from '../AppBar'
-import SearchInput from '../SearchInput'
-import SearchChip from '../SearchChip'
-import BrandProductBlock from '../BrandProductBlock'
-import type { ProductCardProps } from '../ProductCard/ProductCard.types'
+import AppBar from '../../components/AppBar'
+import SearchInput from '../../components/SearchInput'
+import SearchChip from '../../components/SearchChip'
+import BrandProductBlock from '../../components/BrandProductBlock'
+import type { ProductCardProps } from '../../components/ProductCard/ProductCard.types'
 
 /**
  * SP08_1_검색창 — Figma node 19449:147651 (360×1888)

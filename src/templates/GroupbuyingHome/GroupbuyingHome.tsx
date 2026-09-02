@@ -1,6 +1,6 @@
-import SocialDealCard from '../SocialDealCard'
-import NotificationSetting from '../NotificationSetting'
-import type { SocialDealCardProps } from '../SocialDealCard/SocialDealCard.types'
+import SocialDealCard from '../../components/SocialDealCard'
+import NotificationSetting from '../../components/NotificationSetting'
+import type { SocialDealCardProps } from '../../components/SocialDealCard/SocialDealCard.types'
 
 // ─── Figma CDN 에셋 (node 20341-19611, 7일 만료 — TODO: src/assets/ 로컬 교체) ───
 const BANNER = {

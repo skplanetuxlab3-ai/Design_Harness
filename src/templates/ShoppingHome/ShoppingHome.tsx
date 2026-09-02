@@ -1,7 +1,7 @@
-import ProductCard from '../ProductCard'
-import type { ProductCardProps } from '../ProductCard/ProductCard.types'
-import TopBanner from '../TopBanner'
-import ChipMenu from '../ChipMenu'
+import ProductCard from '../../components/ProductCard'
+import type { ProductCardProps } from '../../components/ProductCard/ProductCard.types'
+import TopBanner from '../../components/TopBanner'
+import ChipMenu from '../../components/ChipMenu'
 
 // ── 2열 혼합 피드 데이터 (이미지 순서대로 L/R 인터리브) ──────────────
 const FEED: ProductCardProps[] = [
