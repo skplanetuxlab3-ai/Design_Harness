@@ -1,10 +1,10 @@
 # Design System Harness — 프로젝트 규칙
 
 ## 기술 스택
-- React 18 + TypeScript 5
-- Tailwind CSS v4 (`@import "tailwindcss"` 방식)
+- React 19 + TypeScript 5
+- Tailwind CSS v4 (`@tailwindcss/vite`)
 - Storybook 8
-- Vite 5
+- Vite 6
 
 ## 빌드 명령어
 
@@ -148,18 +148,15 @@ npm run build-storybook              # Storybook 정적 빌드
 npm run design:qa [-- --skip-storybook]
 ```
 
-4개 검사를 **하나 실패해도 끝까지** 돌린다 (`&&` 체이닝을 안 쓰는 이유 — 전체 그림이 필요하다).
+5개 검사를 **하나 실패해도 끝까지** 돌린다 (`&&` 체이닝을 안 쓰는 이유 — 전체 그림이 필요하다).
 
 | 검사 | 무엇을 |
 |---|---|
 | 타입 + 빌드 | `tsc -b` + `vite build`. `tsc --noEmit` 보다 엄격 — 미사용 변수를 잡는다 |
 | 디자인 토큰 | 기준선 대비 신규 위반 + 접근성(§6) |
-| 컴포넌트 구조 | §2 — 1컴포넌트 = 4파일 |
+| 컴포넌트 구조 | §2 — components/ 4파일, templates/ 2파일 |
 | 토큰 드리프트 | Figma 변수 스냅샷과 레포 토큰 값 대조 |
-| Storybook 빌드 | 96개 스토리가 실제로 컴파일되는지 |
-
-**§2 예외**: `*Home` 화면 조합 4개는 재사용 컴포넌트가 아니라
-`scripts/check-structure.mjs` 의 `EXEMPT` 에 등록돼 있다. 조용히 빠지지 않고 보고서에 표시된다.
+| Storybook 빌드 | 102개 스토리가 실제로 컴파일되는지 |
 
 `design:apply`는 **`--only` 없이는 실행을 거부한다.** 값이 같아도 의미가 맞는지는 사람이 봐야 하기 때문이다.
 치환 후 토큰 값이 원래 px와 같은지 전부 대조하고, 하나라도 어긋나면 그 파일을 통째로 롤백한다.
@@ -184,7 +181,7 @@ npm run design:qa [-- --skip-storybook]
 
 ### 기준선(baseline)
 
-`scripts/design-baseline.json`에 **기존 부채 324건**이 기록되어 있다.
+`scripts/design-baseline.json`에 **기존 부채 371건**이 기록되어 있다.
 `--baseline` 플래그는 이 목록을 무시하고 **신규 위반만** 보고한다.
 부채를 갚으면서 기준선을 줄여나가는 래칫(ratchet) 구조다.
 
@@ -242,7 +239,7 @@ Figma 작업을 할 때 `get_variable_defs` 결과를 `scripts/figma-vars/<이�
 이름 대응은 세 단계로 푼다:
 1. `scripts/figma-token-map.json` 예외표 — 이름과 값이 어긋나는 것들
    (`products/radius/radius06` → `--products-radius-8`, `products/spacing08` → `--products-spacing-10`)
-2. **토큰 CSS 주석에 적힌 Figma 경로** — 315개가 이미 박혀 있어 이게 주 매핑 소스다.
+2. **토큰 CSS 주석에 적힌 Figma 경로** — 340개가 박혀 있다. 다만 주석이 있다고 감시되는 게 아니다 (아래 ⚠ 참조).
    앞으로 토큰을 추가할 때도 `/* color/black/black200 */` 형태로 경로를 남길 것.
 3. 규칙 유추 — `a/b/c` → `--a-b-c`, `typeset_{step}_{weight}/{prop}` → `--typeset-{step}-{prop}`
    (레포는 weight 를 접어서 bold·regular 가 같은 size 토큰을 공유한다)
@@ -456,9 +453,17 @@ Figma의 `products/spacing02`(2px)가 레포에 누락돼 있어 `--products-spa
 ### 알려진 차단 요인
 - ~~`npm run build` 실패~~ → **해소.** `SocialDealCard`의 `badgeType`이 실제로 배지 타이포를 제어하도록 구현됨
   (timer 12/16px, days 10/15px). 빌드 통과 확인.
-- Figma MCP 임시 에셋 URL — 48개 중 **19개는 로컬 에셋으로 복구 완료**(`src/assets/`).
-  남은 29개는 **예시/더미 이미지**로 판정되어 복구하지 않는다 (디자인 시스템 구성요소가 아님).
-  브라우저에서는 깨진 이미지로 보이지만 의도된 상태다. 필요하면 `placehold.co`로 교체할 것.
+- Figma MCP 임시 에셋 URL — 남은 30건은 **한 종류가 아니다** (2026-09-02 확인). URL 은 전부 404 다.
+
+  | 종류 | 건수 | 어디 | 조치 |
+  |---|---|---|---|
+  | 데모 이미지 | 20 | `TopBanner` · `GroupbuyingHome` · `TodayDealHome` | 결정 원장에 기록 — 복구하지 않는다 |
+  | **UI 아이콘** | **10** | `Chip` · `CategoryFilter` · `BrandsFilter` · `ProductCard` · `SocialDealCard` · `TopNavBar` | **복구 대상** |
+
+  데모 20건은 배너 장식과 상품 사진이라 서비스에선 API 가 준다.
+  아이콘 10건은 불꽃·화살표·별·눈·로고마스크로 **깨지면 화면이 깨진다** —
+  지금 CategoryFilter 의 "인기" 칩 앞이 깨진 네모로 보인다.
+  노드 단서는 `SocialDealCard`(20341-19611) 하나뿐이라 나머지는 Figma 에서 찾아야 한다.
   전수 목록은 [`docs/figma-assets.md`](docs/figma-assets.md) — 변수명·종류·사용 문맥·참고 Figma node·권장 파일명.
   `npm run design:assets -- --md > docs/figma-assets.md` 로 재생성한다.
   코드에는 node ID가 없어 UUID로 역추적이 **불가능**하다. 앞으로 에셋은 반드시
